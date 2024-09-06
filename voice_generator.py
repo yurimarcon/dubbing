@@ -37,7 +37,7 @@ def load_transcript(file_path):
     with open(file_path, 'r') as file:    
         return json.load(file)['segments']
 
-def generate_audio_segments(segments, speaker_wav, dest_folder, tts_model):
+def generate_audio_segments(segments, speaker_wav, dest_folder, tts_model=tts_model):
     for idx, segment in enumerate(segments):
         text = translate_text(segment['text'], source_lang, dest_language) if dest_language != "en" else segment['text']
         tts_model.tts_to_file(

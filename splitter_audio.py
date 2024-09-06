@@ -11,9 +11,10 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
 
     video_duration = AudioSegment.from_file(audio_path).duration_seconds
     start_time = 0
+    quantity_sliced_audios = 0
 
     for idx, (silence_start, silence_end) in enumerate(silence_intervals):
-        create_silence(silence_start, silence_end, f"{output_folder}{SILENCE_NAME}{idx}.wav")
+        # create_silence(silence_start, silence_end, f"{output_folder}{SILENCE_NAME}{idx}.wav")
         if silence_end == round(video_duration, 3):
             break
 
@@ -31,3 +32,6 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
         output_file = f"{output_folder}{SPLITED_INITIAL_AUDIO_NAME}{idx}.wav"
         ffmpeg_tools.ffmpeg_extract_subclip(audio_path, start_time, end_time, targetname=output_file)
         start_time = next_finish_sil
+        quantity_sliced_audios+=1
+    
+    return quantity_sliced_audios
