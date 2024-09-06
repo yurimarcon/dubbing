@@ -28,9 +28,11 @@ class TestCombineAudios(unittest.TestCase):
         """
         silences_ranges = [[0.0, 1.333],[4.222, 5.111],[7.222, 8.999], [9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=16405) # Somatory times of silences and audios
+        original_audio_path = "data_tests/test_combine_audio/audio.wav"
+        original_audio.export(original_audio_path)
 
         combined_audio = combine_audios_and_silences(
-            original_audio, 
+            original_audio_path, 
             f"data_tests/test_combine_audio/4-audios/segment_",
             silences_ranges,
             f"data_tests/test_combine_audio/output.wav"
@@ -49,9 +51,11 @@ class TestCombineAudios(unittest.TestCase):
         """
         silences_ranges = [[4.222, 5.111],[7.222, 8.999], [9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=15072) # Somatory times of silences and audios
+        original_audio_path = "data_tests/test_combine_audio/audio.wav"
+        original_audio.export(original_audio_path)
 
         combined_audio = combine_audios_and_silences(
-            original_audio, 
+            original_audio_path, 
             f"data_tests/test_combine_audio/4-audios/segment_",
             silences_ranges,
             f"data_tests/test_combine_audio/output.wav"
@@ -71,9 +75,11 @@ class TestCombineAudios(unittest.TestCase):
         """
         silences_ranges = [[0.0, 1.333],[4.222, 5.111],[7.222, 8.999],[9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=14132) # Somatory times of silences and audios
+        original_audio_path = "data_tests/test_combine_audio/audio.wav"
+        original_audio.export(original_audio_path)
 
         combined_audio = combine_audios_and_silences(
-            original_audio, 
+            original_audio_path, 
             f"data_tests/test_combine_audio/3-audios/segment_",
             silences_ranges,
             f"data_tests/test_combine_audio/output.wav"
@@ -93,9 +99,11 @@ class TestCombineAudios(unittest.TestCase):
         """
         silences_ranges = [[2.000, 2.333],[4.222, 5.111],[7.222, 8.999], [9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=15405) # Somatory times of silences and audios
+        original_audio_path = "data_tests/test_combine_audio/audio.wav"
+        original_audio.export(original_audio_path)
 
         combined_audio = combine_audios_and_silences(
-            original_audio, 
+            original_audio_path, 
             f"data_tests/test_combine_audio/4-audios/segment_",
             silences_ranges,
             f"data_tests/test_combine_audio/output.wav"
