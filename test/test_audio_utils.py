@@ -2,7 +2,7 @@ import unittest
 from pydub import AudioSegment
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from audio_utils import get_speed_factory
+from utils_audio import get_speed_factory
 import json
 
 inputTranscriptText = "data_tests/transcript.json"

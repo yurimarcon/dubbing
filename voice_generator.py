@@ -1,32 +1,23 @@
 import whisper
-from TTS.api import TTS
 import torch
-from pydub import AudioSegment
 import sys
 import json
 import os
 import glob
-
-from audio_utils import (
+from TTS.api import TTS
+from pydub import AudioSegment
+from utils_audio import (
     get_silence_ranges, 
     get_initial_silence_duration, 
     get_speed_factory, 
     remove_silence_unecessery, 
     put_silence_to_ajust_time, 
-    ajust_time_segments
+    ajust_time_segments,
+    adjust_segment_speed
 )
-from translate_utils import translate_text
-
-# Paths and filenames
-VOICE_MODEL = "model_voice/model.wav"
-SOURCE_FOLDER = "result/"
-TEMP_FOLDER = "temp/"
-PATH_RELATIVE = os.path.join(SOURCE_FOLDER, TEMP_FOLDER)
-FILE_NAME_SEGMENT = "segment_"
-FILE_NAME_ADJUSTED_TEMP = "segment_ajusted_temp_"
-FILE_NAME_ADJUSTED = "segment_ajusted_"
-ORIGINAL_AUDIO = os.path.join(PATH_RELATIVE, "audio.wav")
-OUTPUT_AUDIO = os.path.join(PATH_RELATIVE, "output.wav")
+from utils_translate import translate_text
+from utils_voice_generator import combine_adjusted_segments, get_files_path
+from config import VOICE_MODEL, PATH_RELATIVE, FILE_NAME_SEGMENT, FILE_NAME_ADJUSTED_TEMP, FILE_NAME_ADJUSTED, ORIGINAL_AUDIO, OUTPUT_AUDIO
 
 # Command line arguments
 input_audio = sys.argv[1]
@@ -57,17 +48,6 @@ def generate_audio_segments(segments, speaker_wav, dest_folder, tts_model):
         )
         print(f"{idx + 1}/{len(segments)} segments created.")
 
-def adjust_segment_speed(segment, initial_file, adjusted_file):
-    speed_factor = get_speed_factory(segment, initial_file)
-    os.system(f'ffmpeg -i {initial_file} -filter:a "atempo={speed_factor}" {adjusted_file}')
-
-def combine_adjusted_segments(segments, dest_folder, output_file):
-    final_audio = AudioSegment.silent(duration=get_initial_silence_duration(get_silence_ranges(input_audio)))
-    for idx, segment in enumerate(segments):
-        adjusted_audio = AudioSegment.from_file(os.path.join(dest_folder, f"{FILE_NAME_ADJUSTED}{idx}.wav"))
-        final_audio += adjusted_audio
-    final_audio.export(output_file, format="wav")
-
 def clean_up_files(pattern):
     files = glob.glob(pattern)
     for file in files:
@@ -79,18 +59,16 @@ def main():
     generate_audio_segments(segments, input_audio, PATH_RELATIVE, tts_model)
 
     for idx, segment in enumerate(segments):
-        initial_file = os.path.join(PATH_RELATIVE, f"{FILE_NAME_SEGMENT}{idx}.wav")
-        adjusted_file = os.path.join(PATH_RELATIVE, f"{FILE_NAME_ADJUSTED_TEMP}{idx}.wav")
-        final_chunk_file = os.path.join(PATH_RELATIVE, f"{FILE_NAME_ADJUSTED}{idx}.wav")
+        initial_file, adjusted_file, final_chunk_file = get_files_path(idx)
         
         adjust_segment_speed(segment, initial_file, adjusted_file)
         remove_silence_unecessery(adjusted_file)
         put_silence_to_ajust_time(segment, adjusted_file)
         adjust_segment_speed(segment, adjusted_file, final_chunk_file)
 
-    combine_adjusted_segments(segments, PATH_RELATIVE, OUTPUT_AUDIO)
+    combine_adjusted_segments(segments, input_audio, PATH_RELATIVE, OUTPUT_AUDIO)
     ajust_time_segments(ORIGINAL_AUDIO, OUTPUT_AUDIO)
-    # clean_up_files(os.path.join(PATH_RELATIVE, "segment*"))
+    clean_up_files(os.path.join(PATH_RELATIVE, "segment*"))
 
 if __name__ == "__main__":
     main()

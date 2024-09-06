@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-SOURCE_LANGUAGE="en"
-DEST_LANGUAGE="pt"
+SOURCE_LANGUAGE="pt"
+DEST_LANGUAGE="en"
 EXIT_DIR="result/"
 TEMP_DIR="temp/"
 PATH_INPUT_VIDEO="$1"  # The video must be .mp4
@@ -64,7 +64,7 @@ function get_audio_from_video() {
 # Transcribe or translate the audio
 function translate_or_transcript() {
     echo -e "${BLUE}${TASK} the audio...${NC}"
-    python translate_transcript.py \
+    python transcript.py \
         "$PATH_ORIGINAL_AUDIO" \
         "$TASK" \
         "$PATH_TRANSCRIPT_TEXT" \
@@ -111,7 +111,7 @@ function create_new_video_without_lipsync() {
 
 # Remove temporary files after the process
 function delete_files_after_process() {
-    rm "$PATH_TRANSCRIPT_TEXT"
+    rm "$PATH_ORIGINAL_AUDIO" "$PATH_AUDIO_TRANSLATED" "$PATH_TRANSCRIPT_TEXT" 
 }
 
 # Start the process
