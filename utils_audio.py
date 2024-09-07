@@ -7,9 +7,8 @@ def get_silence_ranges (inputAudio):
     return detect_silence(original_audio, min_silence_len=1000, silence_thresh=-35)
 
 def detect_silences(audio_path):
-    print(audio_path)
     audio = AudioSegment.from_file(audio_path)
-    silences = detect_silence(audio, min_silence_len=500, silence_thresh=-50)
+    silences = detect_silence(audio, min_silence_len=800, silence_thresh=-50)
     return [(start / 1000, stop / 1000) for start, stop in silences]  # Convert to seconds
     
 def create_silence(silence_start, silence_end, path_audio_file):
@@ -42,6 +41,15 @@ def adjust_segment_speed(segment, initial_file, adjusted_file):
     print("===============================")
     os.system(f'ffmpeg -i {initial_file} -filter:a "atempo={speed_factor}" {adjusted_file}')
 
+def ajust_speed_audio(audio_without_ajust, audio_time_expected, path_new_audio):
+    file_audio_without_ajust = AudioSegment.from_file(audio_without_ajust)
+    duration_audio_without_ajust = len(file_audio_without_ajust)
+    file_audio_time_expected = AudioSegment.from_file(audio_time_expected)
+    duration_audio_time_expected = len(file_audio_time_expected)
+    speed_factor = calculate_speed_factory(duration_audio_without_ajust, duration_audio_time_expected)
+    os.system(f'ffmpeg -i {audio_without_ajust} -filter:a "atempo={speed_factor}" {path_new_audio}')
+    # ajust_time_video_puting_silence_in_start(path_new_audio, audio_time_expected)
+
 def remove_silence_unecessery(audio_path):
     audio_did_ajusted = AudioSegment.from_file(audio_path)
     silence_ranges = detect_silence(audio_did_ajusted, min_silence_len=2000, silence_thresh=-35)
@@ -53,6 +61,16 @@ def remove_silence_unecessery(audio_path):
         after_silence = audio_did_ajusted[silence[1]:]
         audio_without_silence = before_silence + after_silence
         audio_without_silence.export(audio_path, format="wav")
+
+def ajust_time_video_puting_silence_in_start (file_path_to_ajust, path_original_audio):
+    audio_did_ajusted = AudioSegment.from_file(file_path_to_ajust)
+    duration_audio_did_ajusted = len(audio_did_ajusted) / 1000
+    original_audio = AudioSegment.from_file(path_original_audio)
+    duration_original_audio = len(original_audio)
+    duration_silence = (duration_original_audio - duration_audio_did_ajusted) * 1000
+    silence = AudioSegment.silent(duration=duration_silence)
+    silence += audio_did_ajusted
+    silence.export(file_path_to_ajust, format="wav")
 
 def put_silence_to_ajust_time (segment, file_path_to_ajust):
     audio_did_ajusted = AudioSegment.from_file(file_path_to_ajust)
@@ -80,31 +98,6 @@ def ajust_time_segments (original_audio, output_audio):
     os.system(f'ffmpeg -i {output_audio} -filter:a "atempo={speed_factor}" {temp_output_path}')
     os.remove(output_audio)
     os.rename(temp_output_path, output_audio)
-
-def put_silence_in_segments (segment, idx, silence_ranges):
-    for silence in silence_ranges:
-        print(f"silence => {silence[0]}")
-        print(segment['end'])
-        if silence[0] < segment['end'] * 1000:
-            silence_duration = silence[1] - silence[0]
-            audio_espace_temp = AudioSegment.silent(duration=silence_duration)
-            space_before = silence[0] - segment['start'] * 1000
-            space_after = segment['end'] * 1000 - silence[1]
-
-            audio = AudioSegment.from_file(f"../result/segment_ajusted_{idx}.wav")
-
-            if space_before < space_after:
-                print("space before")
-                audio_espace_temp += audio
-            else:
-                print("space after")
-                audio += audio_espace_temp
-            
-            silence_ranges.pop(0)
-            audio.export(f"../result/segment_ajusted_{idx}.wav", format="wav")
-            speed_factor = get_speed_factory (segment, f"../result/segment_{segment['id']}.wav")
-            os.system(f'ffmpeg -i ../result/segment_ajusted_{idx}.wav -filter:a "atempo={speed_factor}" ../result/segment_ajusted_{idx}.wav')
-            break
     
 def extract_audio_from_video(video_path, output_audio_path):
     os.system(f"ffmpeg -i {video_path} -q:a 0 -map a {output_audio_path}")

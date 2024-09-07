@@ -1,0 +1,26 @@
+{
+    "text": " It started very small.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 3.0,
+            "text": " It started very small.",
+            "tokens": [
+                50364,
+                467,
+                1409,
+                588,
+                1359,
+                13,
+                50514
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.5038561820983887,
+            "compression_ratio": 0.7333333333333333,
+            "no_speech_prob": 0.019067611545324326
+        }
+    ],
+    "language": "en"
+}

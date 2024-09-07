@@ -12,6 +12,7 @@ AUDIO_TRANSLATED_NAME="${TEMP_DIR}output.wav"
 VIDEO_RESULT="result.mp4"
 PATH_TRANSCRIPT_TEXT="${EXIT_DIR}${TRANSCRIPT_NAME}"
 PATH_ORIGINAL_AUDIO="${EXIT_DIR}${AUDIO_NAME}"
+PATH_ORIGINAL_AUDIO="${EXIT_DIR}${AUDIO_NAME}"
 PATH_AUDIO_TRANSLATED="${EXIT_DIR}${AUDIO_TRANSLATED_NAME}"
 PATH_VIDEO_RESULT="${EXIT_DIR}${VIDEO_RESULT}"
 PATH_VIDEO_RESULT_WITHOUT_LIPSINC="${EXIT_DIR}result_without_lipsinc.mp4"
@@ -119,7 +120,7 @@ validate_input "$1"
 validate_input_file_exist "$1"
 
 echo -e "${BLUE}Starting the process...${NC}"
-get_audio_from_video
+# get_audio_from_video
 translate_or_transcript
 generate_voice_by_transcript
 

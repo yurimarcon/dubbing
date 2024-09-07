@@ -2,7 +2,7 @@ import unittest
 from pydub import AudioSegment
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_voice_generator import combine_audios_and_silences
+from utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
 import json
 
 inputTranscriptText = "data_tests/transcript.json"
@@ -112,6 +112,29 @@ class TestCombineAudios(unittest.TestCase):
         combined_audio_duration = len(combined_audio)
         original_audio_duration = len(original_audio)
         self.assertEqual(combined_audio_duration, original_audio_duration)
+
+    def test_just_one_silence_start_with_audio_end_finish_with_audio(self):
+        """
+        Silence_durations:
+            1.071
+        """
+        silences_ranges = [[372.065, 373.136]]
+        original_audio = AudioSegment.silent(duration=6768) # Somatory times of silences and audios
+        original_audio_path = "data_tests/test_combine_audio/audio.wav"
+        original_audio.export(original_audio_path)
+
+        combined_audio = combine_audios_and_silences(
+            original_audio_path, 
+            f"data_tests/test_combine_audio/2-audios/segment_",
+            silences_ranges,
+            f"data_tests/test_combine_audio/output.wav"
+            )
+
+        combined_audio_duration = len(combined_audio)
+        original_audio_duration = len(original_audio)
+        self.assertEqual(combined_audio_duration, original_audio_duration)
+
+
 
 if __name__ == '__main__':
     unittest.main()

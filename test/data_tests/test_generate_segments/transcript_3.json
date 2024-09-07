@@ -1,0 +1,48 @@
+{
+    "text": " And then it changed from being something to teach me about the computer into me actively actually trying to make it into a full operating system.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 8.64,
+            "text": " And then it changed from being something to teach me about the computer into me actively actually trying to make it into a full operating system.",
+            "tokens": [
+                50364,
+                400,
+                550,
+                309,
+                3105,
+                490,
+                885,
+                746,
+                281,
+                2924,
+                385,
+                466,
+                264,
+                3820,
+                666,
+                385,
+                13022,
+                767,
+                1382,
+                281,
+                652,
+                309,
+                666,
+                257,
+                1577,
+                7447,
+                1185,
+                13,
+                50796
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.2442389488220215,
+            "compression_ratio": 1.3425925925925926,
+            "no_speech_prob": 0.0010722455335780978
+        }
+    ],
+    "language": "en"
+}

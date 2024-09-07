@@ -24,7 +24,7 @@ def load_and_transcribe(input_audio, source_lang, task):
             task=task,
             condition_on_previous_text=True,
             fp16=torch.cuda.is_available(),  # Activate fp16 just if GPU be avaliable        
-            no_speech_threshold=0.1,
+            no_speech_threshold=0.6,
             compression_ratio_threshold=2.4,
             logprob_threshold=-1.0,
             temperature=0.1,
