@@ -42,16 +42,15 @@ def main():
 
     extract_audio_from_video(VIDEO_PATH, ORIGINAL_AUDIO)
     silence_intervals = detect_silences(ORIGINAL_AUDIO)
-    print(silence_intervals)
-    # quantity_sliced_audios = cut_video_at_silence(ORIGINAL_AUDIO, silence_intervals, PATH_RELATIVE)
-    # create_transcript(quantity_sliced_audios)
-    # create_segments_in_lot(
-    #     quantity_sliced_audios,
-    #     PATH_RELATIVE
-    #     )
-    # combine_segments(silence_intervals)
-    # combine_result_audio_with_video(VIDEO_PATH)
-    # clean_up(PATH_RELATIVE)
+    quantity_sliced_audios = cut_video_at_silence(ORIGINAL_AUDIO, silence_intervals, PATH_RELATIVE)
+    create_transcript(quantity_sliced_audios)
+    create_segments_in_lot(
+        quantity_sliced_audios,
+        PATH_RELATIVE
+        )
+    combine_segments(silence_intervals)
+    combine_result_audio_with_video(VIDEO_PATH)
+    clean_up(PATH_RELATIVE)
 
 if __name__ == "__main__":
     main()

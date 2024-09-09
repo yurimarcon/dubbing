@@ -8,7 +8,7 @@ def get_silence_ranges (inputAudio):
 
 def detect_silences(audio_path):
     audio = AudioSegment.from_file(audio_path)
-    silences = detect_silence(audio, min_silence_len=800, silence_thresh=-50)
+    silences = detect_silence(audio, min_silence_len=600, silence_thresh=-50)
     return [(start / 1000, stop / 1000) for start, stop in silences]  # Convert to seconds
     
 def create_silence(silence_start, silence_end, path_audio_file):
@@ -21,6 +21,9 @@ def get_initial_silence_duration (silence_ranges):
     return silence_ranges[0][1] if silence_ranges and silence_ranges[0][0] == 0 else 0
 
 def calculate_speed_factory(duratio_audio_base, duratio_audio_spected):
+    if duratio_audio_base == 0 or duratio_audio_spected == 0:
+        # if any duration did 0 do not calculate nothing
+        return 1
     speed_factor = duratio_audio_base / duratio_audio_spected
     if speed_factor < 0.9:
         speed_factor = 0.9
@@ -49,6 +52,7 @@ def ajust_speed_audio(audio_without_ajust, audio_time_expected, path_new_audio):
     speed_factor = calculate_speed_factory(duration_audio_without_ajust, duration_audio_time_expected)
     os.system(f'ffmpeg -i {audio_without_ajust} -filter:a "atempo={speed_factor}" {path_new_audio}')
     # ajust_time_video_puting_silence_in_start(path_new_audio, audio_time_expected)
+    return speed_factor
 
 def remove_silence_unecessery(audio_path):
     audio_did_ajusted = AudioSegment.from_file(audio_path)

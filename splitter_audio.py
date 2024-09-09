@@ -17,6 +17,7 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
     output_file = f"{output_folder}{SPLITED_INITIAL_AUDIO_NAME}"
 
     for idx, (silence_start, silence_end) in enumerate(silence_intervals):
+        print(video_duration)
         
         # if is the last silence and not is a unique silence
         if silence_end == round(video_duration) and len(silence_intervals) > 1:

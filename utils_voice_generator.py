@@ -87,19 +87,23 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
 
 def create_segments_in_lot(quantity_sliced_audios, relative_path):
     for idx in range(quantity_sliced_audios):
-        print(idx)
+
         with open(f"{relative_path}transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']
 
         # generate segments to each transcript
         for idy, segment in enumerate(segments):
-            generate_audio_by_text(
-                segment['text'], 
-                f"{relative_path}audio_{idx}.wav", 
-                f"{relative_path}segment_{idx}_{idy}.wav", 
-                "en", 
-                "pt"
-                )
+            if len(segment['text']) == 0:
+                # Create a silence of 1 minut
+                create_silence(0, 1, f"{relative_path}segment_{idx}_{idy}.wav")
+            else:
+                generate_audio_by_text(
+                    segment['text'], 
+                    f"{relative_path}audio_{idx}.wav", 
+                    f"{relative_path}segment_{idx}_{idy}.wav", 
+                    "en", 
+                    "pt"
+                    )
         # combine segments to create one segment by transcript
         combine_adjusted_segments(
             segments, 
