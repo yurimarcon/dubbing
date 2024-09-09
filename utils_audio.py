@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 from pydub.silence import detect_silence
 import os
+from utils_loger import log_info
 
 def get_silence_ranges (inputAudio):
     original_audio = AudioSegment.from_file(inputAudio)
@@ -8,7 +9,7 @@ def get_silence_ranges (inputAudio):
 
 def detect_silences(audio_path):
     audio = AudioSegment.from_file(audio_path)
-    silences = detect_silence(audio, min_silence_len=600, silence_thresh=-50)
+    silences = detect_silence(audio, min_silence_len=800, silence_thresh=-45)
     return [(start / 1000, stop / 1000) for start, stop in silences]  # Convert to seconds
     
 def create_silence(silence_start, silence_end, path_audio_file):
@@ -25,10 +26,11 @@ def calculate_speed_factory(duratio_audio_base, duratio_audio_spected):
         # if any duration did 0 do not calculate nothing
         return 1
     speed_factor = duratio_audio_base / duratio_audio_spected
+    log_info(f"Real speed_factory: {speed_factor}")
     if speed_factor < 0.9:
         speed_factor = 0.9
-    elif speed_factor > 1.3:
-        speed_factor = 1.3
+    elif speed_factor > 1.35:
+        speed_factor = 1.35
     return speed_factor
 
 def get_speed_factory (segment_by_transcript, file_path_to_verify):
@@ -49,9 +51,16 @@ def ajust_speed_audio(audio_without_ajust, audio_time_expected, path_new_audio):
     duration_audio_without_ajust = len(file_audio_without_ajust)
     file_audio_time_expected = AudioSegment.from_file(audio_time_expected)
     duration_audio_time_expected = len(file_audio_time_expected)
+
     speed_factor = calculate_speed_factory(duration_audio_without_ajust, duration_audio_time_expected)
+    
     os.system(f'ffmpeg -i {audio_without_ajust} -filter:a "atempo={speed_factor}" {path_new_audio}')
     # ajust_time_video_puting_silence_in_start(path_new_audio, audio_time_expected)
+    
+    # Record log with name and time duration sniped audio
+    audio_generated = AudioSegment.from_file(f"{path_new_audio}")
+    log_info(f"{path_new_audio} {len(audio_generated)}")
+
     return speed_factor
 
 def remove_silence_unecessery(audio_path):

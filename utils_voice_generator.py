@@ -3,8 +3,9 @@ import torch
 import json
 from pydub import AudioSegment
 from TTS.api import TTS
-from utils_audio import get_silence_ranges, get_initial_silence_duration, ajust_speed_audio
+from utils_audio import get_silence_ranges, get_initial_silence_duration, ajust_speed_audio, create_silence
 from utils_translate import translate_text
+from utils_loger import log_error, log_info
 from config import (
     VOICE_MODEL,
     SOURCE_FOLDER,
@@ -38,6 +39,10 @@ def combine_adjusted_segments(segments, temp_file_name, output_file):
         final_audio += adjusted_audio
     final_audio.export(output_file, format="wav")
 
+    # Record log with name and time duration sniped audio
+    video_duration = AudioSegment.from_file(output_file)
+    log_info(f"{output_file} {len(video_duration)}")
+
 def generate_audio_by_text(text, speaker_wav, dest_path, source_lang, dest_language, tts_model=tts_model):
     text = translate_text(text, source_lang, dest_language) if dest_language != "en" else text
     try:
@@ -47,7 +52,14 @@ def generate_audio_by_text(text, speaker_wav, dest_path, source_lang, dest_langu
             language=dest_language, 
             file_path=dest_path
         )
-    except e:
+    except Exception as e:
+        log_error(f"{speaker_wav} {dest_language} {dest_path} Error: {e}")
+        tts_model.tts_to_file(
+            text=". Error in generate this chunk .", 
+            speaker_wav=speaker_wav,
+            language=dest_language, 
+            file_path=dest_path
+        )
         print(e)
 
 def combine_audios_and_silences(original_audio_path, path_starts_with, silences_ranges, dest_folder):
@@ -85,21 +97,42 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
         
     return final_audio
 
+def get_speaker_path(relative_path, idx):
+    speaker_path = f"{relative_path}audio_{idx}.wav"
+    audio_speaker = AudioSegment.from_file(speaker_path)
+    duration_speaker = len(audio_speaker)
+    if duration_speaker < 1000:
+        other_speaker_path_chunk = f"{relative_path}audio_{idx-1}.wav"
+        audio_speaker_other_speaker = AudioSegment.from_file(other_speaker_path_chunk)
+        if audio_speaker_other_speaker < 1000:
+            return f"{relative_path}audio_{idx+1}.wav"
+        else:
+            return f"{relative_path}audio_{idx-1}.wav"
+    else:
+        return speaker_path
+
 def create_segments_in_lot(quantity_sliced_audios, relative_path):
     for idx in range(quantity_sliced_audios):
+        print(f"{idx}/{quantity_sliced_audios}")
 
         with open(f"{relative_path}transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']
 
+        speaker_wav = get_speaker_path(relative_path, idx)
+
         # generate segments to each transcript
         for idy, segment in enumerate(segments):
+            print(f"{idy}/{len(segments)} from {idx}/{quantity_sliced_audios}")
             if len(segment['text']) == 0:
                 # Create a silence of 1 minut
                 create_silence(0, 1, f"{relative_path}segment_{idx}_{idy}.wav")
+            elif segment['text'] == " Music":
+                # Create a silence if the segment is about Music an has not text
+                create_silence(segment['start'], segment['end'], f"{relative_path}segment_{idx}_{idy}.wav")
             else:
                 generate_audio_by_text(
                     segment['text'], 
-                    f"{relative_path}audio_{idx}.wav", 
+                    speaker_wav, 
                     f"{relative_path}segment_{idx}_{idy}.wav", 
                     "en", 
                     "pt"

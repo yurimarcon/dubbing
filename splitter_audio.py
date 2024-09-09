@@ -4,6 +4,7 @@ from pydub.silence import detect_silence
 import moviepy.video.io.ffmpeg_tools as ffmpeg_tools
 from utils_audio import extract_audio_from_video, detect_silences
 from config import SILENCE_NAME, SPLITED_INITIAL_AUDIO_NAME
+from utils_loger import log_info
 
 def cut_video_at_silence(audio_path, silence_intervals, output_folder):
     if not os.path.exists(output_folder):
@@ -15,9 +16,9 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
     next_start_sil = video_duration
     next_finish_sil = None
     output_file = f"{output_folder}{SPLITED_INITIAL_AUDIO_NAME}"
+    log_info(f"Video duration: {video_duration}")
 
     for idx, (silence_start, silence_end) in enumerate(silence_intervals):
-        print(video_duration)
         
         # if is the last silence and not is a unique silence
         if silence_end == round(video_duration) and len(silence_intervals) > 1:
@@ -63,6 +64,11 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
                 start_time, 
                 end_time, 
                 targetname=f"{output_file}{quantity_sliced_audios}.wav")
+        
+        # Record log with name and time duration sniped audio
+        new_video_duration = end_time - start_time
+        log_info(f"{output_file}{quantity_sliced_audios}.wav {new_video_duration}")
+        
         start_time = next_finish_sil
         quantity_sliced_audios+=1
     

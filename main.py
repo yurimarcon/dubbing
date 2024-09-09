@@ -2,6 +2,7 @@ from config import ORIGINAL_AUDIO, PATH_RELATIVE
 from utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
 from utils_voice_generator import generate_audio_by_text, combine_audios_and_silences, combine_adjusted_segments, create_segments_in_lot
 from splitter_audio import cut_video_at_silence
+from utils_loger import log_info
 import sys
 import os
 import json
@@ -35,14 +36,18 @@ def combine_result_audio_with_video(initial_video):
 
 def clean_up(relative_path):
     all_file = glob.glob(os.path.join(relative_path, "*"))
-    os.remove(all_file)
+    for file in all_file:
+        os.remove(file)
 
 def main():
     VIDEO_PATH = sys.argv[1]
 
     extract_audio_from_video(VIDEO_PATH, ORIGINAL_AUDIO)
     silence_intervals = detect_silences(ORIGINAL_AUDIO)
+    log_info(silence_intervals)
     quantity_sliced_audios = cut_video_at_silence(ORIGINAL_AUDIO, silence_intervals, PATH_RELATIVE)
+    log_info("quantity_sliced_audios")
+    log_info(quantity_sliced_audios)
     create_transcript(quantity_sliced_audios)
     create_segments_in_lot(
         quantity_sliced_audios,
@@ -50,7 +55,7 @@ def main():
         )
     combine_segments(silence_intervals)
     combine_result_audio_with_video(VIDEO_PATH)
-    clean_up(PATH_RELATIVE)
+    # clean_up(PATH_RELATIVE)
 
 if __name__ == "__main__":
     main()
