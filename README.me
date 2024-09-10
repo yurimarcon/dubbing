@@ -1,4 +1,24 @@
 
+## Como pegar videos no YouTube?
+
+instalar o "yt-dlp" e rodar o comando:
+```sh
+yt-dlp <url do video do youtube>
+```
+
+o video pode não vir em form ato MP4, então usar o programa "ffmpeg" para converte-lo.
+
+```sh
+ffmpeg -i <video baixado do youtube> <nome do novo video colocando a extenção .mp4>
+```
 
 Rodar com python 3.11.0
 Criar diretório result/ na raiz e temp/ dentro de result
+
+### como rodar?
+
+Basta ir para a raiz do projeto pelo terminal e rodar:
+
+```sh
+python main.py result/<nome do arquivo .mp4 que você quer traduzir.>
+```

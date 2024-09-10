@@ -7,19 +7,27 @@ import sys
 import os
 import json
 import glob
+import shutil
 
-def create_transcript(quantity_sliced_audios):
+def create_transcript(quantity_sliced_audios, source_lang, dest_lang):
+    if quantity_sliced_audios == 0:
+        os.system(
+            f"python transcript.py {PATH_RELATIVE}audio_0.wav translate {PATH_RELATIVE}transcript_0.json {source_lang} {dest_lang}")
+        return
+
     for idx in range(quantity_sliced_audios):
         os.system(
-            f"python transcript.py {PATH_RELATIVE}audio_{idx}.wav translate {PATH_RELATIVE}transcript_{idx}.json en pt")
+            f"python transcript.py {PATH_RELATIVE}audio_{idx}.wav translate {PATH_RELATIVE}transcript_{idx}.json {source_lang} {dest_lang}")
 
 def combine_segments(silence_intervals):
+    
     combine_audios_and_silences(
         ORIGINAL_AUDIO, 
         f"{PATH_RELATIVE}/segment_ajusted_",
         silence_intervals,
         f"{PATH_RELATIVE}/pre_output.wav"
         )
+            
     ajust_speed_audio(
             f"{PATH_RELATIVE}pre_output.wav", 
             f"{PATH_RELATIVE}1_audio.wav",
@@ -48,14 +56,14 @@ def main():
     quantity_sliced_audios = cut_video_at_silence(ORIGINAL_AUDIO, silence_intervals, PATH_RELATIVE)
     log_info("quantity_sliced_audios")
     log_info(quantity_sliced_audios)
-    create_transcript(quantity_sliced_audios)
+    create_transcript(quantity_sliced_audios, "en", "pt")
     create_segments_in_lot(
         quantity_sliced_audios,
         PATH_RELATIVE
         )
     combine_segments(silence_intervals)
     combine_result_audio_with_video(VIDEO_PATH)
-    # clean_up(PATH_RELATIVE)
+    clean_up(PATH_RELATIVE)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,27 @@
+{
+    "text": " So how do we learn?",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 0.84,
+            "text": " So how do we learn?",
+            "tokens": [
+                50364,
+                407,
+                577,
+                360,
+                321,
+                1466,
+                30,
+                50406
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.335398621029324,
+            "compression_ratio": 0.7037037037037037,
+            "no_speech_prob": 0.01393208559602499
+        }
+    ],
+    "language": "en"
+}

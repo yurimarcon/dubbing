@@ -1,0 +1,104 @@
+{
+    "text": " So originally it wasn't even meant to be an operating system. When I started, I started at just this, basically a test project for my own amusement to learn about a new computer.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 4.36,
+            "text": " So originally it wasn't even meant to be an operating system.",
+            "tokens": [
+                50364,
+                407,
+                7993,
+                309,
+                2067,
+                380,
+                754,
+                4140,
+                281,
+                312,
+                364,
+                7447,
+                1185,
+                13,
+                50582
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.21815364918810257,
+            "compression_ratio": 1.3383458646616542,
+            "no_speech_prob": 0.0012658528285101056
+        },
+        {
+            "id": 1,
+            "seek": 0,
+            "start": 4.36,
+            "end": 7.92,
+            "text": " When I started, I started at just this,",
+            "tokens": [
+                50582,
+                1133,
+                286,
+                1409,
+                11,
+                286,
+                1409,
+                412,
+                445,
+                341,
+                11,
+                50760
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.21815364918810257,
+            "compression_ratio": 1.3383458646616542,
+            "no_speech_prob": 0.0012658528285101056
+        },
+        {
+            "id": 2,
+            "seek": 0,
+            "start": 7.92,
+            "end": 10.96,
+            "text": " basically a test project for my own amusement",
+            "tokens": [
+                50760,
+                1936,
+                257,
+                1500,
+                1716,
+                337,
+                452,
+                1065,
+                39970,
+                50912
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.21815364918810257,
+            "compression_ratio": 1.3383458646616542,
+            "no_speech_prob": 0.0012658528285101056
+        },
+        {
+            "id": 3,
+            "seek": 0,
+            "start": 10.96,
+            "end": 12.8,
+            "text": " to learn about a new computer.",
+            "tokens": [
+                50912,
+                281,
+                1466,
+                466,
+                257,
+                777,
+                3820,
+                13,
+                51004
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.21815364918810257,
+            "compression_ratio": 1.3383458646616542,
+            "no_speech_prob": 0.0012658528285101056
+        }
+    ],
+    "language": "en"
+}

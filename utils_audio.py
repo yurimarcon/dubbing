@@ -3,13 +3,18 @@ from pydub.silence import detect_silence
 import os
 from utils_loger import log_info
 
+def load_audio(file_path):
+    with open(file_path, 'rb') as f:
+        audio = AudioSegment.from_file(f)
+    return audio
+
 def get_silence_ranges (inputAudio):
     original_audio = AudioSegment.from_file(inputAudio)
     return detect_silence(original_audio, min_silence_len=1000, silence_thresh=-35)
 
 def detect_silences(audio_path):
     audio = AudioSegment.from_file(audio_path)
-    silences = detect_silence(audio, min_silence_len=800, silence_thresh=-45)
+    silences = detect_silence(audio, min_silence_len=600, silence_thresh=-44)
     return [(start / 1000, stop / 1000) for start, stop in silences]  # Convert to seconds
     
 def create_silence(silence_start, silence_end, path_audio_file):
@@ -29,8 +34,8 @@ def calculate_speed_factory(duratio_audio_base, duratio_audio_spected):
     log_info(f"Real speed_factory: {speed_factor}")
     if speed_factor < 0.9:
         speed_factor = 0.9
-    elif speed_factor > 1.35:
-        speed_factor = 1.35
+    elif speed_factor > 1.8:
+        speed_factor = 1.8
     return speed_factor
 
 def get_speed_factory (segment_by_transcript, file_path_to_verify):

@@ -1,0 +1,26 @@
+{
+    "text": " and it just happened.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 1.34,
+            "text": " and it just happened.",
+            "tokens": [
+                50364,
+                293,
+                309,
+                445,
+                2011,
+                13,
+                50431
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.6544561386108398,
+            "compression_ratio": 0.7241379310344828,
+            "no_speech_prob": 0.051684170961380005
+        }
+    ],
+    "language": "en"
+}

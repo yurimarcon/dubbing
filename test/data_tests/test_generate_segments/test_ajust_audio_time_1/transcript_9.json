@@ -1,0 +1,26 @@
+{
+    "text": " years of slow growth where",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 2.12,
+            "text": " years of slow growth where",
+            "tokens": [
+                50364,
+                924,
+                295,
+                2964,
+                4599,
+                689,
+                50470
+            ],
+            "temperature": 0.1,
+            "avg_logprob": -0.4380715489387512,
+            "compression_ratio": 0.7647058823529411,
+            "no_speech_prob": 0.10592866688966751
+        }
+    ],
+    "language": "en"
+}

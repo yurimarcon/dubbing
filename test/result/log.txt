@@ -1,0 +1,707 @@
+[2024-09-10 09:50:37][INFO]: Video duration: 30.016
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.5379999999999998
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 1.1500000000000004
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 2.458
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 0.4060000000000006
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 4.6
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.0350000000000001
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 2.9819999999999993
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_7.wav 1.9280000000000008
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_8.wav 3.399000000000001
+[2024-09-10 09:50:37][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_9.wav -0.5199999999999996
+[2024-09-10 09:53:50][INFO]: Video duration: 30.016
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.535
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.137
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.5390000000000015
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0350000000000001
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9259999999999984
+[2024-09-10 09:53:50][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.804000000000002
+[2024-09-10 09:54:30][INFO]: Video duration: 30.016
+[2024-09-10 09:54:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.535
+[2024-09-10 09:54:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.137
+[2024-09-10 09:54:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.5390000000000015
+[2024-09-10 09:54:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0350000000000001
+[2024-09-10 09:54:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 09:54:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9259999999999984
+[2024-09-10 09:54:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.804000000000002
+[2024-09-10 09:55:16][INFO]: Video duration: 30.016
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.535
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.137
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.5390000000000015
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0350000000000001
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9259999999999984
+[2024-09-10 09:55:16][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.804000000000002
+[2024-09-10 09:55:28][INFO]: Video duration: 30.016
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.535
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.137
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.5390000000000015
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0350000000000001
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9259999999999984
+[2024-09-10 09:55:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.804000000000002
+[2024-09-10 09:56:29][INFO]: Video duration: 30.016
+[2024-09-10 09:56:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.535
+[2024-09-10 09:56:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.137
+[2024-09-10 09:56:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.5390000000000015
+[2024-09-10 09:56:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0350000000000001
+[2024-09-10 09:56:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 09:56:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9259999999999984
+[2024-09-10 09:56:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.804000000000002
+[2024-09-10 09:58:07][INFO]: Video duration: 30.016
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.552
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.1579999999999995
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.555
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0399999999999991
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9890000000000008
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9350000000000023
+[2024-09-10 09:58:07][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.7880000000000003
+[2024-09-10 10:04:12][INFO]: Video duration: 30.016
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:04:12][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:08:00][INFO]: Real speed_factory: 1.0
+[2024-09-10 10:08:00][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 10:08:00][INFO]: Real speed_factory: 1.35
+[2024-09-10 10:08:00][INFO]: Real speed_factory: 0.9
+[2024-09-10 10:08:01][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:08:01][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:08:01][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 10:08:03][INFO]: Video duration: 30.016
+[2024-09-10 10:08:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:08:04][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:08:04][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:08:04][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:08:04][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:08:04][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:08:04][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:10:11][INFO]: Real speed_factory: 1.0
+[2024-09-10 10:10:11][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 10:10:11][INFO]: Real speed_factory: 1.35
+[2024-09-10 10:10:11][INFO]: Real speed_factory: 0.9
+[2024-09-10 10:10:12][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:10:12][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:10:12][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 10:10:14][INFO]: Video duration: 30.016
+[2024-09-10 10:10:14][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:10:14][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:10:14][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:10:14][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:10:14][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:10:14][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:10:15][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:13:16][INFO]: Real speed_factory: 1.0
+[2024-09-10 10:13:16][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 10:13:16][INFO]: Real speed_factory: 1.35
+[2024-09-10 10:13:16][INFO]: Real speed_factory: 0.9
+[2024-09-10 10:13:16][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:13:16][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:13:16][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 10:13:16][INFO]: Video duration: 108.039
+[2024-09-10 10:13:17][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 10:13:17][INFO]: Video duration: 108.039
+[2024-09-10 10:13:17][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 10:13:17][INFO]: Video duration: 108.039
+[2024-09-10 10:13:17][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 10:13:17][INFO]: Video duration: 108.039
+[2024-09-10 10:13:19][INFO]: Video duration: 30.016
+[2024-09-10 10:13:19][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:13:19][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:13:20][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:13:20][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:13:20][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:13:20][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:13:20][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:14:23][INFO]: Real speed_factory: 1.0
+[2024-09-10 10:14:23][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 10:14:23][INFO]: Real speed_factory: 1.35
+[2024-09-10 10:14:23][INFO]: Real speed_factory: 0.9
+[2024-09-10 10:14:23][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:14:23][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:14:23][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 10:14:23][INFO]: Video duration: 108.039
+[2024-09-10 10:14:24][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 10:14:24][INFO]: Video duration: 108.039
+[2024-09-10 10:14:24][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 10:14:24][INFO]: Video duration: 108.039
+[2024-09-10 10:14:24][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 10:14:24][INFO]: Video duration: 108.039
+[2024-09-10 10:14:29][INFO]: Video duration: 58.00533333333333
+[2024-09-10 10:14:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 15.673
+[2024-09-10 10:14:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.216999999999999
+[2024-09-10 10:14:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 23.355
+[2024-09-10 10:14:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 6.067999999999998
+[2024-09-10 10:14:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 3.487000000000002
+[2024-09-10 10:14:29][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav -0.7689999999999984
+[2024-09-10 10:14:32][INFO]: Video duration: 30.016
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:14:32][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:19:47][INFO]: Real speed_factory: 1.0
+[2024-09-10 10:19:47][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 10:19:47][INFO]: Real speed_factory: 1.35
+[2024-09-10 10:19:47][INFO]: Real speed_factory: 0.9
+[2024-09-10 10:19:47][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:19:47][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:19:47][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 10:19:47][INFO]: Video duration: 108.039
+[2024-09-10 10:19:48][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 10:19:48][INFO]: Video duration: 108.039
+[2024-09-10 10:19:48][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 10:19:48][INFO]: Video duration: 108.039
+[2024-09-10 10:19:48][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 10:19:48][INFO]: Video duration: 108.039
+[2024-09-10 10:19:53][INFO]: Video duration: 58.00533333333333
+[2024-09-10 10:19:53][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 15.673
+[2024-09-10 10:19:53][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.216999999999999
+[2024-09-10 10:19:53][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 23.355
+[2024-09-10 10:19:53][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 6.067999999999998
+[2024-09-10 10:19:53][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 3.487000000000002
+[2024-09-10 10:19:53][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav -0.7689999999999984
+[2024-09-10 10:19:55][INFO]: Video duration: 30.016
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:19:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:21:23][INFO]: Video duration: 108.039
+[2024-09-10 10:21:23][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 10:21:23][INFO]: Video duration: 108.039
+[2024-09-10 10:21:23][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 10:21:23][INFO]: Video duration: 108.039
+[2024-09-10 10:21:23][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 10:21:23][INFO]: Video duration: 108.039
+[2024-09-10 10:21:28][INFO]: Video duration: 58.00533333333333
+[2024-09-10 10:21:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 15.673
+[2024-09-10 10:21:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.216999999999999
+[2024-09-10 10:21:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 23.355
+[2024-09-10 10:21:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 6.067999999999998
+[2024-09-10 10:21:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 3.487000000000002
+[2024-09-10 10:21:28][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav -0.7689999999999984
+[2024-09-10 10:21:30][INFO]: Video duration: 30.016
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:21:31][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:27:39][INFO]: Real speed_factory: 1.0
+[2024-09-10 10:27:39][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 10:27:39][INFO]: Real speed_factory: 1.35
+[2024-09-10 10:27:39][INFO]: Real speed_factory: 0.9
+[2024-09-10 10:28:13][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_0.wav 15715
+[2024-09-10 10:28:13][INFO]: Real speed_factory: 1.2443582231372239
+[2024-09-10 10:28:13][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12612
+[2024-09-10 10:28:15][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_1.wav 1803
+[2024-09-10 10:28:15][INFO]: Real speed_factory: 1.6257889990982868
+[2024-09-10 10:28:15][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_1.wav 1319
+[2024-09-10 10:28:35][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_2.wav 12204
+[2024-09-10 10:28:35][INFO]: Real speed_factory: 1.0289183036843437
+[2024-09-10 10:28:35][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_2.wav 11840
+[2024-09-10 10:28:50][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_3.wav 9697
+[2024-09-10 10:28:50][INFO]: Real speed_factory: 1.1250725142127858
+[2024-09-10 10:28:51][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_3.wav 8600
+[2024-09-10 10:28:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_4.wav 4641
+[2024-09-10 10:28:58][INFO]: Real speed_factory: 3.8836820083682007
+[2024-09-10 10:28:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_4.wav 3425
+[2024-09-10 10:29:00][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_5.wav 1995
+[2024-09-10 10:29:00][INFO]: Real speed_factory: 0.667894208235688
+[2024-09-10 10:29:00][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_5.wav 2192
+[2024-09-10 10:29:49][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_6.wav 29924
+[2024-09-10 10:29:49][INFO]: Real speed_factory: 1.3698329137102312
+[2024-09-10 10:29:49][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_6.wav 22152
+[2024-09-10 10:30:12][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_7.wav 13731
+[2024-09-10 10:30:12][INFO]: Real speed_factory: 1.2473655523255813
+[2024-09-10 10:30:12][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_7.wav 10992
+[2024-09-10 10:30:41][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_8.wav 18137
+[2024-09-10 10:30:41][INFO]: Real speed_factory: 1.26513671875
+[2024-09-10 10:30:41][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_8.wav 14320
+[2024-09-10 10:30:45][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_9.wav 2785
+[2024-09-10 10:30:45][INFO]: Real speed_factory: 1.2550698512843623
+[2024-09-10 10:30:45][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_9.wav 2203
+[2024-09-10 10:30:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_10.wav 7659
+[2024-09-10 10:30:57][INFO]: Real speed_factory: 1.4475524475524475
+[2024-09-10 10:30:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_10.wav 5659
+[2024-09-10 10:30:57][INFO]: Real speed_factory: 1.0199650126343265
+[2024-09-10 10:30:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/output.wav 108018
+[2024-09-10 10:30:58][INFO]: Real speed_factory: 1.2443582231372239
+[2024-09-10 10:30:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12612
+[2024-09-10 10:30:58][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:30:58][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:30:58][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 10:30:58][INFO]: Video duration: 108.039
+[2024-09-10 10:30:58][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 10:30:58][INFO]: Video duration: 108.039
+[2024-09-10 10:30:58][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 10:30:58][INFO]: Video duration: 108.039
+[2024-09-10 10:30:58][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 10:30:58][INFO]: Video duration: 108.039
+[2024-09-10 10:31:03][INFO]: Video duration: 58.00533333333333
+[2024-09-10 10:31:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 15.673
+[2024-09-10 10:31:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.216999999999999
+[2024-09-10 10:31:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 23.355
+[2024-09-10 10:31:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 6.067999999999998
+[2024-09-10 10:31:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 3.487000000000002
+[2024-09-10 10:31:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav -0.7689999999999984
+[2024-09-10 10:31:06][INFO]: Video duration: 30.016
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 10:31:06][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav -0.8059999999999974
+[2024-09-10 10:48:27][INFO]: data_tests/test_segment_zero_audio/segment_0.wav 0
+[2024-09-10 10:48:27][INFO]: data_tests/test_segment_zero_audio/segment_ajusted_0.wav 0
+[2024-09-10 10:50:14][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_0.wav 14691
+[2024-09-10 10:50:14][INFO]: Real speed_factory: 1.1632750019795708
+[2024-09-10 10:50:14][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12611
+[2024-09-10 10:50:19][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_1.wav 2454
+[2024-09-10 10:50:19][INFO]: Real speed_factory: 2.212804328223625
+[2024-09-10 10:50:19][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_1.wav 1805
+[2024-09-10 10:50:43][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_2.wav 15681
+[2024-09-10 10:50:43][INFO]: Real speed_factory: 1.3220639069218447
+[2024-09-10 10:50:43][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_2.wav 11847
+[2024-09-10 10:50:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_3.wav 9238
+[2024-09-10 10:50:57][INFO]: Real speed_factory: 1.0718180763429632
+[2024-09-10 10:50:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_3.wav 8599
+[2024-09-10 10:51:02][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_4.wav 3339
+[2024-09-10 10:51:02][INFO]: Real speed_factory: 2.794142259414226
+[2024-09-10 10:51:02][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_4.wav 2459
+[2024-09-10 10:51:05][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_5.wav 1707
+[2024-09-10 10:51:05][INFO]: Real speed_factory: 0.5714763977234684
+[2024-09-10 10:51:05][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_5.wav 1872
+[2024-09-10 10:51:52][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_6.wav 26649
+[2024-09-10 10:51:52][INFO]: Real speed_factory: 1.219913023575189
+[2024-09-10 10:51:52][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_6.wav 21829
+[2024-09-10 10:52:15][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_7.wav 14093
+[2024-09-10 10:52:15][INFO]: Real speed_factory: 1.280250726744186
+[2024-09-10 10:52:15][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_7.wav 10993
+[2024-09-10 10:52:41][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_8.wav 14489
+[2024-09-10 10:52:41][INFO]: Real speed_factory: 1.0106724330357142
+[2024-09-10 10:52:41][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_8.wav 14315
+[2024-09-10 10:52:46][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_9.wav 3009
+[2024-09-10 10:52:46][INFO]: Real speed_factory: 1.35601622352411
+[2024-09-10 10:52:46][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_9.wav 2218
+[2024-09-10 10:52:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_10.wav 7606
+[2024-09-10 10:52:58][INFO]: Real speed_factory: 1.4375354375354374
+[2024-09-10 10:52:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_10.wav 5621
+[2024-09-10 10:52:58][INFO]: Real speed_factory: 1.0093577319301363
+[2024-09-10 10:52:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/output.wav 108018
+[2024-09-10 10:52:58][INFO]: Real speed_factory: 1.1632750019795708
+[2024-09-10 10:52:58][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12611
+[2024-09-10 10:52:58][INFO]: data_tests/test_segment_zero_audio/segment_0.wav 0
+[2024-09-10 10:52:58][INFO]: data_tests/test_segment_zero_audio/segment_ajusted_0.wav 0
+[2024-09-10 10:52:58][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 10:52:58][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 10:52:58][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 11:02:00][INFO]: Video duration: 30.016
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:02:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:02:40][INFO]: Video duration: 30.016
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:02:41][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:03:13][INFO]: Video duration: 30.016
+[2024-09-10 11:03:13][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:03:13][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:03:14][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:03:14][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:03:14][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:03:14][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:03:14][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:05:51][INFO]: Video duration: 30.016
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:05:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:06:54][INFO]: Video duration: 30.016
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:06:54][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:10:26][INFO]: Video duration: 30.016
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:10:26][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:15:03][INFO]: Video duration: 30.016
+[2024-09-10 11:15:03][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:15:03][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:15:03][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:15:04][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:15:04][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:15:04][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:15:04][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:15:37][INFO]: Video duration: 30.016
+[2024-09-10 11:15:37][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:15:37][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:15:38][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:15:38][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:15:38][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:15:38][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:15:38][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav -0.8059999999999974
+[2024-09-10 11:33:33][INFO]: Video duration: 30.016
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:33:33][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 5.872
+[2024-09-10 11:36:35][INFO]: Video duration: 30.016
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:36:35][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 5.872
+[2024-09-10 11:36:55][INFO]: Video duration: 30.016
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.532
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 4.139
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 5.534000000000001
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 1.0329999999999995
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 2.9810000000000016
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 1.9250000000000007
+[2024-09-10 11:36:55][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 5.872
+[2024-09-10 11:36:55][INFO]: Video duration: 108.039
+[2024-09-10 11:36:55][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 11:36:55][INFO]: Video duration: 108.039
+[2024-09-10 11:36:55][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 11:36:55][INFO]: Video duration: 108.039
+[2024-09-10 11:36:55][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 11:36:55][INFO]: Video duration: 108.039
+[2024-09-10 11:37:00][INFO]: Video duration: 58.00533333333333
+[2024-09-10 11:37:00][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 15.673
+[2024-09-10 11:37:00][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.216999999999999
+[2024-09-10 11:37:00][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 23.355
+[2024-09-10 11:37:00][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 6.067999999999998
+[2024-09-10 11:37:00][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 3.487000000000002
+[2024-09-10 11:37:00][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.1763333333333321
+[2024-09-10 11:37:02][INFO]: Video duration: 30.016
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.532
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.139
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 5.534000000000001
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 1.0329999999999995
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 2.9810000000000016
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.9250000000000007
+[2024-09-10 11:37:03][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 5.872
+[2024-09-10 11:45:30][INFO]: Video duration: 58.00533333333333
+[2024-09-10 11:45:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 15.673
+[2024-09-10 11:45:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 4.216999999999999
+[2024-09-10 11:45:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 23.355
+[2024-09-10 11:45:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 6.067999999999998
+[2024-09-10 11:45:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 3.487000000000002
+[2024-09-10 11:45:30][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 1.1763333333333321
+[2024-09-10 11:46:27][INFO]: Video duration: 58.00533333333333
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 14.124
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 0.8870000000000005
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 3.814
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 23.307000000000002
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 6.060000000000002
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 3.4680000000000035
+[2024-09-10 11:46:27][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.1753333333333345
+[2024-09-10 11:48:50][INFO]: Video duration: 30.016
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.525
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 1.1480000000000001
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 2.3579999999999997
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 5.520999999999999
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 1.029
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 2.975999999999999
+[2024-09-10 11:48:50][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 1.9160000000000004
+[2024-09-10 11:48:51][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_7.wav 5.869
+[2024-09-10 11:48:51][INFO]: Video duration: 108.039
+[2024-09-10 11:48:51][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 11:48:51][INFO]: Video duration: 108.039
+[2024-09-10 11:48:51][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 11:48:51][INFO]: Video duration: 108.039
+[2024-09-10 11:48:51][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 11:48:51][INFO]: Video duration: 108.039
+[2024-09-10 11:48:55][INFO]: Video duration: 58.00533333333333
+[2024-09-10 11:48:55][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 14.124
+[2024-09-10 11:48:55][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 0.8870000000000005
+[2024-09-10 11:48:55][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 3.814
+[2024-09-10 11:48:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 23.307000000000002
+[2024-09-10 11:48:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 6.060000000000002
+[2024-09-10 11:48:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 3.4680000000000035
+[2024-09-10 11:48:56][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.1753333333333345
+[2024-09-10 11:48:58][INFO]: Video duration: 30.016
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.525
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 1.1480000000000001
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 2.3579999999999997
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 5.520999999999999
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 1.029
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 2.975999999999999
+[2024-09-10 11:48:58][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.9160000000000004
+[2024-09-10 11:48:59][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_7.wav 5.869
+[2024-09-10 12:09:13][ERROR]: None pt data_tests/test_generate_segments/test_translate_and_ajust_time/segment_0_0.wav Error: Model is multi-speaker but no `speaker` is provided.
+[2024-09-10 13:53:57][ERROR]: None pt data_tests/test_generate_segments/test_translate_and_ajust_time/segment_0_0.wav Error: Model is multi-speaker but no `speaker` is provided.
+[2024-09-10 13:55:10][INFO]: data_tests/test_generate_segments/test_translate_and_ajust_time/segment_0.wav 2273
+[2024-09-10 19:11:23][INFO]: Real speed_factory: 1.0
+[2024-09-10 19:11:23][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 19:11:23][INFO]: Real speed_factory: 1.35
+[2024-09-10 19:11:23][INFO]: Real speed_factory: 0.9
+[2024-09-10 19:11:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_0.wav 16792
+[2024-09-10 19:11:59][INFO]: Real speed_factory: 1.3296381344524506
+[2024-09-10 19:11:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12615
+[2024-09-10 19:12:04][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_1.wav 2870
+[2024-09-10 19:12:04][INFO]: Real speed_factory: 2.587917042380523
+[2024-09-10 19:12:04][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_1.wav 1586
+[2024-09-10 19:12:23][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_2.wav 12151
+[2024-09-10 19:12:23][INFO]: Real speed_factory: 1.0244498777506112
+[2024-09-10 19:12:23][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_2.wav 11840
+[2024-09-10 19:12:44][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_3.wav 12481
+[2024-09-10 19:12:44][INFO]: Real speed_factory: 1.4480798236454344
+[2024-09-10 19:12:44][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_3.wav 8607
+[2024-09-10 19:12:49][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_4.wav 2635
+[2024-09-10 19:12:49][INFO]: Real speed_factory: 2.205020920502092
+[2024-09-10 19:12:49][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_4.wav 1453
+[2024-09-10 19:12:52][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_5.wav 1803
+[2024-09-10 19:12:52][INFO]: Real speed_factory: 0.6036156678942083
+[2024-09-10 19:12:53][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_5.wav 1978
+[2024-09-10 19:13:47][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_6.wav 30180
+[2024-09-10 19:13:47][INFO]: Real speed_factory: 1.381551842526894
+[2024-09-10 19:13:47][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_6.wav 21832
+[2024-09-10 19:14:11][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_7.wav 13293
+[2024-09-10 19:14:11][INFO]: Real speed_factory: 1.207576308139535
+[2024-09-10 19:14:11][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_7.wav 10991
+[2024-09-10 19:14:40][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_8.wav 15843
+[2024-09-10 19:14:40][INFO]: Real speed_factory: 1.1051199776785714
+[2024-09-10 19:14:40][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_8.wav 14317
+[2024-09-10 19:14:46][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_9.wav 3478
+[2024-09-10 19:14:46][INFO]: Real speed_factory: 1.5673726904010816
+[2024-09-10 19:14:46][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_9.wav 2210
+[2024-09-10 19:14:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_10.wav 7521
+[2024-09-10 19:14:59][INFO]: Real speed_factory: 1.4214704214704215
+[2024-09-10 19:14:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_10.wav 5278
+[2024-09-10 19:14:59][INFO]: Real speed_factory: 0.9892909042105166
+[2024-09-10 19:14:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/output.wav 108018
+[2024-09-10 19:14:59][INFO]: Real speed_factory: 1.3296381344524506
+[2024-09-10 19:14:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12615
+[2024-09-10 19:14:59][INFO]: data_tests/test_segment_zero_audio/segment_0.wav 0
+[2024-09-10 19:14:59][INFO]: data_tests/test_segment_zero_audio/segment_ajusted_0.wav 0
+[2024-09-10 19:14:59][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 19:14:59][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 19:14:59][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 19:15:02][INFO]: Video duration: 30.016
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.525
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 1.1480000000000001
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 2.3579999999999997
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 5.520999999999999
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 1.029
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 2.975999999999999
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 1.9160000000000004
+[2024-09-10 19:15:02][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_7.wav 5.869
+[2024-09-10 19:15:02][INFO]: Video duration: 108.039
+[2024-09-10 19:15:03][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 19:15:03][INFO]: Video duration: 108.039
+[2024-09-10 19:15:03][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 19:15:03][INFO]: Video duration: 108.039
+[2024-09-10 19:15:03][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 19:15:03][INFO]: Video duration: 108.039
+[2024-09-10 19:15:07][INFO]: Video duration: 58.00533333333333
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 14.124
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 0.8870000000000005
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 3.814
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 23.307000000000002
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 6.060000000000002
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 3.4680000000000035
+[2024-09-10 19:15:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.1753333333333345
+[2024-09-10 19:15:10][INFO]: Video duration: 30.016
+[2024-09-10 19:15:10][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.525
+[2024-09-10 19:15:10][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 1.1480000000000001
+[2024-09-10 19:15:10][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 2.3579999999999997
+[2024-09-10 19:15:11][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 5.520999999999999
+[2024-09-10 19:15:11][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 1.029
+[2024-09-10 19:15:11][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 2.975999999999999
+[2024-09-10 19:15:11][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.9160000000000004
+[2024-09-10 19:15:11][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_7.wav 5.869
+[2024-09-10 19:24:27][INFO]: Real speed_factory: 1.0
+[2024-09-10 19:24:27][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 19:24:27][INFO]: Real speed_factory: 1.35
+[2024-09-10 19:24:27][INFO]: Real speed_factory: 0.9
+[2024-09-10 19:25:01][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_0.wav 15341
+[2024-09-10 19:25:01][INFO]: Real speed_factory: 1.2147438435347218
+[2024-09-10 19:25:01][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12613
+[2024-09-10 19:25:04][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_1.wav 1942
+[2024-09-10 19:25:04][INFO]: Real speed_factory: 1.751127141568981
+[2024-09-10 19:25:04][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_1.wav 1103
+[2024-09-10 19:25:23][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_2.wav 11959
+[2024-09-10 19:25:23][INFO]: Real speed_factory: 1.008262372481241
+[2024-09-10 19:25:23][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_2.wav 11840
+[2024-09-10 19:25:38][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_3.wav 8865
+[2024-09-10 19:25:38][INFO]: Real speed_factory: 1.0285415941524538
+[2024-09-10 19:25:38][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_3.wav 8598
+[2024-09-10 19:25:41][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_4.wav 1622
+[2024-09-10 19:25:41][INFO]: Real speed_factory: 1.3573221757322176
+[2024-09-10 19:25:41][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_4.wav 1181
+[2024-09-10 19:25:44][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_5.wav 1803
+[2024-09-10 19:25:44][INFO]: Real speed_factory: 0.6036156678942083
+[2024-09-10 19:25:44][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_5.wav 1978
+[2024-09-10 19:26:34][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_6.wav 28569
+[2024-09-10 19:26:34][INFO]: Real speed_factory: 1.3078049897001602
+[2024-09-10 19:26:34][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_6.wav 21830
+[2024-09-10 19:26:56][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_7.wav 13208
+[2024-09-10 19:26:56][INFO]: Real speed_factory: 1.1998546511627908
+[2024-09-10 19:26:56][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_7.wav 10991
+[2024-09-10 19:27:38][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_8.wav 23982
+[2024-09-10 19:27:38][INFO]: Real speed_factory: 1.6728515625
+[2024-09-10 19:27:39][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_8.wav 14329
+[2024-09-10 19:27:44][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_9.wav 3521
+[2024-09-10 19:27:44][INFO]: Real speed_factory: 1.586750788643533
+[2024-09-10 19:27:44][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_9.wav 2210
+[2024-09-10 19:27:56][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_10.wav 7329
+[2024-09-10 19:27:56][INFO]: Real speed_factory: 1.3851823851823852
+[2024-09-10 19:27:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_10.wav 5278
+[2024-09-10 19:27:57][INFO]: Real speed_factory: 0.9822934310758152
+[2024-09-10 19:27:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/output.wav 108017
+[2024-09-10 19:27:57][INFO]: Real speed_factory: 1.2147438435347218
+[2024-09-10 19:27:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12613
+[2024-09-10 19:27:57][INFO]: data_tests/test_segment_zero_audio/segment_0.wav 0
+[2024-09-10 19:27:57][INFO]: data_tests/test_segment_zero_audio/segment_ajusted_0.wav 0
+[2024-09-10 19:27:57][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 19:27:57][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 19:27:57][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 19:27:59][INFO]: Video duration: 30.016
+[2024-09-10 19:27:59][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.525
+[2024-09-10 19:27:59][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 1.1480000000000001
+[2024-09-10 19:28:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 2.3579999999999997
+[2024-09-10 19:28:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 5.520999999999999
+[2024-09-10 19:28:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 1.029
+[2024-09-10 19:28:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 2.975999999999999
+[2024-09-10 19:28:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 1.9160000000000004
+[2024-09-10 19:28:00][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_7.wav 5.869
+[2024-09-10 19:28:00][INFO]: Video duration: 108.039
+[2024-09-10 19:28:00][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 19:28:00][INFO]: Video duration: 108.039
+[2024-09-10 19:28:00][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 19:28:00][INFO]: Video duration: 108.039
+[2024-09-10 19:28:00][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 19:28:00][INFO]: Video duration: 108.039
+[2024-09-10 19:28:05][INFO]: Video duration: 58.00533333333333
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 14.124
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 0.8870000000000005
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 3.814
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 23.307000000000002
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 6.060000000000002
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 3.4680000000000035
+[2024-09-10 19:28:05][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.1753333333333345
+[2024-09-10 19:28:08][INFO]: Video duration: 30.016
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.525
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 1.1480000000000001
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 2.3579999999999997
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 5.520999999999999
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 1.029
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 2.975999999999999
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.9160000000000004
+[2024-09-10 19:28:08][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_7.wav 5.869
+[2024-09-10 20:26:23][INFO]: Real speed_factory: 1.0
+[2024-09-10 20:26:23][INFO]: data_tests/test_audio_utils/audio_ajusted_time.wav 9977
+[2024-09-10 20:26:23][INFO]: Real speed_factory: 1.35
+[2024-09-10 20:26:23][INFO]: Real speed_factory: 0.9
+[2024-09-10 20:26:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_0.wav 17933
+[2024-09-10 20:26:59][INFO]: Real speed_factory: 1.4199857470900308
+[2024-09-10 20:26:59][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12617
+[2024-09-10 20:27:01][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_1.wav 1110
+[2024-09-10 20:27:01][INFO]: Real speed_factory: 1.000901713255185
+[2024-09-10 20:27:01][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_1.wav 1088
+[2024-09-10 20:27:17][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_2.wav 10764
+[2024-09-10 20:27:17][INFO]: Real speed_factory: 0.9075120141640671
+[2024-09-10 20:27:17][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_2.wav 11836
+[2024-09-10 20:27:31][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_3.wav 8961
+[2024-09-10 20:27:31][INFO]: Real speed_factory: 1.0396797772363384
+[2024-09-10 20:27:31][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_3.wav 8598
+[2024-09-10 20:27:34][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_4.wav 2081
+[2024-09-10 20:27:34][INFO]: Real speed_factory: 1.7414225941422594
+[2024-09-10 20:27:34][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_4.wav 1189
+[2024-09-10 20:27:38][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_5.wav 1761
+[2024-09-10 20:27:38][INFO]: Real speed_factory: 0.5895547371945096
+[2024-09-10 20:27:38][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_5.wav 1931
+[2024-09-10 20:28:20][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_6.wav 25817
+[2024-09-10 20:28:20][INFO]: Real speed_factory: 1.1818265049210346
+[2024-09-10 20:28:20][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_6.wav 21828
+[2024-09-10 20:28:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_7.wav 23704
+[2024-09-10 20:28:57][INFO]: Real speed_factory: 2.153343023255814
+[2024-09-10 20:28:57][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_7.wav 13153
+[2024-09-10 20:29:26][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_8.wav 17529
+[2024-09-10 20:29:26][INFO]: Real speed_factory: 1.2227260044642858
+[2024-09-10 20:29:26][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_8.wav 14319
+[2024-09-10 20:29:30][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_9.wav 2966
+[2024-09-10 20:29:30][INFO]: Real speed_factory: 1.3366381252816584
+[2024-09-10 20:29:30][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_9.wav 2205
+[2024-09-10 20:29:40][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_10.wav 6166
+[2024-09-10 20:29:40][INFO]: Real speed_factory: 1.1653751653751654
+[2024-09-10 20:29:40][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_10.wav 5273
+[2024-09-10 20:29:40][INFO]: Real speed_factory: 1.001592017697313
+[2024-09-10 20:29:40][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/output.wav 108018
+[2024-09-10 20:29:40][INFO]: Real speed_factory: 1.4199857470900308
+[2024-09-10 20:29:40][INFO]: data_tests/test_generate_segments/test_ajust_audio_time_1/segment_ajusted_0.wav 12617
+[2024-09-10 20:29:40][INFO]: data_tests/test_segment_zero_audio/segment_0.wav 0
+[2024-09-10 20:29:40][INFO]: data_tests/test_segment_zero_audio/segment_ajusted_0.wav 0
+[2024-09-10 20:29:40][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_0.wav 14120
+[2024-09-10 20:29:40][INFO]: Real speed_factory: 0.9968231556653724
+[2024-09-10 20:29:40][INFO]: data_tests/test_generate_segments/test_ajust_with_silence/segment_ajusted_0.wav 14142
+[2024-09-10 20:29:42][INFO]: Video duration: 30.016
+[2024-09-10 20:29:42][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_0.wav 1.525
+[2024-09-10 20:29:42][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_1.wav 1.1480000000000001
+[2024-09-10 20:29:43][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_2.wav 2.3579999999999997
+[2024-09-10 20:29:43][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_3.wav 5.520999999999999
+[2024-09-10 20:29:43][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_4.wav 1.029
+[2024-09-10 20:29:43][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_5.wav 2.975999999999999
+[2024-09-10 20:29:43][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_6.wav 1.9160000000000004
+[2024-09-10 20:29:43][INFO]: data_tests/test_segment_zero_audio/test_prevent_last_chunk_zero_seconds/audio_7.wav 5.869
+[2024-09-10 20:29:43][INFO]: Video duration: 108.039
+[2024-09-10 20:29:43][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_1.wav -265.09700000000004
+[2024-09-10 20:29:43][INFO]: Video duration: 108.039
+[2024-09-10 20:29:43][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 104.903
+[2024-09-10 20:29:43][INFO]: Video duration: 108.039
+[2024-09-10 20:29:43][INFO]: data_tests/test_spliter_audio/test_possibilities_split/audio_0.wav 88.0
+[2024-09-10 20:29:43][INFO]: Video duration: 108.039
+[2024-09-10 20:29:48][INFO]: Video duration: 58.00533333333333
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 14.124
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 0.8870000000000005
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 3.814
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 23.307000000000002
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 6.060000000000002
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 3.4680000000000035
+[2024-09-10 20:29:48][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.1753333333333345
+[2024-09-10 20:29:51][INFO]: Video duration: 30.016
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_0.wav 1.525
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_1.wav 1.1480000000000001
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_2.wav 2.3579999999999997
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_3.wav 5.520999999999999
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_4.wav 1.029
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_5.wav 2.975999999999999
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_6.wav 1.9160000000000004
+[2024-09-10 20:29:51][INFO]: data_tests/test_spliter_audio/test_quantity_splited/audio_7.wav 5.869

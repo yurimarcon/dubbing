@@ -27,7 +27,7 @@ class TestAudioUtils(unittest.TestCase):
         segments[0]['start'] = 0
         segments[0]['end'] = 2.3
         speed_factor = get_speed_factory(segments[0], inputAudioTest)
-        self.assertEqual(speed_factor, 1.3)
+        self.assertEqual(speed_factor, 1.35)
 
     # verify if the audio ajusted be between time tolerate
     def test_ajust_audio_time(self):

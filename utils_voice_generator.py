@@ -1,6 +1,7 @@
 import os
 import torch
 import json
+import shutil
 from pydub import AudioSegment
 from TTS.api import TTS
 from utils_audio import get_silence_ranges, get_initial_silence_duration, ajust_speed_audio, create_silence
@@ -63,55 +64,85 @@ def generate_audio_by_text(text, speaker_wav, dest_path, source_lang, dest_langu
         print(e)
 
 def combine_audios_and_silences(original_audio_path, path_starts_with, silences_ranges, dest_folder):
-    final_audio = AudioSegment.silent(duration=0)
-    for idx, silence in enumerate(silences_ranges):
-        silence_duration = (silence[1] - silence[0]) * 1000
-        audio_silence = AudioSegment.silent(duration=round(silence_duration))
 
-        # if audio finish with silence enter here
-        if not os.path.exists(f"{path_starts_with}{idx}.wav"):
-            final_audio += audio_silence
-            break
+    if len(silences_ranges) == 0:
+        shutil.copy(f"{PATH_RELATIVE}/segment_ajusted_0.wav",f"{PATH_RELATIVE}/pre_output.wav",)
+        return AudioSegment.from_file(f"{PATH_RELATIVE}/pre_output.wav")
+    else:
+        final_audio = AudioSegment.silent(duration=0)
+        for idx, silence in enumerate(silences_ranges):
+            silence_duration = (silence[1] - silence[0]) * 1000
+            audio_silence = AudioSegment.silent(duration=round(silence_duration))
 
-        audio_segment = AudioSegment.from_file(f"{path_starts_with}{idx}.wav")
+            # if audio finish with silence enter here
+            if not os.path.exists(f"{path_starts_with}{idx}.wav"):
+                final_audio += audio_silence
+                break
 
-        # if is first loop enter here
-        if silence[0] == 0:
-            audio_silence += audio_segment
-            final_audio += audio_silence
-        else:
-            audio_segment += audio_silence
-            final_audio += audio_segment
+            audio_segment = AudioSegment.from_file(f"{path_starts_with}{idx}.wav")
 
-        # verify if is last loop
-        if idx+1 == len(silences_ranges):
-            original_audio = AudioSegment.from_file(original_audio_path)
-            original_audio_duration = len(original_audio)
-            final_audio_duration = len(final_audio)
-            if final_audio_duration < original_audio_duration:
-                if os.path.exists(f"{path_starts_with}{idx+1}.wav"):
-                    last_segment = AudioSegment.from_file(f"{path_starts_with}{idx+1}.wav")
-                    final_audio += last_segment
-        
-    final_audio.export(dest_folder, format="wav")
+            # if is first loop enter here
+            if silence[0] == 0:
+                audio_silence += audio_segment
+                final_audio += audio_silence
+            else:
+                audio_segment += audio_silence
+                final_audio += audio_segment
+
+            # verify if is last loop
+            if idx+1 == len(silences_ranges):
+                original_audio = AudioSegment.from_file(original_audio_path)
+                original_audio_duration = len(original_audio)
+                final_audio_duration = len(final_audio)
+                if final_audio_duration < original_audio_duration:
+                    if os.path.exists(f"{path_starts_with}{idx+1}.wav"):
+                        last_segment = AudioSegment.from_file(f"{path_starts_with}{idx+1}.wav")
+                        final_audio += last_segment
+            
+        final_audio.export(dest_folder, format="wav")
         
     return final_audio
 
 def get_speaker_path(relative_path, idx):
     speaker_path = f"{relative_path}audio_{idx}.wav"
     audio_speaker = AudioSegment.from_file(speaker_path)
-    duration_speaker = len(audio_speaker)
-    if duration_speaker < 1000:
-        other_speaker_path_chunk = f"{relative_path}audio_{idx-1}.wav"
-        audio_speaker_other_speaker = AudioSegment.from_file(other_speaker_path_chunk)
-        if audio_speaker_other_speaker < 1000:
-            return f"{relative_path}audio_{idx+1}.wav"
-        else:
-            return f"{relative_path}audio_{idx-1}.wav"
-    else:
-        return speaker_path
+    min_duration_audio = 3000 # in miliseconds
+    if len(audio_speaker) < min_duration_audio:
+
+        # Verify next 3 audios if has more duration
+        for s in range(3):
+            temp_speaker_path = f"{relative_path}audio_{idx + s}.wav"
+            if os.path.exists(temp_speaker_path):
+                audio_temp_speaker = AudioSegment.from_file(temp_speaker_path)
+                if len(audio_temp_speaker) > len(audio_speaker):
+                    speaker_path = temp_speaker_path
+                    audio_speaker = AudioSegment.from_file(speaker_path)
+            else:
+                break
+
+        # if did find a audio duration Ok, can return
+        if len(audio_speaker) > min_duration_audio:
+            return speaker_path
+        
+         # Verify last 3 audios if has more duration
+        for s in range(3):
+            temp_speaker_path = f"{relative_path}audio_{idx - s}.wav"
+            if os.path.exists(temp_speaker_path):
+                audio_temp_speaker = AudioSegment.from_file(temp_speaker_path)
+                if len(audio_temp_speaker) > len(audio_speaker):
+                    speaker_path = temp_speaker_path
+                    audio_speaker = AudioSegment.from_file(speaker_path)
+            else:
+                break
+    return speaker_path
 
 def create_segments_in_lot(quantity_sliced_audios, relative_path):
+    
+    # It happends when audio has any silence and is just one audio
+    if quantity_sliced_audios == 0:
+        quantity_sliced_audios = 1
+
+
     for idx in range(quantity_sliced_audios):
         print(f"{idx}/{quantity_sliced_audios}")
 
@@ -119,6 +150,7 @@ def create_segments_in_lot(quantity_sliced_audios, relative_path):
             segments = json.load(file)['segments']
 
         speaker_wav = get_speaker_path(relative_path, idx)
+        print("speaker_wav ++>>",speaker_wav)
 
         # generate segments to each transcript
         for idy, segment in enumerate(segments):
@@ -126,7 +158,7 @@ def create_segments_in_lot(quantity_sliced_audios, relative_path):
             if len(segment['text']) == 0:
                 # Create a silence of 1 minut
                 create_silence(0, 1, f"{relative_path}segment_{idx}_{idy}.wav")
-            elif segment['text'] == " Music":
+            elif segment['text'] == " Music" or segment['text'] == " Applause":
                 # Create a silence if the segment is about Music an has not text
                 create_silence(segment['start'], segment['end'], f"{relative_path}segment_{idx}_{idy}.wav")
             else:
