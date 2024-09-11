@@ -2,6 +2,7 @@ from config import ORIGINAL_AUDIO, PATH_RELATIVE
 from utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
 from utils_voice_generator import generate_audio_by_text, combine_audios_and_silences, combine_adjusted_segments, create_segments_in_lot
 from splitter_audio import cut_video_at_silence
+from transcript import build_trancript
 from utils_loger import log_info
 import sys
 import os
@@ -11,13 +12,15 @@ import shutil
 
 def create_transcript(quantity_sliced_audios, source_lang, dest_lang):
     if quantity_sliced_audios == 0:
-        os.system(
-            f"python transcript.py {PATH_RELATIVE}audio_0.wav translate {PATH_RELATIVE}transcript_0.json {source_lang} {dest_lang}")
+        build_trancript(f"{PATH_RELATIVE}audio_0.wav", source_lang, f"{PATH_RELATIVE}transcript_0.json")
+        # os.system(
+        #     f"python transcript.py {PATH_RELATIVE}audio_0.wav translate {PATH_RELATIVE}transcript_0.json {source_lang} {dest_lang}")
         return
 
     for idx in range(quantity_sliced_audios):
-        os.system(
-            f"python transcript.py {PATH_RELATIVE}audio_{idx}.wav translate {PATH_RELATIVE}transcript_{idx}.json {source_lang} {dest_lang}")
+        build_trancript(f"{PATH_RELATIVE}audio_{idx}.wav", source_lang, f"{PATH_RELATIVE}transcript_{idx}.json")
+        # os.system(
+        #     f"python transcript.py {PATH_RELATIVE}audio_{idx}.wav translate {PATH_RELATIVE}transcript_{idx}.json {source_lang} {dest_lang}")
 
 def combine_segments(silence_intervals):
     
@@ -63,7 +66,7 @@ def main():
         )
     combine_segments(silence_intervals)
     combine_result_audio_with_video(VIDEO_PATH)
-    clean_up(PATH_RELATIVE)
+    # clean_up(PATH_RELATIVE)
 
 if __name__ == "__main__":
     main()

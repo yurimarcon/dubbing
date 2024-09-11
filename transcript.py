@@ -2,6 +2,7 @@ import whisper
 import sys
 import json
 import torch
+from utils_loger import log_error
 
 # Models avaliable
 MODEL_TYPES = {
@@ -12,11 +13,12 @@ MODEL_TYPES = {
     "large": "large"
 }
 
-def load_and_transcribe(input_audio, source_lang, task):
+def load_and_transcribe(input_audio, source_lang):
     try:
         model_type = MODEL_TYPES["medium"]
         device = "cuda" if torch.cuda.is_available() else "cpu"
         model = whisper.load_model(model_type, device=device)
+        task = get_task(source_lang)
         
         result = model.transcribe(
             audio=input_audio, 
@@ -36,27 +38,51 @@ def load_and_transcribe(input_audio, source_lang, task):
         return result
 
     except Exception as e:
-        print(f"An error occurred during transcription: {e}")
+        log_error(f"An error occurred during transcription: {e}")
         return None
+        
+def get_task(source_lang):
+    # "translate" or "transcribe"
+    if source_lang == "en":
+        return "transcribe"
+    return "translate"
 
-def main():
-    if len(sys.argv) != 6:
-        print("Use: transcript.py <input_audio> <task> <file_transcript_name> <source_lang> <dest_language>")
-        sys.exit(1)
+def validate_input(args):
+    if len(args) != 4:
+        log_error("Use: transcript.py <input_audio> <source_lang> <file_transcript_name>")
+        return sys.exit(1)
 
-    input_audio = sys.argv[1]
-    task = sys.argv[2] if sys.argv[2] else "translate"  # "translate" ou "transcribe"
-    file_transcript_name = sys.argv[3]
-    source_lang = sys.argv[4]
-    dest_language = sys.argv[5]
-
-    transcribed_content = load_and_transcribe(input_audio, source_lang, task)
-
+def write_transcript_in_file(transcribed_content, file_name):
     if transcribed_content is not None:
-        with open(file_transcript_name, 'w') as json_file:
+        with open(file_name, 'w') as json_file:
             json.dump(transcribed_content, json_file, indent=4)
     else:
-        print("Transcript fail. Output file did not created.")
+        log_error("Transcript fail. Output file did not created.")
+
+def build_trancript(input_audio, source_lang, file_transcript_name):
+    if input_audio == None:
+        sys.exit(1)
+        return
+    if source_lang == None:
+        sys.exit(1)
+        return
+    if file_transcript_name == None:
+        sys.exit(1)
+        return
+
+    transcribed_content = load_and_transcribe(input_audio, source_lang)
+    write_transcript_in_file(transcribed_content, file_transcript_name) 
+
+def main():
+    validate_input(sys.argv)
+
+    input_audio = sys.argv[1]
+    source_lang = sys.argv[2]
+    file_transcript_name = sys.argv[3]
+
+    transcribed_content = load_and_transcribe(input_audio, source_lang)
+    write_transcript_in_file(transcribed_content, file_transcript_name)
+    
 
 if __name__ == "__main__":
     main()

@@ -7,4 +7,5 @@ time python -m unittest \
     test_combine_audios.py \
     test_generate_segments.py \
     test_spliter_audio.py \
-    test_silence_intervals.py
+    test_silence_intervals.py \
+    test_transcript.py
