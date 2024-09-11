@@ -64,3 +64,26 @@ curl -X POST -F "file=@/path/to/your/video.mp4" http://127.0.0.1:5000/upload
 
 Você também pode enviar arquivos chamando a API de outra forma ou via Swagger pela URL:
 __http://127.0.0.1:5000/apidocs/#/default__
+
+## Você também pode rodar via docker:
+
+```sh
+docker-compose build
+````
+
+## Possíveis erros:
+
+### Porta em uso:
+
+confira qual porta está em uso com o seguinte comando:
+
+```sh
+sudo lsof -i :6379  
+````
+
+Para desligar o serviço basta usar o seguinte comando:
+
+```sh
+sudo kill -9 <PID>
+````
+
