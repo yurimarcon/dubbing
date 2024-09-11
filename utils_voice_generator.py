@@ -136,7 +136,7 @@ def get_speaker_path(relative_path, idx):
                 break
     return speaker_path
 
-def create_segments_in_lot(quantity_sliced_audios, relative_path):
+def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relative_path):
     
     # It happends when audio has any silence and is just one audio
     if quantity_sliced_audios == 0:
@@ -166,8 +166,8 @@ def create_segments_in_lot(quantity_sliced_audios, relative_path):
                     segment['text'], 
                     speaker_wav, 
                     f"{relative_path}segment_{idx}_{idy}.wav", 
-                    "en", 
-                    "pt"
+                    source_lang, 
+                    dest_lang
                     )
         # combine segments to create one segment by transcript
         combine_adjusted_segments(

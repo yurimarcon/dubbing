@@ -12,15 +12,19 @@ import shutil
 
 def create_transcript(quantity_sliced_audios, source_lang, dest_lang):
     if quantity_sliced_audios == 0:
-        build_trancript(f"{PATH_RELATIVE}audio_0.wav", source_lang, f"{PATH_RELATIVE}transcript_0.json")
-        # os.system(
-        #     f"python transcript.py {PATH_RELATIVE}audio_0.wav translate {PATH_RELATIVE}transcript_0.json {source_lang} {dest_lang}")
+        build_trancript(
+            f"{PATH_RELATIVE}audio_0.wav", 
+            source_lang, 
+            f"{PATH_RELATIVE}transcript_0.json"
+            )
         return
 
     for idx in range(quantity_sliced_audios):
-        build_trancript(f"{PATH_RELATIVE}audio_{idx}.wav", source_lang, f"{PATH_RELATIVE}transcript_{idx}.json")
-        # os.system(
-        #     f"python transcript.py {PATH_RELATIVE}audio_{idx}.wav translate {PATH_RELATIVE}transcript_{idx}.json {source_lang} {dest_lang}")
+        build_trancript(
+            f"{PATH_RELATIVE}audio_{idx}.wav", 
+            source_lang, 
+            f"{PATH_RELATIVE}transcript_{idx}.json"
+            )
 
 def combine_segments(silence_intervals):
     
@@ -52,21 +56,25 @@ def clean_up(relative_path):
 
 def main():
     VIDEO_PATH = sys.argv[1]
+    source_lang = "en"
+    dest_lang = "es"
 
     extract_audio_from_video(VIDEO_PATH, ORIGINAL_AUDIO)
     silence_intervals = detect_silences(ORIGINAL_AUDIO)
     log_info(silence_intervals)
     quantity_sliced_audios = cut_video_at_silence(ORIGINAL_AUDIO, silence_intervals, PATH_RELATIVE)
     log_info("quantity_sliced_audios")
-    log_info(quantity_sliced_audios)
-    create_transcript(quantity_sliced_audios, "en", "pt")
+    log_info(f"quantity_sliced_audios: {quantity_sliced_audios}")
+    create_transcript(quantity_sliced_audios, source_lang, dest_lang)
     create_segments_in_lot(
         quantity_sliced_audios,
+        source_lang,
+        dest_lang,
         PATH_RELATIVE
         )
     combine_segments(silence_intervals)
     combine_result_audio_with_video(VIDEO_PATH)
-    # clean_up(PATH_RELATIVE)
+    clean_up(PATH_RELATIVE)
 
 if __name__ == "__main__":
     main()

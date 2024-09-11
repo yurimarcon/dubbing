@@ -6,7 +6,7 @@ translator = Translator()
 def translate_text (text, source_lang, dest_language):
     try:
         translated = translator.translate(
-            text=text_cleaned, 
+            text=text, 
             src=source_lang,
             dest=dest_language
             )

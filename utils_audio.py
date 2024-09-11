@@ -2,6 +2,7 @@ from pydub import AudioSegment
 from pydub.silence import detect_silence
 import os
 from utils_loger import log_info
+from config import PATH_RELATIVE
 
 def load_audio(file_path):
     with open(file_path, 'rb') as f:
@@ -118,4 +119,6 @@ def ajust_time_segments (original_audio, output_audio):
     os.rename(temp_output_path, output_audio)
     
 def extract_audio_from_video(video_path, output_audio_path):
+    if not os.path.exists(PATH_RELATIVE):
+        os.mkdir(PATH_RELATIVE)
     os.system(f"ffmpeg -i {video_path} -q:a 0 -map a {output_audio_path}")
