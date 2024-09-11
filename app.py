@@ -3,6 +3,7 @@ import os
 from config import SOURCE_FOLDER
 from flasgger import Swagger
 from celery import Celery
+from utils_loger import log_info
 
 app = Flask(__name__)
 swagger = Swagger(app, template={
@@ -15,10 +16,9 @@ swagger = Swagger(app, template={
 
 app.config['SOURCE_FOLDER'] = SOURCE_FOLDER
 
-
 # Configuração do Celery
-app.config['CELERY_BROKER_URL'] = 'redis://localhost:6379/0'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
+app.config['CELERY_BROKER_URL'] = 'redis://redis:6379/0'
+app.config['CELERY_RESULT_BACKEND'] = 'redis://redis:6379/0'
 
 celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
 celery.conf.update(app.config)
@@ -27,10 +27,13 @@ celery.conf.update(app.config)
 if not os.path.exists(SOURCE_FOLDER):
     os.makedirs(SOURCE_FOLDER)
 
+log_info("API running")
+
 @celery.task(bind=True)
 def long_task(self, file_path):
+    log_info("Prepare to send task...")
     os.system(f"python main.py {file_path}")
-    return "Tarefa demorada concluída!"
+    return "=====>>> long_task conclude!"
 
 @app.route('/api', methods=['GET'])
 def home():
@@ -58,6 +61,7 @@ def upload_file():
       200:
         description: Upload bem-sucedido
     """
+    log_info("Request recived...")
     if 'file' not in request.files:
         return jsonify({"error": "No file part in the request"}), 400
     

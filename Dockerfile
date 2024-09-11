@@ -1,7 +1,5 @@
-# Usar uma imagem base do Python
 FROM python:3.11-slim
 
-# Instalar dependências do sistema necessárias para construir pacotes
 RUN apt-get update && apt-get install -y \
     build-essential \
     gcc \
@@ -11,26 +9,26 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     curl \
     git \
+    ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
-# Instalar o compilador Rust
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
-# Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar o arquivo de dependências para o contêiner
 COPY requirements.txt .
 
-# Instalar as dependências do Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar o código da aplicação para o contêiner
+# Replace False to True in a license request.
+# RUN sed -i '311s/"""Ask the user to agree to the terms of service"""/return True/' ../usr/local/lib/python3.11/site-packages/TTS/utils/manage.py
+# RUN sed -i '5s/speaker_file_path/speaker_file_path, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py
+# RUN sed -i '51s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
+# RUN sed -i '54s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
+
 COPY . .
 
-# Expôr as portas que serão usadas
 EXPOSE 5000 6379 5555
 
-# Comando padrão para o contêiner
 CMD ["redis-server"]

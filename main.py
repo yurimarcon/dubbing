@@ -55,6 +55,7 @@ def clean_up(relative_path):
         os.remove(file)
 
 def main():
+    log_info("main.py started...")
     VIDEO_PATH = sys.argv[1]
     source_lang = "en"
     dest_lang = "es"

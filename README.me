@@ -87,3 +87,24 @@ Para desligar o serviço basta usar o seguinte comando:
 sudo kill -9 <PID>
 ````
 
+### Como acessar o container?
+
+Para acessar o container você pode usar o seguinte comando:
+
+```sh
+docker exec -it dubbing-web-1 /bin/bash
+```
+
+## Como recriar containers?
+
+Se precisar fazer alguma alteração, vai precisar deletar os containers e criar novamente:
+
+```sh
+docker-compose down
+````
+
+recriar:
+
+```sh
+docker-compose up --build
+```
