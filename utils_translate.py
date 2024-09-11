@@ -5,14 +5,12 @@ translator = Translator()
 
 def translate_text (text, source_lang, dest_language):
     try:
-        text_cleaned = text.replace(".", "")
         translated = translator.translate(
-            text=text, 
+            text=text_cleaned, 
             src=source_lang,
             dest=dest_language
             )
-            
         return translated.text.replace(".", "")
     except Exception as e:
-        log_error(f"Google can't translate: {text}. Error: {e}")
+        log_error(f"Google can't translate: '{text}'. Error: {e}")
         return " .Google translate can't translate it. "

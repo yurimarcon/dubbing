@@ -40,7 +40,7 @@ def load_and_transcribe(input_audio, source_lang):
     except Exception as e:
         log_error(f"An error occurred during transcription: {e}")
         return None
-        
+
 def get_task(source_lang):
     # "translate" or "transcribe"
     if source_lang == "en":

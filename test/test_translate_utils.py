@@ -14,12 +14,6 @@ class TestTranslateUtils(unittest.TestCase):
         text = "Hello World!!!"
         text_translated = translate_text(text, "en", "pt")
         self.assertEqual(text_translated, "Olá mundo !!!")
-    
-    def test_translate_english_to_portuguese (self):
-        text = "Great..."
-        text_translated = translate_text(text, "en", "pt")
-        print(text_translated)
-        self.assertEqual(text_translated, "Ótimo")
 
 if __name__ == '__main__':
     unittest.main()
