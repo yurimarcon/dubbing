@@ -19,13 +19,14 @@ WORKDIR /app
 
 COPY requirements.txt .
 
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Replace False to True in a license request.
-# RUN sed -i '311s/"""Ask the user to agree to the terms of service"""/return True/' ../usr/local/lib/python3.11/site-packages/TTS/utils/manage.py
-# RUN sed -i '5s/speaker_file_path/speaker_file_path, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py
-# RUN sed -i '51s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
-# RUN sed -i '54s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
+RUN sed -i '311s/"""Ask the user to agree to the terms of service"""/return True/' ../usr/local/lib/python3.11/site-packages/TTS/utils/manage.py
+RUN sed -i '5s/speaker_file_path/speaker_file_path, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py
+RUN sed -i '51s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
+RUN sed -i '54s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
 
 COPY . .
 

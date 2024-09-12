@@ -1,6 +1,6 @@
 from config import ORIGINAL_AUDIO, PATH_RELATIVE
 from utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
-from utils_voice_generator import generate_audio_by_text, combine_audios_and_silences, combine_adjusted_segments, create_segments_in_lot
+from utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
 from splitter_audio import cut_video_at_silence
 from transcript import build_trancript
 from utils_loger import log_info
