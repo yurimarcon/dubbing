@@ -67,8 +67,16 @@ __http://127.0.0.1:5000/apidocs/#/default__
 
 ## Você também pode rodar via docker:
 
+Criar a imagem:
+
 ```sh
 docker-compose build
+```
+
+Subir o container:
+
+```sh
+docker-compose up
 ````
 
 ## Possíveis erros:
