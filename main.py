@@ -48,7 +48,7 @@ def combine_result_audio_with_video(initial_video, relative_path):
         f"ffmpeg -i {initial_video} \
             -i {relative_path}/output.wav \
             -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 \
-            -shortest result/result.mp4"
+            -shortest {relative_path}/result.mp4"
     )
 
 def clean_up(relative_path):
