@@ -16,7 +16,7 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
     quantity_sliced_audios = 0
     next_start_sil = video_duration
     next_finish_sil = None
-    output_file = f"{output_folder}{SPLITED_INITIAL_AUDIO_NAME}"
+    output_file = os.path.join(output_folder, SPLITED_INITIAL_AUDIO_NAME)
     log_info(f"Video duration: {video_duration}")
 
     if len(silence_intervals) == 0:

@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
 import os
-from config import SOURCE_FOLDER
+from config import PATH_RELATIVE
 from flasgger import Swagger
-from celery import Celery
 from utils_loger import log_info
+from utils_voice_generator import initialize_tts_model
+from main import main
+from datetime import datetime
 
 app = Flask(__name__)
 swagger = Swagger(app, template={
@@ -14,26 +16,9 @@ swagger = Swagger(app, template={
     }
 })
 
-app.config['SOURCE_FOLDER'] = SOURCE_FOLDER
-
-# Configuração do Celery
-app.config['CELERY_BROKER_URL'] = 'redis://redis:6379/0'
-app.config['CELERY_RESULT_BACKEND'] = 'redis://redis:6379/0'
-
-celery = Celery(app.name, broker=app.config['CELERY_BROKER_URL'])
-celery.conf.update(app.config)
-
-# Certifique-se de que o diretório existe
-if not os.path.exists(SOURCE_FOLDER):
-    os.makedirs(SOURCE_FOLDER)
+tts_model = initialize_tts_model()
 
 log_info("API running")
-
-@celery.task(bind=True)
-def long_task(self, file_path):
-    log_info("Prepare to send task...")
-    os.system(f"python main.py {file_path}")
-    return "=====>>> long_task conclude!"
 
 @app.route('/api', methods=['GET'])
 def home():
@@ -47,7 +32,7 @@ def home():
 @app.route('/upload', methods=['POST'])
 def upload_file():
     """
-    Endpoint para upload de arquivos .mp4
+    Endpoint para upload de arquivos .mp4 com dados JSON
     ---
     consumes:
       - multipart/form-data
@@ -57,11 +42,28 @@ def upload_file():
         type: file
         required: true
         description: O arquivo .mp4 para upload
+      - name: source_language
+        in: formData
+        type: string
+        required: true
+        description: A linguagem de origem do arquivo
+      - name: dest_language
+        in: formData
+        type: string
+        required: true
+        description: A linguagem de destino para tradução
+      - name: user
+        in: formData
+        type: string
+        required: true
+        description: O usuário que está enviando a requisição
     responses:
       200:
         description: Upload bem-sucedido
     """
-    log_info("Request recived...")
+    log_info("Request received...")
+
+    # Verifica se o arquivo está presente na requisição
     if 'file' not in request.files:
         return jsonify({"error": "No file part in the request"}), 400
     
@@ -70,51 +72,33 @@ def upload_file():
     if file.filename == '':
         return jsonify({"error": "No selected file"}), 400
 
+    # Verifica se os dados de linguagem e usuário estão presentes
+    source_language = request.form.get('source_language')
+    dest_language = request.form.get('dest_language')
+    user = request.form.get('user')
+
+    if not source_language or not dest_language or not user:
+        return jsonify({"error": "Missing required form data"}), 400
+
+    # Valida o tipo de arquivo
     if file and file.filename.endswith('.mp4'):
-        file_path = os.path.join(app.config['SOURCE_FOLDER'], file.filename)
-        file.save(file_path)
-        process_id = long_task.apply_async(args=[file_path])  # Correção aqui
-        return jsonify({"message": f"File uploaded successfully to {file_path}, process ID: {process_id}"}), 200
+      relative_path = os.path.join(PATH_RELATIVE, user, datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
+      if not os.path.exists(relative_path):
+        os.makedirs(relative_path)
+
+      file_path = os.path.join(relative_path, file.filename)
+      file.save(file_path)
+
+      main(file_path, source_language, dest_language, relative_path, tts_model)
+
+      return jsonify({
+          "message": "File uploaded successfully!",
+          "source_language": source_language,
+          "dest_language": dest_language,
+          "user": user
+      }), 200 
     else:
         return jsonify({"error": "Only .mp4 files are allowed"}), 400
-
-@app.route('/task-status/<task_id>', methods=['GET'])
-def task_status(task_id):
-    """
-    Endpoint para consultar o status de uma tarefa
-    ---
-    parameters:
-      - name: task_id
-        in: path
-        type: string
-        required: true
-        description: ID da tarefa para consultar o status
-    responses:
-      200:
-        description: Status da tarefa consultado com sucesso
-        schema:
-          type: object
-          properties:
-            state:
-              type: string
-              description: O estado atual da tarefa
-            status:
-              type: string
-              description: Status adicional da tarefa, aplicável em caso de erro
-            result:
-              type: string
-              description: Resultado da tarefa, aplicável se a tarefa for bem-sucedida
-      404:
-        description: Tarefa não encontrada
-    """
-    task = long_task.AsyncResult(task_id)
-    if task.state == 'PENDING':
-        response = {"state": task.state, "status": "Aguardando..."}
-    elif task.state != 'FAILURE':
-        response = {"state": task.state, "result": task.result}
-    else:
-        response = {"state": task.state, "status": str(task.info)}  # task.info tem a exceção em caso de falha
-    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(debug=True)

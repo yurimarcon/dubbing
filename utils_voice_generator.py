@@ -19,12 +19,14 @@ from config import (
     OUTPUT_AUDIO
 )
 
-# Initialize TTS model
-tts_model = TTS(
-    model_name="tts_models/multilingual/multi-dataset/xtts_v2", 
-    progress_bar=False, 
-    gpu=torch.cuda.is_available()
-)
+def initialize_tts_model():
+    # Initialize TTS model
+    tts_model = TTS(
+        model_name="tts_models/multilingual/multi-dataset/xtts_v2", 
+        progress_bar=False, 
+        gpu=torch.cuda.is_available()
+    )
+    return tts_model
 
 def get_files_path(idx):
     initial_file = os.path.join(PATH_RELATIVE, f"{FILE_NAME_SEGMENT}{idx}.wav")
@@ -44,11 +46,11 @@ def combine_adjusted_segments(segments, temp_file_name, output_file):
     video_duration = AudioSegment.from_file(output_file)
     log_info(f"{output_file} {len(video_duration)}")
 
-def generate_audio_by_text(text, speaker_wav, dest_path, source_lang, dest_language, tts_model=tts_model):
-    text = translate_text(text, source_lang, dest_language) if dest_language != "en" else text
+def generate_audio_by_text(text, speaker_wav, dest_path, source_lang, dest_language, tts_model=initialize_tts_model()):
+    text_tractabled = translate_text(text, source_lang, dest_language) if dest_language != "en" else text
     try:
         tts_model.tts_to_file(
-            text=text, 
+            text=text_tractabled, 
             speaker_wav=speaker_wav, 
             language=dest_language, 
             file_path=dest_path
@@ -56,18 +58,18 @@ def generate_audio_by_text(text, speaker_wav, dest_path, source_lang, dest_langu
     except Exception as e:
         log_error(f"{speaker_wav} {dest_language} {dest_path} Error: {e}")
         tts_model.tts_to_file(
-            text=". Error in generate this chunk .", 
+            text=text, 
             speaker_wav=speaker_wav,
             language=dest_language, 
             file_path=dest_path
         )
         print(e)
 
-def combine_audios_and_silences(original_audio_path, path_starts_with, silences_ranges, dest_folder):
+def combine_audios_and_silences(original_audio_path, path_starts_with, silences_ranges, relative_path, path_output_audio):
 
     if len(silences_ranges) == 0:
-        shutil.copy(f"{PATH_RELATIVE}/segment_ajusted_0.wav",f"{PATH_RELATIVE}/pre_output.wav",)
-        return AudioSegment.from_file(f"{PATH_RELATIVE}/pre_output.wav")
+        shutil.copy(f"{relative_path}/segment_ajusted_0.wav", path_output_audio)
+        return AudioSegment.from_file(path_output_audio)
     else:
         final_audio = AudioSegment.silent(duration=0)
         for idx, silence in enumerate(silences_ranges):
@@ -99,19 +101,19 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
                         last_segment = AudioSegment.from_file(f"{path_starts_with}{idx+1}.wav")
                         final_audio += last_segment
             
-        final_audio.export(dest_folder, format="wav")
+        final_audio.export(path_output_audio, format="wav")
         
     return final_audio
 
 def get_speaker_path(relative_path, idx):
-    speaker_path = f"{relative_path}audio_{idx}.wav"
+    speaker_path = f"{relative_path}/audio_{idx}.wav"
     audio_speaker = AudioSegment.from_file(speaker_path)
     min_duration_audio = 3000 # in miliseconds
     if len(audio_speaker) < min_duration_audio:
 
         # Verify next 3 audios if has more duration
         for s in range(3):
-            temp_speaker_path = f"{relative_path}audio_{idx + s}.wav"
+            temp_speaker_path = f"{relative_path}/audio_{idx + s}.wav"
             if os.path.exists(temp_speaker_path):
                 audio_temp_speaker = AudioSegment.from_file(temp_speaker_path)
                 if len(audio_temp_speaker) > len(audio_speaker):
@@ -136,7 +138,7 @@ def get_speaker_path(relative_path, idx):
                 break
     return speaker_path
 
-def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relative_path):
+def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relative_path, tts_model):
     
     # It happends when audio has any silence and is just one audio
     if quantity_sliced_audios == 0:
@@ -146,7 +148,7 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
     for idx in range(quantity_sliced_audios):
         print(f"{idx}/{quantity_sliced_audios}")
 
-        with open(f"{relative_path}transcript_{idx}.json", 'r') as file:    
+        with open(f"{relative_path}/transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']
 
         speaker_wav = get_speaker_path(relative_path, idx)
@@ -157,28 +159,29 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
             print(f"{idy}/{len(segments)} from {idx}/{quantity_sliced_audios}")
             if len(segment['text']) == 0:
                 # Create a silence of 1 minut
-                create_silence(0, 1, f"{relative_path}segment_{idx}_{idy}.wav")
+                create_silence(0, 1, f"{relative_path}/segment_{idx}_{idy}.wav")
             elif segment['text'] == " Music" or segment['text'] == " Applause":
                 # Create a silence if the segment is about Music an has not text
-                create_silence(segment['start'], segment['end'], f"{relative_path}segment_{idx}_{idy}.wav")
+                create_silence(segment['start'], segment['end'], f"{relative_path}/segment_{idx}_{idy}.wav")
             else:
                 generate_audio_by_text(
                     segment['text'], 
                     speaker_wav, 
-                    f"{relative_path}segment_{idx}_{idy}.wav", 
+                    f"{relative_path}/segment_{idx}_{idy}.wav", 
                     source_lang, 
-                    dest_lang
+                    dest_lang,
+                    tts_model
                     )
         # combine segments to create one segment by transcript
         combine_adjusted_segments(
             segments, 
-            f"{relative_path}segment_{idx}_",
-            f"{relative_path}segment_{idx}.wav"
+            f"{relative_path}/segment_{idx}_",
+            f"{relative_path}/segment_{idx}.wav"
             )
             
         # Ajust speed audio by segment
         ajust_speed_audio(
-            f"{relative_path}segment_{idx}.wav", 
-            f"{relative_path}audio_{idx}.wav",
-            f"{relative_path}segment_ajusted_{idx}.wav"
+            f"{relative_path}/segment_{idx}.wav", 
+            f"{relative_path}/audio_{idx}.wav",
+            f"{relative_path}/segment_ajusted_{idx}.wav"
             )

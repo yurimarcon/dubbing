@@ -118,7 +118,8 @@ def ajust_time_segments (original_audio, output_audio):
     os.remove(output_audio)
     os.rename(temp_output_path, output_audio)
     
-def extract_audio_from_video(video_path, output_audio_path):
-    if not os.path.exists(PATH_RELATIVE):
-        os.mkdir(PATH_RELATIVE)
-    os.system(f"ffmpeg -i {video_path} -q:a 0 -map a {output_audio_path}")
+def extract_audio_from_video(video_path, output_relative_path, name_wav):
+    if not os.path.exists(output_relative_path):
+        os.mkdir(output_relative_path)
+    os.system(f"ffmpeg -i {video_path} -q:a 0 -map a {os.path.join(output_relative_path, name_wav)}")
+    return os.path.join(output_relative_path, name_wav)

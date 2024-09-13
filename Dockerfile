@@ -30,6 +30,4 @@ RUN sed -i '54s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/
 
 COPY . .
 
-EXPOSE 5000 6379 5555
-
-CMD ["redis-server"]
+EXPOSE 5000
