@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_file, abort
 import os
 from config import PATH_RELATIVE
 from flasgger import Swagger
@@ -95,10 +95,35 @@ def upload_file():
           "message": "File uploaded successfully!",
           "source_language": source_language,
           "dest_language": dest_language,
-          "user": user
+          "user": user,
+          "url_result_file": os.path.join(relative_path, "result.mp4")
       }), 200 
     else:
         return jsonify({"error": "Only .mp4 files are allowed"}), 400
+
+@app.route('/download', methods=['GET'])
+def download_file():
+  """
+  File download endpoint
+  ---
+  parameters:
+    - name: file_path
+      in: query
+      type: string
+      required: true
+      description: Path of the file to download
+  responses:
+    200:
+      description: File downloaded successfully
+    404:
+      description: File not found
+  """
+  file_path = request.args.get('file_path')
+
+  if not os.path.isfile(file_path):
+      abort(404, description="File not found")
+
+  return send_file(file_path, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)

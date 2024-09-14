@@ -1,4 +1,4 @@
-from config import PATH_RELATIVE, ORIGINAL_AUDIO_NAME
+from config import ORIGINAL_AUDIO_NAME
 from utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
 from utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
 from splitter_audio import cut_video_at_silence
@@ -58,6 +58,7 @@ def clean_up(relative_path):
 
 def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model):
     log_info("main.py started...")
+    log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
 
     if __name__ == "__main__":
         VIDEO_PATH = sys.argv[1]

@@ -2,7 +2,6 @@ from pydub import AudioSegment
 from pydub.silence import detect_silence
 import os
 from utils_loger import log_info
-from config import PATH_RELATIVE
 
 def load_audio(file_path):
     with open(file_path, 'rb') as f:

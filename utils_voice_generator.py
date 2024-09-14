@@ -9,8 +9,6 @@ from utils_translate import translate_text
 from utils_loger import log_error, log_info
 from config import (
     VOICE_MODEL,
-    SOURCE_FOLDER,
-    TEMP_FOLDER,
     PATH_RELATIVE,
     FILE_NAME_SEGMENT,
     FILE_NAME_ADJUSTED_TEMP,
