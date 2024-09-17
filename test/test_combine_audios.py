@@ -2,7 +2,7 @@ import unittest
 from pydub import AudioSegment
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
+from utils.utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
 import json
 
 inputTranscriptText = "data_tests/transcript.json"

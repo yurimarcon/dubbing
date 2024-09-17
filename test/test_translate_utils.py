@@ -1,7 +1,7 @@
 import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_translate import translate_text
+from utils.utils_translate import translate_text
 
 class TestTranslateUtils(unittest.TestCase):
 

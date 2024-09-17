@@ -2,8 +2,8 @@ import unittest
 from pydub import AudioSegment
 import sys, os, glob
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from splitter_audio import cut_video_at_silence
-from utils_audio import detect_silences
+from utils.utils_splitter_audio import cut_video_at_silence
+from utils.utils_audio import detect_silences
 
 class TestSplitAudio(unittest.TestCase):
 
