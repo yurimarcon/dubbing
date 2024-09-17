@@ -8,22 +8,7 @@ services:
       - .:/app
     ports:
       - "5001:5000"
-    depends_on:
-      - redis
     environment:
       - FLASK_APP=app.py
       - FLASK_ENV=development
-    ulimits:
-      nproc: 65535
-      nofile:
-        soft: 20000
-        hard: 40000
-    deploy:
-      resources:
-        limits:
-          memory: 8g          # Limite de memória RAM
-        reservations:
-          memory: 4g          # Memória reservada (garantida)
-    mem_limit: 8g            
-    memswap_limit: 16g        # Memória RAM + Swap (exemplo 8 GB de RAM + 8 GB de swap)
-    cpu_quota: 100000
+            

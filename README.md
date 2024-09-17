@@ -12,48 +12,41 @@ o video pode não vir em form ato MP4, então usar o programa "ffmpeg" para conv
 ffmpeg -i <video baixado do youtube> <nome do novo video colocando a extenção .mp4>
 ```
 
-Rodar com python 3.11.0
-Criar diretório result/ na raiz e temp/ dentro de result
+# Como rodar localmente:
 
-### Como rodar por linha de comando?
+> Rodar com python 3.11.0
 
-Basta ir para a raiz do projeto pelo terminal e rodar:
+Após clonar, certifique que está na versão 3.11.0 (você pode usar o pyenv para ajudar a gerenciar as versçoes do python), e vamos criar um ambiente virtual com o seguinte comendo:
 
 ```sh
-python main.py result/<nome do arquivo .mp4 que você quer traduzir.>
+python -m venv .
 ```
 
-### Como rodar a API
+Agora vamos ativar o ambinete virtual:
 
-Precerará ter o Redis instalado na maquina, ele serve para receber informações do gerenciamento de tarefas em background.
-Após o redis estar rodando rode seguinte comando para iniciar o Celer que é o worker que gerencia o processamento em Background:
-
-Rodar o Redis:
-
-```sh
-redis-server
-````
-
-Rodar o Celery:
-
-```sh
-celery -A app.celery worker --loglevel=info
+```sh 
+source bin/activate
 ```
 
-Agora rode a API:
+Nesse momento deve aparecer o nome do projeto no começo do path no seu terminal, se isso ocorrer o processo ocorreu com sucesso, caso contrario tente repetir o processo para garantir que você está em um ambiente virtual.
+
+Agora precisamos instalar as dependências com o comando:
+
+```sh
+pip install -r requirements.txt
+```
+> Esse passo pode demorar alguns minutos, se der erro confira o que pode estar faltando em sua maquina e instale os pacotes solicitados.
+
+Se não tiver nenhum erro o seu ambiente está pronto para rodar o projeto.
+
+## Como rodar a API?
+
+Basta ir para a raiz do projeto e rodar:
 
 ```sh
 flask run
 ```
-
-Caso queira acompanhar os processamentos por uma painel web, rode em outro terminal:
-(Precisará ter o flower instalado)
-
-```sh
-celery -A app.celery flower
-```
-
-## Como enviar requisições via curl?
+### Como enviar requisições via curl?
 
 Para fazer o upload do aquivo você pode usar o seguinte comando:
 
@@ -68,7 +61,7 @@ Para fazer o download do arquivo:
 curl -X GET "http://localhost:5000/download?file_path=path/para/seu/arquivo.txt" -O
 ```
 
-## COmo enviar a requisição via fetch?
+### Como enviar a requisição via fetch?
 
 Faz o upload do arquivo:
 
@@ -109,7 +102,7 @@ const uploadFile = async () => {
 };
 ```
 
-Faz o download do arquivo
+### Fazer o download do arquivo
 
 ```js
 fetch('http://127.0.0.1:5000/download?file_path=result/result.mp4')
@@ -138,6 +131,15 @@ fetch('http://127.0.0.1:5000/download?file_path=result/result.mp4')
 Você também pode enviar arquivos chamando a API de outra forma ou via Swagger pela URL:
 __http://127.0.0.1:5000/apidocs/#/default__
 
+
+## Como rodar por console?
+
+Basta ir para a raiz do projeto pelo terminal e rodar:
+
+```sh
+python main.py result/<nome do arquivo .mp4 que você quer traduzir.>
+```
+
 ## Você também pode rodar via docker:
 
 Criar a imagem:
@@ -150,7 +152,7 @@ Subir o container:
 
 ```sh
 docker-compose up
-````
+```
 
 ## Possíveis erros:
 
@@ -166,7 +168,7 @@ Para desligar o serviço basta usar o seguinte comando:
 
 ```sh
 sudo kill -9 <PID>
-````
+```
 
 ### Como acessar o container?
 

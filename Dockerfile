@@ -10,23 +10,23 @@ RUN apt-get update && apt-get install -y \
     curl \
     git \
     ffmpeg \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* && \
+    curl https://sh.rustup.rs -sSf | sh -s -- -y
 
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 
 WORKDIR /app
 
 COPY requirements.txt .
 
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Replace False to True in a license request.
-RUN sed -i '311s/"""Ask the user to agree to the terms of service"""/return True/' ../usr/local/lib/python3.11/site-packages/TTS/utils/manage.py
-RUN sed -i '5s/speaker_file_path/speaker_file_path, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py
-RUN sed -i '51s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
-RUN sed -i '54s/kwargs/kwargs, weights_only=False/' ../usr/local/lib/python3.11/site-packages/TTS/utils/io.py
+# Modificações nos arquivos da Coqui TTS
+RUN sed -i '311s/"""Ask the user to agree to the terms of service"""/return True/' /usr/local/lib/python3.11/site-packages/TTS/utils/manage.py
+RUN sed -i '5s/speaker_file_path/speaker_file_path, weights_only=False/' /usr/local/lib/python3.11/site-packages/TTS/tts/layers/xtts/xtts_manager.py
+RUN sed -i '51s/kwargs/kwargs, weights_only=False/' /usr/local/lib/python3.11/site-packages/TTS/utils/io.py
+RUN sed -i '54s/kwargs/kwargs, weights_only=False/' /usr/local/lib/python3.11/site-packages/TTS/utils/io.py
 
 COPY . .
 
