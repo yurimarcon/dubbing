@@ -8,6 +8,8 @@ def home():
     """
     Verify service working.
     ---
+    tags:
+        - Verify API
     responses:
         200:
             description: Service Working!

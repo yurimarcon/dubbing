@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, send_file, abort
 import os
 from flasgger import Swagger
 from utils.utils_loger import log_info
+from repository.database import create_all_tables
 from datetime import datetime
 from routes.upload_routes import upload_bp
 from routes.download_routes import download_bp
@@ -18,6 +19,8 @@ swagger = Swagger(app, template={
 })
 
 log_info("API running")
+
+create_all_tables()
 
 app.register_blueprint(upload_bp)
 app.register_blueprint(download_bp)

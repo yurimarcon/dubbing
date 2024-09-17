@@ -9,6 +9,8 @@ def download_file():
   """
   File download endpoint
   ---
+  tags:
+    - Core
   parameters:
     - name: file_path
       in: query

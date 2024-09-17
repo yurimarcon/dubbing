@@ -12,7 +12,9 @@ def create_table_user():
             tel TEXT NOT NULL,
             password TEXT NOT NULL,
             credits INTEGER NOT NULL,
-            is_active INTEGER NOT NULL
+            is_active INTEGER NOT NULL,
+            created_date TEXT NOT NULL,
+            last_update TEXT NOT NULL
         )
     ''')
 
@@ -52,6 +54,12 @@ def create_table_segments():
             end REAL NOT NULL
         )
     ''')
+
+def create_all_tables():
+    create_table_user()
+    create_table_process()
+    create_table_transcripts()
+    create_table_segments()
 
 if __name__ == "__main__":
     main()

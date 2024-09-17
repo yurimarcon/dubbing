@@ -60,6 +60,7 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model):
     log_info("main.py started...")
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
 
+    # if main.py did called diretly without API, will be enter in this if
     if __name__ == "__main__":
         VIDEO_PATH = sys.argv[1]
         source_lang = sys.argv[2]
