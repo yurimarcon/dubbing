@@ -30,6 +30,12 @@ source bin/activate
 
 Nesse momento deve aparecer o nome do projeto no começo do path no seu terminal, se isso ocorrer o processo ocorreu com sucesso, caso contrario tente repetir o processo para garantir que você está em um ambiente virtual.
 
+> Para desativar o ambiente virtual basta rodar o comando 
+```sh
+deactivate
+```
+
+
 Agora precisamos instalar as dependências com o comando:
 
 ```sh
