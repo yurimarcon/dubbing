@@ -2,8 +2,8 @@ from flask import Blueprint, jsonify, request
 import os
 from config import PATH_RELATIVE
 from main import main
-from utils_loger import log_info
-from utils_voice_generator import initialize_tts_model
+from utils.utils_loger import log_info
+from utils.utils_voice_generator import initialize_tts_model
 from datetime import datetime
 
 tts_model = initialize_tts_model()

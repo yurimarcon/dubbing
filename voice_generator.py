@@ -6,7 +6,7 @@ import os
 import glob
 from TTS.api import TTS
 from pydub import AudioSegment
-from utils_audio import (
+from utils.utils_audio import (
     get_silence_ranges, 
     get_initial_silence_duration, 
     get_speed_factory, 
@@ -15,9 +15,9 @@ from utils_audio import (
     ajust_time_segments,
     adjust_segment_speed
 )
-from utils_translate import translate_text
-from utils_voice_generator import combine_adjusted_segments, get_files_path
-from config import VOICE_MODEL, PATH_RELATIVE, FILE_NAME_SEGMENT, FILE_NAME_ADJUSTED_TEMP, FILE_NAME_ADJUSTED, ORIGINAL_AUDIO, OUTPUT_AUDIO
+from utils.utils_translate import translate_text
+from utils.utils_voice_generator import combine_adjusted_segments, get_files_path
+from utils.config import VOICE_MODEL, PATH_RELATIVE, FILE_NAME_SEGMENT, FILE_NAME_ADJUSTED_TEMP, FILE_NAME_ADJUSTED, ORIGINAL_AUDIO, OUTPUT_AUDIO
 
 # Command line arguments
 input_audio = sys.argv[1]

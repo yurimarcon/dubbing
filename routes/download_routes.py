@@ -1,6 +1,6 @@
 from flask import Blueprint, request, send_file, abort
 import os
-from utils_loger import log_info
+from utils.utils_loger import log_info
 
 download_bp = Blueprint('download', __name__)
 

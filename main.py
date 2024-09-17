@@ -1,9 +1,9 @@
 from config import ORIGINAL_AUDIO_NAME
-from utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
-from utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
-from splitter_audio import cut_video_at_silence
-from transcript import build_trancript
-from utils_loger import log_info
+from utils.utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
+from utils.utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
+from utils.utils_splitter_audio import cut_video_at_silence
+from utils.utils_transcript import build_trancript
+from utils.utils_loger import log_info
 
 import sys
 import os

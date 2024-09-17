@@ -17,7 +17,6 @@ class TestCombineAudios(unittest.TestCase):
         3659
         2273
     """
-
     def test_start_with_silence_end_finish_with_audio(self):
         """
         Silence_durations:
@@ -26,6 +25,7 @@ class TestCombineAudios(unittest.TestCase):
             1777
             777
         """
+        relative_path = "data_tests/test_combine_audio/"
         silences_ranges = [[0.0, 1.333],[4.222, 5.111],[7.222, 8.999], [9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=16405) # Somatory times of silences and audios
         original_audio_path = "data_tests/test_combine_audio/audio.wav"
@@ -35,6 +35,7 @@ class TestCombineAudios(unittest.TestCase):
             original_audio_path, 
             f"data_tests/test_combine_audio/4-audios/segment_",
             silences_ranges,
+            relative_path,
             f"data_tests/test_combine_audio/output.wav"
             )
 
@@ -49,6 +50,7 @@ class TestCombineAudios(unittest.TestCase):
             1777
             777
         """
+        relative_path = "data_tests/test_combine_audio/"
         silences_ranges = [[4.222, 5.111],[7.222, 8.999], [9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=15072) # Somatory times of silences and audios
         original_audio_path = "data_tests/test_combine_audio/audio.wav"
@@ -58,6 +60,7 @@ class TestCombineAudios(unittest.TestCase):
             original_audio_path, 
             f"data_tests/test_combine_audio/4-audios/segment_",
             silences_ranges,
+            relative_path,
             f"data_tests/test_combine_audio/output.wav"
             )
 
@@ -73,6 +76,7 @@ class TestCombineAudios(unittest.TestCase):
             1777
             777
         """
+        relative_path = "data_tests/test_combine_audio/"
         silences_ranges = [[0.0, 1.333],[4.222, 5.111],[7.222, 8.999],[9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=14132) # Somatory times of silences and audios
         original_audio_path = "data_tests/test_combine_audio/audio.wav"
@@ -82,6 +86,7 @@ class TestCombineAudios(unittest.TestCase):
             original_audio_path, 
             f"data_tests/test_combine_audio/3-audios/segment_",
             silences_ranges,
+            relative_path,
             f"data_tests/test_combine_audio/output.wav"
             )
 
@@ -97,6 +102,7 @@ class TestCombineAudios(unittest.TestCase):
             1777
             777
         """
+        relative_path = "data_tests/test_combine_audio/"
         silences_ranges = [[2.000, 2.333],[4.222, 5.111],[7.222, 8.999], [9.222, 9.999]]
         original_audio = AudioSegment.silent(duration=15405) # Somatory times of silences and audios
         original_audio_path = "data_tests/test_combine_audio/audio.wav"
@@ -106,6 +112,7 @@ class TestCombineAudios(unittest.TestCase):
             original_audio_path, 
             f"data_tests/test_combine_audio/4-audios/segment_",
             silences_ranges,
+            relative_path,
             f"data_tests/test_combine_audio/output.wav"
             )
 
@@ -118,6 +125,7 @@ class TestCombineAudios(unittest.TestCase):
         Silence_durations:
             1.071
         """
+        relative_path = "data_tests/test_combine_audio/"
         silences_ranges = [[372.065, 373.136]]
         original_audio = AudioSegment.silent(duration=6768) # Somatory times of silences and audios
         original_audio_path = "data_tests/test_combine_audio/audio.wav"
@@ -127,6 +135,7 @@ class TestCombineAudios(unittest.TestCase):
             original_audio_path, 
             f"data_tests/test_combine_audio/2-audios/segment_",
             silences_ranges,
+            relative_path,
             f"data_tests/test_combine_audio/output.wav"
             )
 

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, send_file, abort
 import os
 from flasgger import Swagger
-from utils_loger import log_info
+from utils.utils_loger import log_info
 from datetime import datetime
 from routes.upload_routes import upload_bp
 from routes.download_routes import download_bp

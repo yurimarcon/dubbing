@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from utils_loger import log_info
+from utils.utils_loger import log_info
 
 generic_bp = Blueprint('generic', __name__)
 
