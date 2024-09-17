@@ -35,6 +35,7 @@ Agora precisamos instalar as dependências com o comando:
 ```sh
 pip install -r requirements.txt
 ```
+
 > Esse passo pode demorar alguns minutos, se der erro confira o que pode estar faltando em sua maquina e instale os pacotes solicitados.
 
 Se não tiver nenhum erro o seu ambiente está pronto para rodar o projeto.
