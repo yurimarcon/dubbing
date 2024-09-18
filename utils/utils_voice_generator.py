@@ -7,6 +7,7 @@ from TTS.api import TTS
 from utils.utils_audio import get_silence_ranges, get_initial_silence_duration, ajust_speed_audio, create_silence
 from utils.utils_translate import translate_text
 from utils.utils_loger import log_error, log_info
+from services.process_service import create_audio_done_service
 from config import (
     VOICE_MODEL,
     PATH_RELATIVE,
@@ -148,6 +149,7 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
 
     for idx in range(quantity_sliced_audios):
         print(f"{idx}/{quantity_sliced_audios}")
+        create_audio_done_service(relative_path, quantity_sliced_audios, idx+1)
 
         with open(f"{relative_path}/transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']

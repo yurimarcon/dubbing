@@ -13,22 +13,22 @@ def create_user():
         - User
     parameters:
         - name: user_name
-          in: body
+          in: formData
           type: string
           required: true
           description: User Name
         - name: user_email
-          in: body
+          in: formData
           type: string
           required: true
           description: User e-mail
         - name: user_tel
-          in: body
+          in: formData 
           type: string
           required: true
           description: User Telephone
         - name: user_password
-          in: body
+          in: formData
           type: string
           required: true
           description: User password
@@ -37,10 +37,10 @@ def create_user():
             description: Create User
     """
     log_info("Create User.")
-    name = request.body.get('user_name')
-    email = request.body.get('user_email')
-    tel = request.body.get('user_tel')
-    password = request.body.get('user_password')
+    name = request.form.get('user_name')
+    email = request.form.get('user_email')
+    tel = request.form.get('user_tel')
+    password = request.form.get('user_password')
     user = create_new_user(name, email, tel, password)
     return jsonify({"message": "User created with success!"})
 

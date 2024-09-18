@@ -6,8 +6,9 @@ import moviepy.video.io.ffmpeg_tools as ffmpeg_tools
 from utils.utils_audio import extract_audio_from_video, detect_silences
 from config import SILENCE_NAME, SPLITED_INITIAL_AUDIO_NAME
 from utils.utils_loger import log_info
+from services.process_service import split_audio_done_service
 
-def cut_video_at_silence(audio_path, silence_intervals, output_folder):
+def cut_video_at_silence(audio_path, silence_intervals, output_folder ):
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
@@ -24,6 +25,7 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder):
         return quantity_sliced_audios
 
     for idx, (silence_start, silence_end) in enumerate(silence_intervals):
+        split_audio_done_service(output_folder, len(silence_intervals), idx+1)
         
         # if is the last silence and not is a unique silence
         if silence_end == round(video_duration) and len(silence_intervals) > 1:

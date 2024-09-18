@@ -79,14 +79,13 @@ def upload_file():
         file_path = os.path.join(relative_path, file.filename)
         file.save(file_path)
 
-        executor.submit(main, file_path, source_language, dest_language, relative_path, tts_model)
+        executor.submit(main, file_path, source_language, dest_language, relative_path, tts_model, user.user_id)
 
         return jsonify({
             "message": "File uploaded successfully!",
             "source_language": source_language,
             "dest_language": dest_language,
-            "user": user.name,
-            "url_result_file": os.path.join(relative_path, "result.mp4")
+            "user": user.name
         }), 200 
     else:
         return jsonify({"error": "Only .mp4 files are allowed"}), 400

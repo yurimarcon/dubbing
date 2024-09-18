@@ -23,13 +23,18 @@ def create_table_process():
         CREATE TABLE IF NOT EXISTS Process (
             process_id INTEGER PRIMARY KEY AUTOINCREMENT,
             user_id INTEGER NOT NULL,
-            start_time TEXT NOT NULL,
-            end_time TEXT NOT NULL,
-            get_audio_done INTEGER NOT NULL,
-            split_audio_done INTEGER NOT NULL,
-            transcript_done INTEGER NOT NULL,
-            create_audio_done INTEGER NOT NULL,
-            unify_audio_done INTEGER NOT NULL
+            start_time TEXT,
+            end_time TEXT,
+            quantity_split INTEGER,
+            silence_ranges TEXT,
+            get_audio_done TEXT,
+            split_audio_done TEXT,
+            transcript_done TEXT,
+            create_audio_done TEXT,
+            unify_audio_done TEXT,
+            last_update TEXT,
+            relative_path TEXT,
+            download_file_name TEXT
         )
     ''')
 
@@ -44,7 +49,7 @@ def create_table_transcripts():
 
 def create_table_segments():
     database.execute('''
-        CREATE TABLE IF NOT EXISTS Segments (
+        CREATE TABLE IF NOT EXISTS Segments_transcript(
             segment_id INTEGER NOT NULL,
             transcript_id INTEGER NOT NULL,
             process_id INTEGER NOT NULL,

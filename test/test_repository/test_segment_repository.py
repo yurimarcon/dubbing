@@ -1,7 +1,7 @@
 import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from repository.segment_repository import create_segment, get_segment, get_all_segments, update_segment
+from repository.segment_transcript_repository import create_segment, get_segment, get_all_segments, update_segment
 from repository.database import create_table_segments
 
 class TestSegmentRepository(unittest.TestCase):

@@ -16,7 +16,7 @@ def create_segment(
         end
         ):
     database.execute(f'''
-        INSERT INTO Segments ( 
+        INSERT INTO Segments_transcript( 
             segment_id,
             transcript_id, 
             process_id, 
@@ -36,14 +36,14 @@ def create_segment(
     ''')
 
 def get_segment(segment_id):
-    rows = database.select("Segments", columns=[], condition=f"segment_id = {segment_id}")
+    rows = database.select("Segments_transcript", columns=[], condition=f"segment_id = {segment_id}")
     return Segment(*rows[0])
 
 def get_all_segments():
-    return database.select("Segments")
+    return database.select("Segments_transcript")
 
 def update_segment(segment):
-    database.update("Segments", data=segment, condition=f"segment_id = {segment['segment_id']}")
+    database.update("Segments_transcript", data=segment, condition=f"segment_id = {segment['segment_id']}")
 
 if __name__ == '__main__':
     main()
