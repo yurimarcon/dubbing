@@ -2,8 +2,10 @@ import unittest
 from pydub import AudioSegment
 import sys, os, glob
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_voice_generator import create_segments_in_lot, combine_audios_and_silences, get_speaker_path
-from utils_audio import ajust_speed_audio, detect_silences
+from utils.utils_voice_generator import create_segments_in_lot, combine_audios_and_silences, get_speaker_path, initialize_tts_model
+from utils.utils_audio import ajust_speed_audio, detect_silences
+
+tts_model = initialize_tts_model() 
 
 class TestGenerateAudios(unittest.TestCase):
 
@@ -17,15 +19,21 @@ class TestGenerateAudios(unittest.TestCase):
         pre_output_file_path = f"{relative_path}pre_output.wav"
         output_file_path = f"{relative_path}output.wav"
         silence_intervals = detect_silences(original_audio_path)
+        source_lang = "en"
+        dest_lang = "pt"
 
         create_segments_in_lot(
             quantity_silences, 
-            relative_path
+            source_lang,
+            dest_lang,
+            relative_path,
+            tts_model
             )
         combine_audios_and_silences(
             original_audio_path, 
             path_starts_with, 
             silence_intervals, 
+            relative_path,
             pre_output_file_path
         )
         speed_factory = ajust_speed_audio(
@@ -89,11 +97,16 @@ class TestGenerateAudios(unittest.TestCase):
     def test_c_empty_transcription(self):
         quantity_silences = 1
         relative_path = f"data_tests/test_segment_zero_audio/"
+        source_lang = "en"
+        dest_lang = "pt"
 
         try:
             create_segments_in_lot(
-                quantity_silences, 
-                relative_path
+                quantity_silences,
+                source_lang,
+                dest_lang,
+                relative_path,
+                tts_model
                 )
         except Exception as e:
             self.fail("Error in process transcript empty!!!")
@@ -107,11 +120,17 @@ class TestGenerateAudios(unittest.TestCase):
         original_audio_path = f"{relative_path}audio_0.wav"
         segment_path = f"{relative_path}segment_0.wav"
         segment_ajusted_path = f"{relative_path}segment_ajusted_0.wav"
+        quantity_silences = 1
+        source_lang = "en"
+        dest_lang = "pt"
 
         try:
             create_segments_in_lot(
-                quantity_silences, 
-                relative_path
+                quantity_silences,
+                source_lang,
+                dest_lang,
+                relative_path,
+                tts_model
                 )
 
             original_audio = AudioSegment.from_file(original_audio_path)

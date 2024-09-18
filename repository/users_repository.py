@@ -1,11 +1,12 @@
 from  sqlite4  import  SQLite4
 from entities.user import User
+from datetime import datetime
 
 database = SQLite4("database.db")
 
 database.connect()
 
-def create_user(name, email, tel, password, credits, is_active):
+def create_user(name, email, tel, password, credits, is_active ):
     database.execute(f'''
         INSERT INTO Users ( 
             name, 
@@ -13,20 +14,31 @@ def create_user(name, email, tel, password, credits, is_active):
             tel,
             password,
             credits,
-            is_active
+            is_active,
+            created_date,
+            last_update
         ) VALUES (
             "{name}",   
             "{email}",
             "{tel}",
             "{password}",
             {credits},
-            {is_active}
+            {is_active},
+            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
+            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}"
             )
     ''')
 
-def get_user(user_id):
+def get_user_by_id(user_id):
     rows = database.select("Users", columns=[], condition=f"user_id = {user_id}")
     return User(*rows[0])
+
+def get_user_by_name(user_name):
+    try:
+        rows = database.select("Users", columns=[], condition=f"name = '{user_name}'")
+        return User(*rows[0])
+    except:
+        return
 
 def get_all_users():
     return database.select("Users")

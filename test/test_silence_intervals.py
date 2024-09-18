@@ -1,7 +1,7 @@
 import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_audio import detect_silences
+from utils.utils_audio import detect_silences
 
 class TestSilenceIntervals(unittest.TestCase):
 

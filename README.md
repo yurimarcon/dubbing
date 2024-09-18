@@ -161,6 +161,22 @@ Subir o container:
 docker-compose up
 ```
 
+# Desenvolvedores:
+
+Caso queira rodar os testes, bast aentrar no diretório test/ e rodar:
+
+```sh
+./run_tests.sh
+```
+
+Esse comando irá rodar todos os testes, mas caso queira rodar algum arquivo de teste de forma isolada, basta rodar:
+
+```sh
+python -m unittest <nome-do-arquivo-de-teste>.py
+```
+
+Tem mais alguns testes de consistência de base dentro de test/test_repository caso queira explorar.
+
 ## Possíveis erros:
 
 ### Porta em uso:

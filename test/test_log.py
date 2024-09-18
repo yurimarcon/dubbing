@@ -1,7 +1,7 @@
 import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_loger import log_info
+from utils.utils_loger import log_info
 
 
 class TestLog(unittest.TestCase):

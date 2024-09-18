@@ -1,7 +1,7 @@
 import unittest
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils_text import process_text
+from utils.utils_text import process_text
 
 class TestTextUtils(unittest.TestCase):
 
