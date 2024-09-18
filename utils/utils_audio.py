@@ -32,10 +32,10 @@ def calculate_speed_factory(duratio_audio_base, duratio_audio_spected):
         return 1
     speed_factor = duratio_audio_base / duratio_audio_spected
     log_info(f"Real speed_factory: {speed_factor}")
-    if speed_factor < 0.9:
-        speed_factor = 0.9
-    elif speed_factor > 1.8:
-        speed_factor = 1.8
+    if speed_factor < 0.8:
+        speed_factor = 0.8
+    elif speed_factor > 1.9:
+        speed_factor = 1.9
     return speed_factor
 
 def get_speed_factory (segment_by_transcript, file_path_to_verify):

@@ -1,9 +1,11 @@
-from config import ORIGINAL_AUDIO_NAME
+from config import ORIGINAL_AUDIO_NAME, TEMP_ORIGINAL_AUDIO_NAME
 from utils.utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
 from utils.utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
 from utils.utils_splitter_audio import cut_video_at_silence
 from utils.utils_transcript import build_trancript
 from utils.utils_loger import log_info
+from utils.utils_noise_reduce import noise_reduce
+from utils.utils_voice_generator import initialize_tts_model
 
 import sys
 import os
@@ -60,17 +62,14 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model):
     log_info("main.py started...")
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
 
-    # if main.py did called diretly without API, will be enter in this if
-    if __name__ == "__main__":
-        VIDEO_PATH = sys.argv[1]
-        source_lang = sys.argv[2]
-        dest_lang = sys.argv[3]
-        tts_model = sys.argv[4]
+    
 
-    path_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, ORIGINAL_AUDIO_NAME)
+    path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
+    path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
     silence_intervals = detect_silences(path_original_audio)
     log_info(silence_intervals)
     quantity_sliced_audios = cut_video_at_silence(path_original_audio, silence_intervals, relative_path)
+    quantity_sliced_audios = 25
     log_info("quantity_sliced_audios")
     log_info(f"quantity_sliced_audios: {quantity_sliced_audios}")
     create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path)
@@ -86,4 +85,13 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model):
     # clean_up(relative_path)
 
 if __name__ == "__main__":
-    main()
+    
+    # if main.py did called diretly without API, will be enter in this if
+    if __name__ == "__main__":
+        VIDEO_PATH = sys.argv[1]
+        source_lang = sys.argv[2]
+        dest_lang = sys.argv[3]
+        relative_path = sys.argv[4]
+        tts_model = initialize_tts_model()
+
+    main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model)

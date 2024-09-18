@@ -103,7 +103,10 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
         
     return final_audio
 
-def get_speaker_path(relative_path, idx):
+def get_speaker_path(relative_path, idx, model_speaker_path):
+    if model_speaker_path:
+        return model_speaker_path
+
     speaker_path = f"{relative_path}/audio_{idx}.wav"
     audio_speaker = AudioSegment.from_file(speaker_path)
     min_duration_audio = 3000 # in miliseconds
@@ -149,7 +152,10 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
         with open(f"{relative_path}/transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']
 
-        speaker_wav = get_speaker_path(relative_path, idx)
+        # speaker_model_path = f"result/temp/yuri/2024-09-18-11-25-01/audio_16.wav"
+        speaker_model_path = f"model_voice/model.wav"
+        # speaker_model_path = f""
+        speaker_wav = get_speaker_path(relative_path, idx, speaker_model_path)
         print("speaker_wav ++>>",speaker_wav)
 
         # generate segments to each transcript
