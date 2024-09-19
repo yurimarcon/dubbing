@@ -7,6 +7,8 @@ from utils.utils_voice_generator import initialize_tts_model
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
 from repository.users_repository import get_user_by_name
+from services.process_service import create_process_service
+from utils.utils_get_frame import get_frame
 
 tts_model = initialize_tts_model()
 executor = ThreadPoolExecutor(max_workers=2)
@@ -79,6 +81,8 @@ def upload_file():
         file_path = os.path.join(relative_path, file.filename)
         file.save(file_path)
 
+        create_process_service(user.user_id, relative_path, source_language, dest_language)
+        get_frame(file_path, os.path.join(relative_path, "tumbnail.jpg"))
         executor.submit(main, file_path, source_language, dest_language, relative_path, tts_model, user.user_id)
 
         return jsonify({

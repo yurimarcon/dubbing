@@ -6,7 +6,7 @@ database = SQLite4("database.db")
 
 database.connect()
 
-def create_process(user_id, relative_path):
+def create_process(user_id, relative_path, source_lang, target_lang):
     print(user_id)
     database.execute(f'''
         INSERT INTO Process ( 
@@ -21,7 +21,10 @@ def create_process(user_id, relative_path):
             create_audio_done, 
             unify_audio_done,
             last_update,
-            relative_path
+            relative_path,
+            img,
+            source_lang,
+            target_lang
         ) VALUES (
             "{user_id}",
             "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
@@ -34,7 +37,10 @@ def create_process(user_id, relative_path):
             "0%",
             "0%",
             "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
-            "{relative_path}"
+            "{relative_path}",
+            "{relative_path}/tumbnail.jpg",
+            "{source_lang}",
+            "{target_lang}"
             )
     ''')
     return get_last_process()
@@ -45,7 +51,11 @@ def get_process_by_id(process_id):
 
 def get_process_by_user_id(user_id):
     rows = database.select("Process", columns=[], condition=f"user_id = {user_id}")
-    return [Process(*row) for row in rows]
+    process_dictionary = []
+    process_list = [Process(*row) for row in rows]
+    for p in process_list:
+        process_dictionary.append(p.__dict__)
+    return process_dictionary
 
 def get_process_by_relative_path(relative_path):
     rows = database.select("Process", columns=[], condition=f"relative_path = {relative_path}")

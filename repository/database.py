@@ -34,7 +34,10 @@ def create_table_process():
             unify_audio_done TEXT,
             last_update TEXT,
             relative_path TEXT,
-            download_file_name TEXT
+            download_file_name TEXT,
+            img TEXT,
+            source_lang TEXT,
+            target_lang TEXT
         )
     ''')
 

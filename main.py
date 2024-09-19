@@ -66,7 +66,6 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     log_info("main.py started...")
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
 
-    process_db = create_process_service(user_id, relative_path)
     
     path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
     path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
@@ -107,5 +106,7 @@ if __name__ == "__main__":
         relative_path = sys.argv[4]
         tts_model = initialize_tts_model()
         user_id = 1
+        
+        create_process_service(user_id, relative_path, source_lang, target_lang)
 
     main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
