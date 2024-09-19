@@ -179,6 +179,14 @@ Tem mais alguns testes de consistência de base dentro de test/test_repository c
 
 ## Possíveis erros:
 
+### Máquina não identifica o python
+
+Se estiver usando o pyenv e colocou as exportações das variaveis de ambiente no ~/.bashrc basta rodar:
+
+```sh
+source ~/.bashrc
+```
+
 ### Porta em uso:
 
 confira qual porta está em uso com o seguinte comando:
