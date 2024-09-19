@@ -85,7 +85,8 @@ def upload_file():
             "message": "File uploaded successfully!",
             "source_language": source_language,
             "dest_language": dest_language,
-            "user": user.name
+            "user": user.name,
+            "sequence": user.user_id
         }), 200 
     else:
         return jsonify({"error": "Only .mp4 files are allowed"}), 400

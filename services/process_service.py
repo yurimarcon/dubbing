@@ -1,4 +1,4 @@
-from repository.process_repository import create_process, get_process_by_id, update_process_by_relative_path
+from repository.process_repository import create_process, get_process_by_id, update_process_by_relative_path, get_process_by_user_id
 from datetime import datetime
 
 def create_process_service(user_id, relative_path):
@@ -71,3 +71,6 @@ def record_download_file_name(relative_path, file_name):
         "last_update":f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     }
     update_process_by_relative_path(process_to_update)
+
+def get_process_by_user_id_service(user_id):
+    return get_process_by_user_id(user_id)

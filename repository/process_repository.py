@@ -43,6 +43,10 @@ def get_process_by_id(process_id):
     rows = database.select("Process", columns=[], condition=f"process_id = {process_id}")
     return Process(*rows[0])
 
+def get_process_by_user_id(user_id):
+    rows = database.select("Process", columns=[], condition=f"user_id = {user_id}")
+    return [Process(*row) for row in rows]
+
 def get_process_by_relative_path(relative_path):
     rows = database.select("Process", columns=[], condition=f"relative_path = {relative_path}")
     return Process(*rows[0])

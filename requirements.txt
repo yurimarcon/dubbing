@@ -6,3 +6,5 @@ torch
 moviepy
 flask
 flasgger
+pedalboard
+noisereduce

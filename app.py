@@ -8,6 +8,7 @@ from routes.upload_routes import upload_bp
 from routes.download_routes import download_bp
 from routes.generic_routes import generic_bp
 from routes.user_routes import user_bp
+from routes.process_route import process_bp
 
 app = Flask(__name__)
 
@@ -27,6 +28,7 @@ app.register_blueprint(upload_bp)
 app.register_blueprint(download_bp)
 app.register_blueprint(generic_bp)
 app.register_blueprint(user_bp)
+app.register_blueprint(process_bp)
 
 if __name__ == '__main__':
     app.run(debug=True)
