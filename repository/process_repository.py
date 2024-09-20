@@ -6,7 +6,7 @@ database = SQLite4("database.db")
 
 database.connect()
 
-def create_process(user_id, relative_path, source_lang, target_lang):
+def create_process(user_id, relative_path, source_lang, target_lang, original_file_name ):
     print(user_id)
     database.execute(f'''
         INSERT INTO Process ( 
@@ -24,7 +24,8 @@ def create_process(user_id, relative_path, source_lang, target_lang):
             relative_path,
             img,
             source_lang,
-            target_lang
+            target_lang,
+            original_file_name 
         ) VALUES (
             "{user_id}",
             "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
@@ -40,7 +41,8 @@ def create_process(user_id, relative_path, source_lang, target_lang):
             "{relative_path}",
             "{relative_path}/tumbnail.jpg",
             "{source_lang}",
-            "{target_lang}"
+            "{target_lang}",
+            "{original_file_name}"
             )
     ''')
     return get_last_process()
@@ -52,6 +54,8 @@ def get_process_by_id(process_id):
 def get_process_by_user_id(user_id):
     rows = database.select("Process", columns=[], condition=f"user_id = {user_id}")
     process_dictionary = []
+    if len(rows) == 0:
+        return []
     process_list = [Process(*row) for row in rows]
     for p in process_list:
         process_dictionary.append(p.__dict__)

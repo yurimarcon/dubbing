@@ -81,7 +81,7 @@ def upload_file():
         file_path = os.path.join(relative_path, file.filename)
         file.save(file_path)
 
-        create_process_service(user.user_id, relative_path, source_language, dest_language)
+        create_process_service(user.user_id, relative_path, source_language, dest_language, file.filename)
         get_frame(file_path, os.path.join(relative_path, "tumbnail.jpg"))
         executor.submit(main, file_path, source_language, dest_language, relative_path, tts_model, user.user_id)
 

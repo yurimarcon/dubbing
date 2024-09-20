@@ -13,7 +13,7 @@ class TestSegmentRepository(unittest.TestCase):
 
     def test_start_process(self):
         user_id = 1
-        process = create_process_service(user_id, relative_path, "en", "pt")
+        process = create_process_service(user_id, relative_path, "en", "pt", original_file_name)
         all_process = get_process_by_user_id_service(1)
         self.assertGreaterEqual(len(all_process), 1)
 

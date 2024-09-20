@@ -26,7 +26,7 @@ class TestProcessRepository(unittest.TestCase):
         }
         update_process(process_to_update) 
         process_updated = get_process(1)
-        self.assertEqual(process_updated.get_audito_done, 1)
+        self.assertEqual(process_updated.get_audio_done, 1)
 
     def test_z_remove_database(self):
         os.remove("database.db")

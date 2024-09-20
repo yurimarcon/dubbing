@@ -1,8 +1,8 @@
 from repository.process_repository import create_process, get_process_by_id, update_process_by_relative_path, get_process_by_user_id
 from datetime import datetime
 
-def create_process_service(user_id, relative_path, source_lang, target_lang):
-    return create_process(user_id, relative_path, source_lang, target_lang)
+def create_process_service(user_id, relative_path, source_lang, target_lang, original_file_name):
+    return create_process(user_id, relative_path, source_lang, target_lang, original_file_name)
 
 def get_audio_done_service(relative_path):
     process_to_update = {

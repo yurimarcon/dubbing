@@ -37,7 +37,8 @@ def create_table_process():
             download_file_name TEXT,
             img TEXT,
             source_lang TEXT,
-            target_lang TEXT
+            target_lang TEXT,
+            original_file_name TEXT
         )
     ''')
 

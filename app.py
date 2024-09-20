@@ -10,8 +10,10 @@ from routes.generic_routes import generic_bp
 from routes.user_routes import user_bp
 from routes.process_route import process_bp
 from routes.images_route import images_bp
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 swagger = Swagger(app, template={
     "info": {

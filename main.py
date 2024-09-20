@@ -107,6 +107,6 @@ if __name__ == "__main__":
         tts_model = initialize_tts_model()
         user_id = 1
         
-        create_process_service(user_id, relative_path, source_lang, target_lang)
+        create_process_service(user_id, relative_path, source_lang, target_lang, original_file_name)
 
     main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)

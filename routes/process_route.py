@@ -44,5 +44,4 @@ def get_process_by_user():
     """
     user_id = request.args.get('user_id')
     process= get_process_by_user_id_service(user_id)
-    print(process)
     return jsonify(process), 200
