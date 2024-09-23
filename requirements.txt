@@ -9,3 +9,4 @@ flasgger
 pedalboard
 noisereduce
 flask-cors
+sqlite4
