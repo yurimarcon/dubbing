@@ -2,7 +2,7 @@ import unittest
 from pydub import AudioSegment
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from utils.utils_audio import get_speed_factory, ajust_speed_audio, calculate_speed_factory
+from utils.utils_audio import get_speed_factory, ajust_speed_audio, calculate_speed_factory, extract_audio_from_video
 import json
 
 inputTranscriptText = "data_tests/transcript.json"
@@ -57,6 +57,10 @@ class TestAudioUtils(unittest.TestCase):
     def test_get_speed_factory_small(self):
         speed_factor = calculate_speed_factory(9000, 10000)
         self.assertEqual(speed_factor, 0.9)
+
+    # def test_extract_audio_video_S3(self):
+    #     video_path = "https://dubbing-videos.s3.amazonaws.com/admin/27-09-2024-15%3A01%3A36/t.mp4\?AWSAccessKeyId\=AKIARLUNCMQLGSVDYOX3\&Signature\=zFYtpScL4snxoAUD7DNpeKc%2BiGQ%3D\&Expires\=1727472167"
+    #     extract_audio_from_video(video_path, "result/", "temp_audio.wav")
 
 if __name__ == '__main__':
     unittest.main()

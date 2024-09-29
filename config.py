@@ -14,3 +14,7 @@ TEMP_ORIGINAL_AUDIO_NAME = "1_audio_temp.wav"
 ORIGINAL_AUDIO_NAME = "1_audio.wav"
 ORIGINAL_AUDIO = os.path.join(PATH_RELATIVE, "1_audio.wav")
 OUTPUT_AUDIO = os.path.join(PATH_RELATIVE, "output.wav")
+
+### AWS
+BUCKET_NAME="dubbing-videos"
+BUCKET_URL="https://sqs.us-east-1.amazonaws.com/093711393814/dubbing-sqs"

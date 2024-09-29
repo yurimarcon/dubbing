@@ -7,12 +7,15 @@ from utils.utils_loger import log_info
 from utils.utils_noise_reduce import noise_reduce
 from utils.utils_voice_generator import initialize_tts_model
 from services.process_service import create_process_service, get_audio_done_service, split_audio_done_service, transcript_done_service, create_audio_done_service, unify_audio_done_service, record_quantity_split, record_silence_ranges, record_download_file_name
+from utils.utils_get_frame import get_frame
 
 import sys
 import os
 import json
 import glob
 import shutil
+from datetime import datetime
+import subprocess
 
 def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path):
     if quantity_sliced_audios == 0:
@@ -50,12 +53,24 @@ def combine_segments(silence_intervals, relative_path, path_original_audio):
             )
     
 def combine_result_audio_with_video(initial_video, relative_path):
-    os.system(
-        f"ffmpeg -i {initial_video} \
-            -i {relative_path}/output.wav \
-            -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 \
-            -shortest {relative_path}/result.mp4"
-    )
+    command = [
+        "ffmpeg", 
+        "-i", initial_video, 
+        "-i", os.path.join(relative_path, "output.wav"), 
+        "-c:v", "copy", 
+        "-c:a", "aac", 
+        "-map", "0:v:0", 
+        "-map", "1:a:0",
+        "-shortest", os.path.join(relative_path, "result.mp4")
+    ]
+    subprocess.run(command, check=True)
+
+    # os.system(
+    #     f"ffmpeg -i {initial_video} \
+    #         -i {relative_path}/output.wav \
+    #         -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 \
+    #         -shortest {relative_path}/result.mp4"
+    # )
 
 def clean_up(relative_path):
     all_file = glob.glob(os.path.join(relative_path, "*"))
@@ -102,11 +117,18 @@ if __name__ == "__main__":
     if __name__ == "__main__":
         VIDEO_PATH = sys.argv[1]
         source_lang = sys.argv[2]
-        dest_lang = sys.argv[3]
+        target_lang = sys.argv[3]
         relative_path = sys.argv[4]
         tts_model = initialize_tts_model()
         user_id = 1
-        
+        original_file_name = "t.mp4"
+
+        relative_path = os.path.join(relative_path, "admin", datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
+        if not os.path.exists(relative_path):
+            os.makedirs(relative_path) 
+
+        get_frame(VIDEO_PATH, os.path.join(relative_path, "tumbnail.jpg"))
+
         create_process_service(user_id, relative_path, source_lang, target_lang, original_file_name)
 
-    main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
+    main(VIDEO_PATH, source_lang, target_lang, relative_path, tts_model, user_id)

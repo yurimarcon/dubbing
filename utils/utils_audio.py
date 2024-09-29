@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 from pydub.silence import detect_silence
 import os
+import subprocess
 from utils.utils_loger import log_info
 
 def load_audio(file_path):
@@ -32,10 +33,10 @@ def calculate_speed_factory(duratio_audio_base, duratio_audio_spected):
         return 1
     speed_factor = duratio_audio_base / duratio_audio_spected
     log_info(f"Real speed_factory: {speed_factor}")
-    if speed_factor < 0.8:
-        speed_factor = 0.8
-    elif speed_factor > 1.9:
-        speed_factor = 1.9
+    if speed_factor < 0.9:
+        speed_factor = 0.9
+    elif speed_factor > 1.6:
+        speed_factor = 1.6
     return speed_factor
 
 def get_speed_factory (segment_by_transcript, file_path_to_verify):
@@ -120,5 +121,14 @@ def ajust_time_segments (original_audio, output_audio):
 def extract_audio_from_video(video_path, output_relative_path, name_wav):
     if not os.path.exists(output_relative_path):
         os.mkdir(output_relative_path)
-    os.system(f"ffmpeg -i {video_path} -q:a 0 -map a {os.path.join(output_relative_path, name_wav)}")
+
+    command = [
+        "ffmpeg", 
+        "-i", video_path, 
+        "-q:a", "0", 
+        "-map", "a", 
+        os.path.join(output_relative_path, name_wav)
+    ]
+    subprocess.run(command, check=True)
+
     return os.path.join(output_relative_path, name_wav)
