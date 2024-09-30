@@ -13,11 +13,13 @@ MODEL_TYPES = {
     "large": "large"
 }
 
+model_type = MODEL_TYPES["medium"]
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = whisper.load_model(model_type, device=device)
+print("==*==*load_model Transcript ==*==*")
+
 def load_and_transcribe(input_audio, source_lang):
     try:
-        model_type = MODEL_TYPES["medium"]
-        device = "cuda" if torch.cuda.is_available() else "cpu"
-        model = whisper.load_model(model_type, device=device)
         task = get_task(source_lang)
         
         result = model.transcribe(

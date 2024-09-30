@@ -1,16 +1,25 @@
 from repository.process_repository import create_process, get_process_by_id, update_process_by_relative_path, get_process_by_user_id
+from repository.dynamo_process_repository import update_field_string_repository
 from datetime import datetime
 
 def create_process_service(user_id, relative_path, source_lang, target_lang, original_file_name):
     return create_process(user_id, relative_path, source_lang, target_lang, original_file_name)
 
-def get_audio_done_service(relative_path):
+def get_audio_done_service(relative_path, processObject):
     process_to_update = {
         "relative_path": relative_path,
         "get_audio_done": "100%",
         "last_update":f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     }
     update_process_by_relative_path(process_to_update)
+
+    #DynamoDB
+    update_field_string_repository(
+        processObject['PK'],
+        processObject['SK'],
+        'get_audio_done',
+        '100%'
+    )
 
 def split_audio_done_service(relative_path, quantity_split, atual_split):
     percent = (atual_split / quantity_split) * 100
@@ -40,7 +49,7 @@ def create_audio_done_service(relative_path, quantity_split, atual_split):
     }
     update_process_by_relative_path(process_to_update)
 
-def unify_audio_done_service(relative_path):
+def unify_audio_done_service(relative_path, processObject):
     process_to_update = {
         "relative_path": relative_path,
         "unify_audio_done": "100%",
@@ -48,7 +57,15 @@ def unify_audio_done_service(relative_path):
     }
     update_process_by_relative_path(process_to_update)
 
-def record_silence_ranges(relative_path, silence_ranges):
+    #DynamoDB
+    update_field_string_repository(
+        processObject['PK'],
+        processObject['SK'],
+        'unify_audio_done',
+        '100%'
+    )
+
+def record_silence_ranges(relative_path, silence_ranges, processObject):
     process_to_update = {
         "relative_path": relative_path,
         "silence_ranges": f"'{silence_ranges}'",
@@ -56,7 +73,15 @@ def record_silence_ranges(relative_path, silence_ranges):
     }
     update_process_by_relative_path(process_to_update)
 
-def record_quantity_split(relative_path, quantity_split):
+    #DynamoDB
+    update_field_string_repository(
+        processObject['PK'],
+        processObject['SK'],
+        'silence_ranges',
+        silence_ranges
+    )
+
+def record_quantity_split(relative_path, quantity_split, processObject):
     process_to_update = {
         "relative_path": relative_path,
         "quantity_split": quantity_split,
@@ -64,13 +89,29 @@ def record_quantity_split(relative_path, quantity_split):
     }
     update_process_by_relative_path(process_to_update)
 
-def record_download_file_name(relative_path, file_name):
+    #DynamoDB
+    update_field_string_repository(
+        processObject['PK'],
+        processObject['SK'],
+        'quantity_split',
+        quantity_split
+    )
+
+def record_download_file_name(relative_path, file_name, processObject):
     process_to_update = {
         "relative_path": relative_path,
         "download_file_name": file_name,
         "last_update":f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
     }
     update_process_by_relative_path(process_to_update)
+
+    #DynamoDB
+    update_field_string_repository(
+        processObject['PK'],
+        processObject['SK'],
+        'download_file_name',
+        file_name
+    )
 
 def get_process_by_user_id_service(user_id):
     return get_process_by_user_id(user_id)

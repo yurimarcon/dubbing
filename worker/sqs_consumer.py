@@ -20,28 +20,21 @@ def receive_messages():
             WaitTimeSeconds=10,      # Long polling para aguardar mensagens
             VisibilityTimeout=30     # Tempo que a mensagem fica invisível após leitura
         )
-
+        
         # Verifica se recebeu mensagens
         if 'Messages' in response:
             for message in response['Messages']:
-                # print(f"Mensagem recebida: {message['Body']}")
-                
-                # Processar a mensagem aqui (exemplo: fazer algo com o conteúdo JSON)
-                # data = json.loads(message['Body'])
-                # print(f"Dados da mensagem: {data}")
-                return json.loads(message['Body'])
-
-                # Após processar a mensagem, você pode deletá-la da fila
-                # sqs.delete_message(
-                #     QueueUrl=queue_url,
-                #     ReceiptHandle=message['ReceiptHandle']
-                # )
-                # print("Mensagem deletada com sucesso.")
+                return message['ReceiptHandle'], json.loads(message['Body'])
         else:
             print("Nenhuma mensagem na fila.")
+            return None, None
 
     except Exception as e:
         print(f"Erro ao receber mensagens: {e}")
 
-# Chamando a função para receber mensagens
-# receive_messages()
+def remove_message_from_queue(receiptHandle):
+    sqs.delete_message(
+        QueueUrl=queue_url,
+        ReceiptHandle=receiptHandle
+    )
+    print("Mensagem deletada com sucesso.")
