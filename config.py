@@ -3,7 +3,8 @@ import os
 # Paths and filenames
 VOICE_MODEL = "model_voice/model.wav"
 SOURCE_FOLDER = "result/"
-TEMP_FOLDER = "temp/"
+# TEMP_FOLDER = "temp/"
+TEMP_FOLDER = ""
 PATH_RELATIVE = os.path.join(SOURCE_FOLDER, TEMP_FOLDER)
 FILE_NAME_SEGMENT = "segment_"
 FILE_NAME_ADJUSTED_TEMP = "segment_ajust_temp_"

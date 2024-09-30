@@ -17,24 +17,61 @@ import shutil
 from datetime import datetime
 import subprocess
 
+import concurrent.futures
+
+def process_audio(idx, relative_path, source_lang, quantity_sliced_audios):
+    # Atualiza o progresso da transcrição
+    transcript_done_service(relative_path, quantity_sliced_audios, idx + 1)
+    
+    # Constrói a transcrição do áudio
+    build_trancript(
+        os.path.join(relative_path, f"audio_{idx}.wav"), 
+        source_lang, 
+        os.path.join(relative_path, f"transcript_{idx}.json")
+    )
+
 def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path):
     if quantity_sliced_audios == 0:
         build_trancript(
             os.path.join(relative_path, "audio_0.wav"), 
             source_lang, 
             os.path.join(relative_path, "transcript_0.json")
-            )
+        )
         return
 
-    for idx in range(quantity_sliced_audios):
-        
-        transcript_done_service(relative_path, quantity_sliced_audios, idx+1)
+    # Utiliza paralelismo para melhorar o desempenho
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        # Agenda todas as transcrições para execução paralela
+        futures = [
+            executor.submit(process_audio, idx, relative_path, source_lang, quantity_sliced_audios) 
+            for idx in range(quantity_sliced_audios)
+        ]
 
-        build_trancript(
-            os.path.join(relative_path, f"audio_{idx}.wav"), 
-            source_lang, 
-            os.path.join(relative_path, f"transcript_{idx}.json")
-            )
+        # Aguarda a conclusão de todas as tarefas, lidando com exceções, se houver
+        for future in concurrent.futures.as_completed(futures):
+            try:
+                future.result()  # Pode capturar exceções e tratá-las aqui
+            except Exception as exc:
+                print(f"Erro durante o processamento do áudio: {exc}")
+
+# def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path):
+#     if quantity_sliced_audios == 0:
+#         build_trancript(
+#             os.path.join(relative_path, "audio_0.wav"), 
+#             source_lang, 
+#             os.path.join(relative_path, "transcript_0.json")
+#             )
+#         return
+
+#     for idx in range(quantity_sliced_audios):
+        
+#         transcript_done_service(relative_path, quantity_sliced_audios, idx+1)
+
+#         build_trancript(
+#             os.path.join(relative_path, f"audio_{idx}.wav"), 
+#             source_lang, 
+#             os.path.join(relative_path, f"transcript_{idx}.json")
+#             )
 
 def combine_segments(silence_intervals, relative_path, path_original_audio):
     
@@ -84,6 +121,7 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     
     path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
     path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
+    # path_original_audio = f"result/admin/30-09-2024-14/39/31/1_audio.wav"
     get_audio_done_service(relative_path)
 
     silence_intervals = detect_silences(path_original_audio)

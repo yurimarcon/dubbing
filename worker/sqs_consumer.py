@@ -1,11 +1,15 @@
 import boto3
 import json
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from config import BUCKET_URL
 
 # Criando o cliente SQS
 sqs = boto3.client('sqs', region_name='us-east-1')  # Altere para a região correta
 
 # URL da sua fila SQS
-queue_url = 'https://sqs.us-east-1.amazonaws.com/093711393814/dubbing-sqs'
+# queue_url = 'https://sqs.us-east-1.amazonaws.com/093711393814/dubbing-sqs'
+queue_url = BUCKET_URL
 
 def receive_messages():
     try:
