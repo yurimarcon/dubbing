@@ -31,7 +31,7 @@ def main():
     while True:
         print("Going to verify sqs...")
         get_message_sqs_and_process()
-        time.sleep(5)
+        time.sleep(60)
 
 if __name__ == '__main__':
     main()
