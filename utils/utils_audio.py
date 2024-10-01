@@ -50,7 +50,18 @@ def adjust_segment_speed(segment, initial_file, adjusted_file):
     print("===============================")
     print(f'ffmpeg -i {initial_file} -filter:a "atempo={speed_factor}" {adjusted_file}')
     print("===============================")
-    os.system(f'ffmpeg -i {initial_file} -filter:a "atempo={speed_factor}" {adjusted_file}')
+
+    command = [
+        "ffmpeg",
+        "-y", 
+        "-i", initial_file, 
+        "-filter:a", f"atempo={speed_factor}", 
+        adjusted_file
+    ]
+    subprocess.run(command, check=True)
+
+
+    # os.system(f'ffmpeg -i {initial_file} -filter:a "atempo={speed_factor}" {adjusted_file}')
 
 def ajust_speed_audio(audio_without_ajust, audio_time_expected, path_new_audio):
     file_audio_without_ajust = AudioSegment.from_file(audio_without_ajust)
@@ -60,7 +71,16 @@ def ajust_speed_audio(audio_without_ajust, audio_time_expected, path_new_audio):
 
     speed_factor = calculate_speed_factory(duration_audio_without_ajust, duration_audio_time_expected)
     
-    os.system(f'ffmpeg -i {audio_without_ajust} -filter:a "atempo={speed_factor}" {path_new_audio}')
+    command = [
+        "ffmpeg",
+        "-y", 
+        "-i", audio_without_ajust, 
+        "-filter:a", f"atempo={speed_factor}", 
+        path_new_audio
+    ]
+    subprocess.run(command, check=True)
+
+    # os.system(f'ffmpeg -i {audio_without_ajust} -filter:a "atempo={speed_factor}" {path_new_audio}')
     # ajust_time_video_puting_silence_in_start(path_new_audio, audio_time_expected)
     
     # Record log with name and time duration sniped audio
@@ -112,9 +132,18 @@ def ajust_time_segments (original_audio, output_audio):
         duration_output_audio, 
         duration_original_audio
         )
-    print("speed_factor ======>>>>>>", speed_factor)
     temp_output_path = "result/temp/new_output.wav"
-    os.system(f'ffmpeg -i {output_audio} -filter:a "atempo={speed_factor}" {temp_output_path}')
+
+    command = [
+        "ffmpeg",
+        "-y", 
+        "-i", output_audio, 
+        "-filter:a", f"atempo={speed_factor}", 
+        temp_output_path
+    ]
+    subprocess.run(command, check=True)
+
+    # os.system(f'ffmpeg -i {output_audio} -filter:a "atempo={speed_factor}" {temp_output_path}')
     os.remove(output_audio)
     os.rename(temp_output_path, output_audio)
     
