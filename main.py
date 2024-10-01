@@ -55,6 +55,7 @@ def combine_segments(silence_intervals, relative_path, path_original_audio):
 def combine_result_audio_with_video(initial_video, relative_path, dest_lang):
     command = [
         "ffmpeg", 
+        "-y",
         "-i", initial_video, 
         "-i", os.path.join(relative_path, "output.wav"), 
         "-c:v", "copy", 

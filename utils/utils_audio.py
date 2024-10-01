@@ -123,7 +123,8 @@ def extract_audio_from_video(video_path, output_relative_path, name_wav):
         os.mkdir(output_relative_path)
 
     command = [
-        "ffmpeg", 
+        "ffmpeg",
+        "-y", 
         "-i", video_path, 
         "-q:a", "0", 
         "-map", "a", 
