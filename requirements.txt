@@ -10,3 +10,4 @@ pedalboard
 noisereduce
 flask-cors
 sqlite4
+boto3

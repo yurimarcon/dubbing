@@ -77,22 +77,22 @@ def clean_up(relative_path):
     for file in all_file:
         os.remove(file)
 
-def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id, processObject):
+def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id):
     log_info("main.py started...")
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
     
     path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
     path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
-    get_audio_done_service(relative_path, processObject)
+    get_audio_done_service(relative_path)
 
     silence_intervals = detect_silences(path_original_audio)
-    record_silence_ranges(relative_path, silence_intervals, processObject)
+    record_silence_ranges(relative_path, silence_intervals)
     log_info(silence_intervals)
 
     quantity_sliced_audios = cut_video_at_silence(path_original_audio, silence_intervals, relative_path)
     log_info("quantity_sliced_audios")
     log_info(f"quantity_sliced_audios: {quantity_sliced_audios}")
-    record_quantity_split(relative_path, quantity_sliced_audios, processObject)
+    record_quantity_split(relative_path, quantity_sliced_audios)
 
     create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path)
 
@@ -106,8 +106,8 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id,
 
     combine_segments(silence_intervals, relative_path, path_original_audio)
     combine_result_audio_with_video(VIDEO_PATH, relative_path)
-    unify_audio_done_service(relative_path, processObject)
-    record_download_file_name(relative_path, "result.mp4", processObject)
+    unify_audio_done_service(relative_path)
+    record_download_file_name(relative_path, "result.mp4")
     # clean_up(relative_path)
 
 if __name__ == "__main__":
