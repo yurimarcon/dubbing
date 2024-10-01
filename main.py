@@ -52,7 +52,7 @@ def combine_segments(silence_intervals, relative_path, path_original_audio):
             f"{relative_path}/output.wav"
             )
     
-def combine_result_audio_with_video(initial_video, relative_path):
+def combine_result_audio_with_video(initial_video, relative_path, dest_lang):
     command = [
         "ffmpeg", 
         "-i", initial_video, 
@@ -61,21 +61,11 @@ def combine_result_audio_with_video(initial_video, relative_path):
         "-c:a", "aac", 
         "-map", "0:v:0", 
         "-map", "1:a:0",
-        "-shortest", os.path.join(relative_path, "result.mp4")
+        "-shortest", os.path.join(relative_path, f"{os.path.basename(VIDEO_PATH)}_{dest_lang}.mp4")
     ]
     subprocess.run(command, check=True)
 
-    # os.system(
-    #     f"ffmpeg -i {initial_video} \
-    #         -i {relative_path}/output.wav \
-    #         -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 \
-    #         -shortest {relative_path}/result.mp4"
-    # )
 
-def clean_up(relative_path):
-    all_file = glob.glob(os.path.join(relative_path, "*"))
-    for file in all_file:
-        os.remove(file)
 
 def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id):
     log_info("main.py started...")
@@ -105,10 +95,9 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
         )
 
     combine_segments(silence_intervals, relative_path, path_original_audio)
-    combine_result_audio_with_video(VIDEO_PATH, relative_path)
+    combine_result_audio_with_video(VIDEO_PATH, relative_path, dest_lang)
     unify_audio_done_service(relative_path)
-    record_download_file_name(relative_path, "result.mp4")
-    # clean_up(relative_path)
+    record_download_file_name(relative_path, f"{os.path.basename(VIDEO_PATH)}_{dest_lang}.mp4")
 
 if __name__ == "__main__":
     
@@ -120,14 +109,14 @@ if __name__ == "__main__":
         relative_path = sys.argv[4]
         tts_model = initialize_tts_model()
         user_id = 1
-        original_file_name = "t.mp4"
+        original_file_name = os.path.basename(VIDEO_PATH)
 
         relative_path = os.path.join(relative_path, "admin", datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
         if not os.path.exists(relative_path):
             os.makedirs(relative_path) 
 
-        get_frame(VIDEO_PATH, os.path.join(relative_path, "tumbnail.jpg"))
+        get_frame(VIDEO_PATH, os.path.join(relative_path, "thumbnail.jpg"))
 
         create_process_service(user_id, relative_path, source_lang, target_lang, original_file_name)
 
-    main(VIDEO_PATH, source_lang, target_lang, relative_path, tts_model, user_id)
+        main(VIDEO_PATH, source_lang, target_lang, relative_path, tts_model, user_id)
