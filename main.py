@@ -62,7 +62,7 @@ def combine_result_audio_with_video(initial_video, relative_path, dest_lang):
         "-c:a", "aac", 
         "-map", "0:v:0", 
         "-map", "1:a:0",
-        "-shortest", os.path.join(relative_path, f"{os.path.basename(VIDEO_PATH)}_{dest_lang}.mp4")
+        "-shortest", os.path.join(relative_path, f"{os.path.basename(initial_video)}_{dest_lang}.mp4")
     ]
     subprocess.run(command, check=True)
 
