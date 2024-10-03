@@ -4,6 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config import BUCKET_NAME
 from main import main as main_command_line
 from utils.utils_voice_generator import initialize_tts_model
+from utils.utils_yt import download_from_youtube
 from worker.sqs_consumer import receive_messages, remove_message_from_queue
 from worker.utils_S3 import download_file_from_s3, upload_video_to_s3
 from services.process_service import set_PK_and_SK_to_update_dynamo
@@ -26,8 +27,12 @@ def get_message_sqs_and_process():
         relative_path = os.path.dirname(local_original_video_path)
         user_id = 1
         result_file_name = f"{os.path.basename(s3_path_file)}_{target_lang}.mp4"
+
+        if message['type'] == 2:
+            download_from_youtube(local_original_video_path, message['link_web_midea'])
+        elif message['type'] == 1:
+            download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
         
-        download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
         set_PK_and_SK_to_update_dynamo(message)
         main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
         
