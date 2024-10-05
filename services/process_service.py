@@ -155,5 +155,24 @@ def record_download_file_name(relative_path, file_name):
             file_name
         )
 
+def set_process_errror():
+    if PK != "":
+        #DynamoDB
+        update_field_string_repository(
+            PK,
+            SK,
+            'status',
+            5
+        )
+def set_process_success():
+    if PK != "":
+            #DynamoDB
+            update_field_string_repository(
+                PK,
+                SK,
+                'status',
+                3
+            )
+
 def get_process_by_user_id_service(user_id):
     return get_process_by_user_id(user_id)

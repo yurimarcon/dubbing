@@ -7,7 +7,7 @@ from utils.utils_voice_generator import initialize_tts_model
 from utils.utils_yt import download_from_youtube
 from worker.sqs_consumer import receive_messages, remove_message_from_queue
 from worker.utils_S3 import download_file_from_s3, upload_video_to_s3
-from services.process_service import set_PK_and_SK_to_update_dynamo
+from services.process_service import set_PK_and_SK_to_update_dynamo, set_process_errror, set_process_success
 
 tts_model = initialize_tts_model()
 
@@ -33,11 +33,17 @@ def get_message_sqs_and_process():
         elif message['type'] == 1:
             download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
         
-        set_PK_and_SK_to_update_dynamo(message)
-        main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
-        
-        s3_result_file_path = os.path.join(os.path.dirname(s3_path_file), result_file_name)
-        upload_video_to_s3(os.path.join(relative_path, result_file_name), s3_result_file_path)
+        try:
+            set_PK_and_SK_to_update_dynamo(message)
+            main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
+            
+            s3_result_file_path = os.path.join(os.path.dirname(s3_path_file), result_file_name)
+            upload_video_to_s3(os.path.join(relative_path, result_file_name), s3_result_file_path)
+            set_process_success()
+        except err:
+            set_process_errror()
+            print(err)
+
         remove_message_from_queue(receiptHandle)
 
 def main():
