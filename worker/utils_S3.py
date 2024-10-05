@@ -20,22 +20,31 @@ def upload_video_to_s3(local_file_path, s3_file_path=None):
     except NoCredentialsError:
         print("Credenciais não disponíveis.")
 
-def download_file_from_s3(bucket_name, object_key, file_name):
-    print(bucket_name, object_key, file_name)
+def download_file_from_s3(bucket_name, object_key, local_file_path):
+    print(bucket_name, object_key, local_file_path)
     # Cria o cliente S3
     s3 = boto3.client('s3')
 
     try:
         # Create directory where will dowload the video.
-        os.makedirs(os.path.dirname(file_name))
-
+        os.makedirs(os.path.dirname(local_file_path))
         # make download file
-        s3.download_file(bucket_name, object_key, file_name)
-        print(f'{file_name} downloaded successfully from {bucket_name}/{object_key}')
+        s3.download_file(bucket_name, object_key, local_file_path)
+        print(f'{local_file_path} downloaded successfully from {bucket_name}/{object_key}')
+
+        temp_file_name, file_extension = os.path.splitext(local_file_path)
+        if file_extension == ".mov":
+            command = [
+                "ffmpeg",
+                "-i",
+                local_file_path,
+                f"{temp_file_name}.mp4"
+            ]
+            subprocess.run(command, check=True)
+            os.remove(local_file_path)
+
     except Exception as e:
         print(f"Error downloading the file: {e}")
-
-
 
 def main(bucket_name, object_key, file_name):
     download_file_from_s3(bucket_name, object_key, file_name)
