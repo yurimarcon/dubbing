@@ -42,9 +42,12 @@ def get_message_sqs_and_process():
             set_process_success()
         except err:
             set_process_errror()
-            print(err)
+            print("Process error main_worker: ",err)
 
-        remove_message_from_queue(receiptHandle)
+        try:
+            remove_message_from_queue(receiptHandle)
+        except err:
+            print("Error to exclude message: ",err)
 
 def main():
     while True:

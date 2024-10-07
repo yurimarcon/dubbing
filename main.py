@@ -81,7 +81,6 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     log_info(silence_intervals)
 
     quantity_sliced_audios = cut_video_at_silence(path_original_audio, silence_intervals, relative_path)
-    log_info("quantity_sliced_audios")
     log_info(f"quantity_sliced_audios: {quantity_sliced_audios}")
     record_quantity_split(relative_path, quantity_sliced_audios)
 
