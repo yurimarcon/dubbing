@@ -30,6 +30,7 @@ def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_p
     for idx in range(quantity_sliced_audios):
 
         if os.path.exists(os.path.join(relative_path, f"transcript_{idx}.json")):
+            print("Do not need create transcript.")
             continue
         
         transcript_done_service(relative_path, quantity_sliced_audios, idx+1)

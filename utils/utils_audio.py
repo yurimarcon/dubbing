@@ -151,6 +151,7 @@ def extract_audio_from_video(video_path, output_relative_path, name_wav):
     if not os.path.exists(output_relative_path):
         os.mkdir(output_relative_path)
     elif os.path.exists(os.path.join(output_relative_path, name_wav)):
+        print("Do not need extract audio.")
         return os.path.join(output_relative_path, name_wav)
 
     command = [

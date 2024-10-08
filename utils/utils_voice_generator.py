@@ -164,6 +164,7 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
         for idy, segment in enumerate(segments):
             print(f"{idy}/{len(segments)} from {idx}/{quantity_sliced_audios}")
             if os.path.exists(f"{relative_path}/segment_{idx}_{idy}.wav"):
+                print("Do not need create segment.")
                 continue
             elif len(segment['text']) == 0:
                 # Create a silence of 1 minut
@@ -180,7 +181,7 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
                     dest_lang,
                     tts_model
                     )
-                    
+
         # combine segments to create one segment by transcript
         combine_adjusted_segments(
             segments, 

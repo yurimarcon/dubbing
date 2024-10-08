@@ -29,6 +29,7 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder ):
 
         if os.path.exists(f"{output_file}{quantity_sliced_audios}.wav"):
             quantity_sliced_audios+=1
+            print("Do not need cut_video_at_silence")
             continue
         
         # if is the last silence and not is a unique silence
