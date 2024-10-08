@@ -3,6 +3,11 @@ from pedalboard import *
 import noisereduce as nr
 
 def noise_reduce(path_temp_original_audio, path_audio_treated):
+
+    if os.path.exists(path_audio_treated):
+        print("Do not need tract audio.")
+        return path_audio_treated;
+
     sr=44100
     with AudioFile(path_temp_original_audio).resampled_to(sr) as f:
         audio = f.read(f.frames)

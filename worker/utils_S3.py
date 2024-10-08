@@ -24,7 +24,7 @@ def download_file_from_s3(bucket_name, object_key, local_file_path):
     print(bucket_name, object_key, local_file_path)
 
     if os.path.exists(local_file_path):
-        print("Can not need download")
+        print("Do not need download")
         return
 
     # Cria o cliente S3
