@@ -28,8 +28,8 @@ def create_process(user_id, relative_path, source_lang, target_lang, original_fi
             original_file_name 
         ) VALUES (
             "{user_id}",
-            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
-            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
+            "{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}",
+            "{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}",
             0,
             "",
             "0%",
@@ -37,7 +37,7 @@ def create_process(user_id, relative_path, source_lang, target_lang, original_fi
             "0%",
             "0%",
             "0%",
-            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
+            "{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}",
             "{relative_path}",
             "{relative_path}/tumbnail.jpg",
             "{source_lang}",

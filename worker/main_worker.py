@@ -7,7 +7,7 @@ from utils.utils_voice_generator import initialize_tts_model
 from utils.utils_yt import download_from_youtube
 from worker.sqs_consumer import receive_messages, remove_message_from_queue
 from worker.utils_S3 import download_file_from_s3, upload_video_to_s3
-from services.process_service import set_PK_and_SK_to_update_dynamo, set_process_errror, set_process_success
+from services.process_service import set_PK_and_SK_to_update_dynamo, set_process_errror, set_process_success, set_start_process_service
 
 tts_model = initialize_tts_model()
 
@@ -28,13 +28,16 @@ def get_message_sqs_and_process():
         user_id = 1
         result_file_name = f"{os.path.basename(s3_path_file)}_{target_lang}.mp4"
 
+        set_PK_and_SK_to_update_dynamo(message)
+        set_start_process_service()
+
         if message['type'] == 2:
-            download_from_youtube(local_original_video_path, message['link_web_midea'])
+            # download_from_youtube(local_original_video_path, message['link_web_midea'])
+            pass
         elif message['type'] == 1:
             download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
         
         try:
-            set_PK_and_SK_to_update_dynamo(message)
             main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
             
             s3_result_file_path = os.path.join(os.path.dirname(s3_path_file), result_file_name)

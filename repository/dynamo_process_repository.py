@@ -6,7 +6,7 @@ from decimal import Decimal
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 table = dynamodb.Table('dubbing-process')
 
-def update_field_string_repository(pk, sk, field, value):
+def update_field_repository(pk, sk, field, value):
     print("====>>>>",field, value )
 
     current_time = datetime.utcnow().isoformat()
@@ -39,7 +39,7 @@ def update_field_string_repository(pk, sk, field, value):
         print(f"Erro ao atualizar item: {e.response['Error']['Message']}")
         return None
 
-# update_field_string_repository(
+# update_field_repository(
 #     "process-dubbing-video-fece7527-a738-4ac9-90f9-2bb6f3b7bbba",
 #     "admin 3",
 #     "transcript_audio_done",

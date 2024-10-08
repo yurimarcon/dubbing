@@ -24,8 +24,8 @@ def create_user(name, email, tel, password, credits, is_active ):
             "{password}",
             {credits},
             {is_active},
-            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}",
-            "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}"
+            "{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}",
+            "{datetime.now().strftime("%d-%m-%Y %H:%M:%S")}"
             )
     ''')
 

@@ -74,7 +74,7 @@ def upload_file():
 
     # Valida o tipo de arquivo
     if file and file.filename.endswith('.mp4'):
-        relative_path = os.path.join(PATH_RELATIVE, user.name, datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
+        relative_path = os.path.join(PATH_RELATIVE, user.name, datetime.now().strftime("%d-%m-%Y-%H-%M-%S"))
         if not os.path.exists(relative_path):
             os.makedirs(relative_path)
 

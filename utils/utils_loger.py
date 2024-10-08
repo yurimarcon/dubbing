@@ -9,7 +9,7 @@ def write_log(text, typeLog):
     try:
         # Abre o arquivo no modo de anexar (append)
         with open(LOG_PATH, "a") as log_file:
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S") 
+            timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S") 
             log_file.write(f"[{timestamp}][{typeLog}]: {text}\n")
     except Exception as e:
         print(f"=========>>> Error writing to log file: {e}")
