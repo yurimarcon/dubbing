@@ -72,20 +72,19 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     log_info("main.py started...")
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
     
-    # path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
-    # path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
-    # get_audio_done_service(relative_path)
+    path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
+    path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
+    get_audio_done_service(relative_path)
 
-    # silence_intervals = detect_silences(path_original_audio)
-    # record_silence_ranges(relative_path, silence_intervals)
-    # log_info(silence_intervals)
+    silence_intervals = detect_silences(path_original_audio)
+    record_silence_ranges(relative_path, silence_intervals)
+    log_info(silence_intervals)
 
-    # quantity_sliced_audios = cut_video_at_silence(path_original_audio, silence_intervals, relative_path)
-    quantity_sliced_audios = 1063
+    quantity_sliced_audios = cut_video_at_silence(path_original_audio, silence_intervals, relative_path)
     log_info(f"quantity_sliced_audios: {quantity_sliced_audios}")
-    # record_quantity_split(relative_path, quantity_sliced_audios)
+    record_quantity_split(relative_path, quantity_sliced_audios)
 
-    # create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path)
+    create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path)
 
     create_segments_in_lot(
         quantity_sliced_audios,

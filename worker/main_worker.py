@@ -32,7 +32,7 @@ def get_message_sqs_and_process():
         set_start_process_service()
 
         if message['type'] == 2:
-            # download_from_youtube(local_original_video_path, message['link_web_midea'])
+            download_from_youtube(local_original_video_path, message['link_web_midea'])
             pass
         elif message['type'] == 1:
             download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
