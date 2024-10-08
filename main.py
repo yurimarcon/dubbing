@@ -18,6 +18,7 @@ from datetime import datetime
 import subprocess
 
 def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path):
+
     if quantity_sliced_audios == 0:
         build_trancript(
             os.path.join(relative_path, "audio_0.wav"), 
@@ -27,6 +28,9 @@ def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_p
         return
 
     for idx in range(quantity_sliced_audios):
+
+        if os.path.exists(os.path.join(relative_path, f"transcript_{idx}.json")):
+            continue
         
         transcript_done_service(relative_path, quantity_sliced_audios, idx+1)
 

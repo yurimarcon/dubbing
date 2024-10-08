@@ -3,6 +3,10 @@ import subprocess
 import sys
 
 def download_from_youtube(target_file_path, url_yt):
+
+    if os.path.exists(target_file_path):
+        return
+
     command = [
         "yt-dlp", 
         "-o", 

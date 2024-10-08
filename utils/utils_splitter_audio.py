@@ -26,6 +26,10 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder ):
 
     for idx, (silence_start, silence_end) in enumerate(silence_intervals):
         split_audio_done_service(output_folder, len(silence_intervals), idx+1)
+
+        if os.path.exists(f"{output_file}{quantity_sliced_audios}.wav"):
+            quantity_sliced_audios+=1
+            continue
         
         # if is the last silence and not is a unique silence
         if silence_end == round(video_duration) and len(silence_intervals) > 1:

@@ -22,6 +22,10 @@ def upload_video_to_s3(local_file_path, s3_file_path=None):
 
 def download_file_from_s3(bucket_name, object_key, local_file_path):
     print(bucket_name, object_key, local_file_path)
+
+    if os.path.exists(local_file_path):
+        return
+
     # Cria o cliente S3
     s3 = boto3.client('s3')
 
