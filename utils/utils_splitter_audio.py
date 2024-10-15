@@ -22,6 +22,7 @@ def cut_video_at_silence(audio_path, silence_intervals, output_folder ):
 
     if len(silence_intervals) == 0:
         shutil.copy(audio_path, f"{output_file}0.wav")
+        split_audio_done_service(output_folder, 1, 1) # Set 100% in status step
         return quantity_sliced_audios
 
     for idx, (silence_start, silence_end) in enumerate(silence_intervals):

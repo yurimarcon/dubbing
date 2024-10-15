@@ -31,13 +31,13 @@ def get_message_sqs_and_process():
         set_PK_and_SK_to_update_dynamo(message)
         set_start_process_service()
 
-        if message['type'] == 2:
-            download_from_youtube(local_original_video_path, message['link_web_midea'])
-            pass
-        elif message['type'] == 1:
-            download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
-        
         try:
+            if message['type'] == 1:
+                download_from_youtube(local_original_video_path, message['link_web_midea'])
+                pass
+            elif message['type'] == 2:
+                download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
+        
             main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
             
             s3_result_file_path = os.path.join(os.path.dirname(s3_path_file), result_file_name)

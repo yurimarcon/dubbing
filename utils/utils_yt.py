@@ -5,7 +5,7 @@ import sys
 def download_from_youtube(target_file_path, url_yt):
 
     if os.path.exists(target_file_path):
-        print("Do not need youtube download.")
+        print(f"Do not need youtube download. {target_file_path}")
         return
 
     command = [

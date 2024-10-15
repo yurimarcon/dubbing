@@ -6,7 +6,7 @@ from utils.utils_transcript import build_trancript
 from utils.utils_loger import log_info
 from utils.utils_noise_reduce import noise_reduce
 from utils.utils_voice_generator import initialize_tts_model
-from services.process_service import create_process_service, get_audio_done_service, split_audio_done_service, transcript_done_service, create_audio_done_service, unify_audio_done_service, record_quantity_split, record_silence_ranges, record_download_file_name
+from services.process_service import create_process_service, get_audio_done_service, split_audio_done_service, transcript_done_service, create_audio_done_service, unify_audio_done_service, record_quantity_split, record_silence_ranges, record_download_file_name, set_process_geting_audio, set_process_tracting_audio, set_process_spliting, set_process_transcripting, set_process_creating_audio, set_process_unifyng_audio, set_process_success
 from utils.utils_get_frame import get_frame
 
 import sys
@@ -25,6 +25,7 @@ def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_p
             source_lang, 
             os.path.join(relative_path, "transcript_0.json")
             )
+        transcript_done_service(relative_path, 1, 1) # It set 100% in step trancript.
         return
 
     for idx in range(quantity_sliced_audios):
@@ -77,10 +78,14 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     log_info("main.py started...")
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
     
+    set_process_geting_audio()
     path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
+
+    set_process_tracting_audio()
     path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
     get_audio_done_service(relative_path)
 
+    set_process_spliting()
     silence_intervals = detect_silences(path_original_audio)
     record_silence_ranges(relative_path, silence_intervals)
     log_info(silence_intervals)
@@ -89,8 +94,10 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     log_info(f"quantity_sliced_audios: {quantity_sliced_audios}")
     record_quantity_split(relative_path, quantity_sliced_audios)
 
+    set_process_transcripting()
     create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_path)
 
+    set_process_creating_audio()
     create_segments_in_lot(
         quantity_sliced_audios,
         source_lang,
@@ -99,10 +106,13 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
         tts_model
         )
 
+    set_process_unifyng_audio()
     combine_segments(silence_intervals, relative_path, path_original_audio)
     combine_result_audio_with_video(VIDEO_PATH, relative_path, dest_lang)
     unify_audio_done_service(relative_path)
     record_download_file_name(relative_path, f"{os.path.basename(VIDEO_PATH)}_{dest_lang}.mp4")
+
+    set_process_success()
 
 if __name__ == "__main__":
     

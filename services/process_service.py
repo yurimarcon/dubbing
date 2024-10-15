@@ -165,7 +165,29 @@ def record_download_file_name(relative_path, file_name):
             file_name
         )
 
-def set_process_errror():
+
+
+def set_process_geting_audio():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            3
+        )
+
+def set_process_tracting_audio():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            4
+        )
+
+def set_process_spliting():
     if PK != "":
         #DynamoDB
         update_field_repository(
@@ -174,15 +196,56 @@ def set_process_errror():
             'status',
             5
         )
+
+def set_process_transcripting():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            6
+        )
+
+def set_process_creating_audio():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            7
+        )
+
+def set_process_unifyng_audio():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            8
+        )
+
 def set_process_success():
     if PK != "":
-            #DynamoDB
-            update_field_repository(
-                PK,
-                SK,
-                'status',
-                3
-            )
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            9
+        )
+
+def set_process_errror():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            10
+        )
 
 def get_process_by_user_id_service(user_id):
     return get_process_by_user_id(user_id)

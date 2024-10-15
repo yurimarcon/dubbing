@@ -222,3 +222,16 @@ recriar:
 ```sh
 docker-compose up --build
 ```
+
+## Status do processo:
+
+InQueue = 1,
+Starting = 2,
+GetingAudio = 3,
+TractingAudio = 4,
+Spliting = 5,
+Transcriptin = 6,
+CreatingAudio = 7,
+UnifyngAudio = 8,
+Conclude = 9,
+Error = 10
