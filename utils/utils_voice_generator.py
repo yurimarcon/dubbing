@@ -18,6 +18,9 @@ from config import (
     OUTPUT_AUDIO
 )
 
+MAX_LENGTH_TEXT = 300
+MIN_DURATION_AUDIO = 1200 # milisegundos
+
 def initialize_tts_model():
     # Initialize TTS model
     tts_model = TTS(
@@ -34,12 +37,22 @@ def get_files_path(idx):
 
     return initial_file, adjusted_file, final_chunk_file
 
-def combine_adjusted_segments(segments, temp_file_name, output_file):
+def combine_adjusted_segments(segments, temp_file_name, output_file, audio_speaker):
     final_audio = AudioSegment.silent(duration=0)
-    for idx, segment in enumerate(segments):
-        adjusted_audio = AudioSegment.from_file(f"{temp_file_name}{idx}.wav")
-        final_audio += adjusted_audio
-    final_audio.export(output_file, format="wav")
+
+    # Se a duração do segmento do audio do narrador
+    # for muito pequena apenas copia o segmento original
+    # o coquiTTS não aceita modelo de voz muito curto
+    if len(audio_speaker) <= MIN_DURATION_AUDIO: # milisegundos
+        shutil.copy(f"{temp_file_name}0.wav", output_file)
+    else:    
+        for idx, segment in enumerate(segments):
+            if len(segment['text']) >= MAX_LENGTH_TEXT:
+                shutil.copy(f"{temp_file_name}0.wav", output_file)
+                continue
+            adjusted_audio = AudioSegment.from_file(f"{temp_file_name}{idx}.wav")
+            final_audio += adjusted_audio
+        final_audio.export(output_file, format="wav")
 
     # Record log with name and time duration sniped audio
     video_duration = AudioSegment.from_file(output_file)
@@ -110,12 +123,12 @@ def get_speaker_path(relative_path, idx, model_speaker_path):
 
     speaker_path = f"{relative_path}/audio_{idx}.wav"
     audio_speaker = AudioSegment.from_file(speaker_path)
-    min_duration_audio = 3000 # in miliseconds
+    min_duration_audio = 2000 # in miliseconds
     if len(audio_speaker) < min_duration_audio:
-
         # Verify next 3 audios if has more duration
         for s in range(3):
             temp_speaker_path = f"{relative_path}/audio_{idx + s}.wav"
+            print("test speaker ==>>", temp_speaker_path) # testeee
             if os.path.exists(temp_speaker_path):
                 audio_temp_speaker = AudioSegment.from_file(temp_speaker_path)
                 if len(audio_temp_speaker) > len(audio_speaker):
@@ -126,7 +139,7 @@ def get_speaker_path(relative_path, idx, model_speaker_path):
 
         # if did find a audio duration Ok, can return
         if len(audio_speaker) > min_duration_audio:
-            return speaker_path
+            return speaker_path, audio_speaker
         
          # Verify last 3 audios if has more duration
         for s in range(3):
@@ -138,14 +151,13 @@ def get_speaker_path(relative_path, idx, model_speaker_path):
                     audio_speaker = AudioSegment.from_file(speaker_path)
             else:
                 break
-    return speaker_path
+    return speaker_path, audio_speaker
 
 def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relative_path, tts_model):
     
     # It happends when audio has any silence and is just one audio
     if quantity_sliced_audios == 0:
         quantity_sliced_audios = 1
-
 
     for idx in range(quantity_sliced_audios):
         print(f"{idx}/{quantity_sliced_audios}")
@@ -154,41 +166,50 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
         with open(f"{relative_path}/transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']
 
-        speaker_model_path = f"{relative_path}/1_audio.wav"
+        # speaker_model_path = f"{relative_path}/1_audio.wav"
         # speaker_model_path = f"model_voice/model.wav"
-        # speaker_model_path = f""
-        speaker_wav = get_speaker_path(relative_path, idx, speaker_model_path)
+        speaker_model_path = f""
+        speaker_wav, audio_speaker = get_speaker_path(relative_path, idx, speaker_model_path)
         print("speaker_wav ++>>",speaker_wav)
-
-        # generate segments to each transcript
-        for idy, segment in enumerate(segments):
-            print(f"{idy}/{len(segments)} from {idx}/{quantity_sliced_audios}")
-            if os.path.exists(f"{relative_path}/segment_{idx}_{idy}.wav"):
-                print("Do not need create segment.")
-                continue
-            elif len(segment['text']) == 0:
-                # Create a silence of 1 minut
-                create_silence(0, 1, f"{relative_path}/segment_{idx}_{idy}.wav")
-            elif segment['text'] == " Music" or segment['text'] == " Applause":
-                # Create a silence if the segment is about Music an has not text
-                create_silence(segment['start'], segment['end'], f"{relative_path}/segment_{idx}_{idy}.wav")
-            else:
-                generate_audio_by_text(
-                    segment['text'], 
-                    speaker_wav, 
-                    f"{relative_path}/segment_{idx}_{idy}.wav", 
-                    source_lang, 
-                    dest_lang,
-                    tts_model
-                    )
+        
+        # Se a duração do segmento do audio do narrador
+        # for muito pequena apenas copia o segmento original
+        # o coquiTTS não aceita modelo de voz muito curto
+        if len(audio_speaker) <= 1200: # milisegundos
+            shutil.copy(f"{relative_path}/audio_{idx}.wav", f"{relative_path}/segment_{idx}_0.wav")
+        else:
+            # generate segments to each transcript
+            for idy, segment in enumerate(segments):
+                print(f"{idy}/{len(segments)} from {idx}/{quantity_sliced_audios}")
+                if os.path.exists(f"{relative_path}/segment_{idx}_{idy}.wav"):
+                    print("Do not need create segment.")
+                    continue
+                elif len(segment['text']) >= 300:
+                    shutil.copy(f"{relative_path}/audio_{idx}.wav", f"{relative_path}/segment_{idx}_0.wav")
+                    continue
+                elif len(segment['text']) == 0:
+                    # Create a silence of 1 minut
+                    create_silence(0, 1, f"{relative_path}/segment_{idx}_{idy}.wav")
+                elif segment['text'] == " Music" or segment['text'] == " Applause":
+                    # Create a silence if the segment is about Music an has not text
+                    create_silence(segment['start'], segment['end'], f"{relative_path}/segment_{idx}_{idy}.wav")
+                else:
+                    generate_audio_by_text(
+                        segment['text'], 
+                        speaker_wav, 
+                        f"{relative_path}/segment_{idx}_{idy}.wav", 
+                        source_lang, 
+                        dest_lang,
+                        tts_model
+                        )
 
         # combine segments to create one segment by transcript
         combine_adjusted_segments(
             segments, 
             f"{relative_path}/segment_{idx}_",
             # f"{relative_path}/segment_{idx}.wav"
-            f"{relative_path}/segment_ajusted_{idx}.wav"
-            )
+            f"{relative_path}/segment_ajusted_{idx}.wav",
+            audio_speaker)
             
         # Ajust speed audio by segment
         # ajust_speed_audio(

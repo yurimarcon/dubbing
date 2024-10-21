@@ -1,6 +1,7 @@
 from pydub import AudioSegment
 from pydub.silence import detect_silence
 import os
+import shutil
 import subprocess
 from utils.utils_loger import log_info
 
@@ -165,3 +166,22 @@ def extract_audio_from_video(video_path, output_relative_path, name_wav):
     subprocess.run(command, check=True)
 
     return os.path.join(output_relative_path, name_wav)
+
+def separete_audio_and_background(video_path, output_relative_path):
+    output_dir = "./"
+    audio_file_name = os.path.join(output_relative_path, "1_audio.wav")
+    bg_file_name = os.path.join(output_relative_path, "bg_audio.wav")
+    file_name_without_exensinon = os.path.splitext(os.path.basename(video_path))[0]
+
+    if not os.path.exists(output_relative_path):
+        os.mkdir(output_relative_path)
+    elif os.path.exists(audio_file_name):
+        print("Do not need extract audio.")
+        return os.path.join(output_relative_path, audio_file_name)
+
+    subprocess.run(["demucs", "--two-stems=vocals", "--out", output_dir, video_path])
+    shutil.move(f"./htdemucs/{file_name_without_exensinon}/vocals.wav", audio_file_name )
+    shutil.move(f"./htdemucs/{file_name_without_exensinon}/no_vocals.wav", bg_file_name )
+    shutil.rmtree(f"./htdemucs/{file_name_without_exensinon}")
+    return audio_file_name 
+    

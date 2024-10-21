@@ -114,6 +114,26 @@ class TestGenerateAudios(unittest.TestCase):
         os.remove( f"{relative_path}segment_0.wav")
         os.remove( f"{relative_path}segment_ajusted_0.wav")
 
+    def test_ca_speaker_verry_small(self):
+        quantity_silences = 1
+        relative_path = f"data_tests/test_segment_zero_audio/test_prevent_small_word/"
+        source_lang = "en"
+        dest_lang = "pt"
+
+        try:
+            create_segments_in_lot(
+                quantity_silences,
+                source_lang,
+                dest_lang,
+                relative_path,
+                tts_model
+                )
+        except Exception as e:
+            self.fail("Error in process transcript empty!!!")
+
+        os.remove( f"{relative_path}segment_0.wav")
+        os.remove( f"{relative_path}segment_ajusted_0.wav")
+
     def test_d_generete_audio_if_segment_has_music(self):
         quantity_silences = 1
         relative_path = f"data_tests/test_generate_segments/test_ajust_with_silence/"

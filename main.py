@@ -1,5 +1,5 @@
 from config import ORIGINAL_AUDIO_NAME, TEMP_ORIGINAL_AUDIO_NAME
-from utils.utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio
+from utils.utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio, separete_audio_and_background
 from utils.utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
 from utils.utils_splitter_audio import cut_video_at_silence
 from utils.utils_transcript import build_trancript
@@ -30,11 +30,11 @@ def create_transcript(quantity_sliced_audios, source_lang, dest_lang, relative_p
 
     for idx in range(quantity_sliced_audios):
 
+        transcript_done_service(relative_path, quantity_sliced_audios, idx+1)
+        
         if os.path.exists(os.path.join(relative_path, f"transcript_{idx}.json")):
             print("Do not need create transcript.")
             continue
-        
-        transcript_done_service(relative_path, quantity_sliced_audios, idx+1)
 
         build_trancript(
             os.path.join(relative_path, f"audio_{idx}.wav"), 
@@ -68,10 +68,33 @@ def combine_result_audio_with_video(initial_video, relative_path, dest_lang):
         "-c:a", "aac", 
         "-map", "0:v:0", 
         "-map", "1:a:0",
-        "-shortest", os.path.join(relative_path, f"{os.path.basename(initial_video)}_{dest_lang}.mp4")
+        "-shortest", os.path.join(relative_path, "pre_output_video.mp4")
     ]
     subprocess.run(command, check=True)
 
+def combine_audio_and_add_background(initial_video, relative_path, dest_lang):
+
+    command = [
+        "ffmpeg",
+        "-i",
+        initial_video,
+        "-i",
+        os.path.join(relative_path, "output.wav"),
+        "-i",
+        os.path.join(relative_path, "bg_audio.wav"),
+        "-filter_complex",
+        "[1:a][2:a]amix=inputs=2:duration=first:dropout_transition=3",
+        "-c:v",
+        "copy",
+        "-map",
+        "0:v",
+        "-c:a",
+        "aac",
+        "-strict",
+        "experimental",
+        os.path.join(relative_path, f"{os.path.basename(initial_video)}_{dest_lang}.mp4")
+    ]
+    subprocess.run(command, check=True)
 
 
 def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id):
@@ -79,10 +102,11 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
     log_info(f"VIDEO_PATH: {VIDEO_PATH} source_lang: {source_lang} dest_lang: {dest_lang} relative_path: {relative_path}")
     
     set_process_geting_audio()
-    path_temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
+    # temp_original_audio = extract_audio_from_video(VIDEO_PATH, relative_path, TEMP_ORIGINAL_AUDIO_NAME)
+    temp_original_audio = separete_audio_and_background(VIDEO_PATH, relative_path)
 
     set_process_tracting_audio()
-    path_original_audio = noise_reduce(path_temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
+    path_original_audio = noise_reduce(temp_original_audio, os.path.join(relative_path, ORIGINAL_AUDIO_NAME))
     get_audio_done_service(relative_path)
 
     set_process_spliting()
@@ -108,7 +132,8 @@ def  main(VIDEO_PATH, source_lang, dest_lang, relative_path, tts_model, user_id)
 
     set_process_unifyng_audio()
     combine_segments(silence_intervals, relative_path, path_original_audio)
-    combine_result_audio_with_video(VIDEO_PATH, relative_path, dest_lang)
+    # combine_result_audio_with_video(VIDEO_PATH, relative_path, dest_lang)
+    combine_audio_and_add_background(VIDEO_PATH, relative_path, dest_lang)
     unify_audio_done_service(relative_path)
     record_download_file_name(relative_path, f"{os.path.basename(VIDEO_PATH)}_{dest_lang}.mp4")
 
