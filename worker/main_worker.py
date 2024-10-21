@@ -7,7 +7,8 @@ from utils.utils_voice_generator import initialize_tts_model
 from utils.utils_yt import download_from_youtube
 from worker.sqs_consumer import receive_messages, remove_message_from_queue
 from worker.utils_S3 import download_file_from_s3, upload_video_to_s3
-from services.process_service import set_PK_and_SK_to_update_dynamo, set_process_errror, set_process_success, set_start_process_service
+from services.process_service import set_PK_and_SK_to_update_dynamo, set_process_errror, set_process_success, set_start_process_service, set_process_exeded_limit
+from services.user_service import verify_plan_free_limit
 
 tts_model = initialize_tts_model()
 
@@ -37,20 +38,25 @@ def get_message_sqs_and_process():
                 pass
             elif message['type'] == 2:
                 download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
-        
-            main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
-            
-            s3_result_file_path = os.path.join(os.path.dirname(s3_path_file), result_file_name)
-            upload_video_to_s3(os.path.join(relative_path, result_file_name), s3_result_file_path)
-            set_process_success()
-        except err:
+
+            restriction = verify_plan_free_limit(message['user_id'], local_original_video_path)
+            if restriction == "Exceded limit":                
+                set_process_exeded_limit()
+            else:
+                main_command_line(local_original_video_path, source_lang, target_lang, relative_path, tts_model, user_id)
+                
+                s3_result_file_path = os.path.join(os.path.dirname(s3_path_file), result_file_name)
+                upload_video_to_s3(os.path.join(relative_path, result_file_name), s3_result_file_path)
+                set_process_success()
+
+        except Exception as e:
             set_process_errror()
-            print("Process error main_worker: ",err)
+            print("Process error main_worker: ",e)
 
         try:
             remove_message_from_queue(receiptHandle)
-        except err:
-            print("Error to exclude message: ",err)
+        except Exception as e:
+            print("Error to exclude message: ",e)
 
 def main():
     while True:

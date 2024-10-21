@@ -247,5 +247,15 @@ def set_process_errror():
             10
         )
 
+def set_process_exeded_limit():
+    if PK != "":
+        #DynamoDB
+        update_field_repository(
+            PK,
+            SK,
+            'status',
+            11
+        )
+
 def get_process_by_user_id_service(user_id):
     return get_process_by_user_id(user_id)

@@ -186,12 +186,13 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
         combine_adjusted_segments(
             segments, 
             f"{relative_path}/segment_{idx}_",
-            f"{relative_path}/segment_{idx}.wav"
+            # f"{relative_path}/segment_{idx}.wav"
+            f"{relative_path}/segment_ajusted_{idx}.wav"
             )
             
         # Ajust speed audio by segment
-        ajust_speed_audio(
-            f"{relative_path}/segment_{idx}.wav", 
-            f"{relative_path}/audio_{idx}.wav",
-            f"{relative_path}/segment_ajusted_{idx}.wav"
-            )
+        # ajust_speed_audio(
+        #     f"{relative_path}/segment_{idx}.wav", 
+        #     f"{relative_path}/audio_{idx}.wav",
+        #     f"{relative_path}/segment_ajusted_{idx}.wav"
+        #     )

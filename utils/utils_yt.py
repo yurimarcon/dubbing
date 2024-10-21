@@ -15,7 +15,12 @@ def download_from_youtube(target_file_path, url_yt):
         url_yt
     ]
     subprocess.run(command, check=True)
-    convert_video_to_mp4(target_file_path+".webm", target_file_path)
+
+    if not os.path.exists(target_file_path):
+        path_relative = os.path.dirname(target_file_path)
+        files = os.listdir(path_relative)
+        video_downloaded = os.path.join(path_relative,files[0])
+        convert_video_to_mp4(video_downloaded, target_file_path)
 
 def convert_video_to_mp4(path_file_to_convert, path_file_converted):
     command = [
