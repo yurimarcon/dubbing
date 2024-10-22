@@ -166,9 +166,9 @@ def create_segments_in_lot(quantity_sliced_audios, source_lang, dest_lang, relat
         with open(f"{relative_path}/transcript_{idx}.json", 'r') as file:    
             segments = json.load(file)['segments']
 
-        # speaker_model_path = f"{relative_path}/1_audio.wav"
+        speaker_model_path = f"{relative_path}/1_audio.wav"
         # speaker_model_path = f"model_voice/model.wav"
-        speaker_model_path = f""
+        # speaker_model_path = f""
         speaker_wav, audio_speaker = get_speaker_path(relative_path, idx, speaker_model_path)
         print("speaker_wav ++>>",speaker_wav)
         
