@@ -1,18 +1,21 @@
 import os
 import subprocess
 import sys
+from utils.utils_url_parser import validate_url
 
 def download_from_youtube(target_file_path, url_yt):
 
     if os.path.exists(target_file_path):
         print(f"Do not need youtube download. {target_file_path}")
         return
+    
+    url_validated = validate_input(url_yt)
 
     command = [
         "yt-dlp", 
         "-o", 
         target_file_path,
-        url_yt
+        url_validated
     ]
     subprocess.run(command, check=True)
 
