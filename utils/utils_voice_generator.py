@@ -118,8 +118,9 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
     return final_audio
 
 def get_speaker_path(relative_path, idx, model_speaker_path):
+    # se for passado um speacker path default entra aqui
     if model_speaker_path:
-        return model_speaker_path
+        return model_speaker_path, AudioSegment.from_file(model_speaker_path)
 
     speaker_path = f"{relative_path}/audio_{idx}.wav"
     audio_speaker = AudioSegment.from_file(speaker_path)
