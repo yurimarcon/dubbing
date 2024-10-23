@@ -9,7 +9,7 @@ def download_from_youtube(target_file_path, url_yt):
         print(f"Do not need youtube download. {target_file_path}")
         return
     
-    url_validated = validate_input(url_yt)
+    url_validated = validate_url(url_yt)
 
     command = [
         "yt-dlp", 
