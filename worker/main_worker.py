@@ -35,7 +35,6 @@ def get_message_sqs_and_process():
         try:
             if message['type'] == 1:
                 download_from_youtube(local_original_video_path, message['link_web_midea'])
-                pass
             elif message['type'] == 2:
                 download_file_from_s3(BUCKET_NAME, s3_path_file, local_original_video_path)
 
