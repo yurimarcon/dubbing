@@ -96,7 +96,7 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
             audio_segment = AudioSegment.from_file(f"{path_starts_with}{idx}.wav")
 
             # if is first loop enter here
-            if silence[0] == 0:
+            if silence_ranges[0][0] == 0:
                 audio_silence += audio_segment
                 final_audio += audio_silence
             else:

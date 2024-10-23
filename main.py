@@ -1,11 +1,10 @@
 from config import ORIGINAL_AUDIO_NAME, TEMP_ORIGINAL_AUDIO_NAME
 from utils.utils_audio import extract_audio_from_video, detect_silences, ajust_speed_audio, separete_audio_and_background
-from utils.utils_voice_generator import combine_audios_and_silences, create_segments_in_lot
+from utils.utils_voice_generator import combine_audios_and_silences, create_segments_in_lot, initialize_tts_model
 from utils.utils_splitter_audio import cut_video_at_silence
 from utils.utils_transcript import build_trancript
 from utils.utils_loger import log_info
 from utils.utils_noise_reduce import noise_reduce
-from utils.utils_voice_generator import initialize_tts_model
 from services.process_service import create_process_service, get_audio_done_service, split_audio_done_service, transcript_done_service, create_audio_done_service, unify_audio_done_service, record_quantity_split, record_silence_ranges, record_download_file_name, set_process_geting_audio, set_process_tracting_audio, set_process_spliting, set_process_transcripting, set_process_creating_audio, set_process_unifyng_audio, set_process_success
 from utils.utils_get_frame import get_frame
 
