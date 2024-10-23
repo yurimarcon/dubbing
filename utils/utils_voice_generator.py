@@ -87,15 +87,14 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
         for idx, silence in enumerate(silences_ranges):
             silence_duration = (silence[1] - silence[0]) * 1000
             audio_silence = AudioSegment.silent(duration=round(silence_duration))
+            audio_segment = AudioSegment.from_file(f"{path_starts_with}{idx}.wav")
 
             # if audio finish with silence enter here
             if not os.path.exists(f"{path_starts_with}{idx}.wav"):
                 final_audio += audio_silence
                 break
 
-            audio_segment = AudioSegment.from_file(f"{path_starts_with}{idx}.wav")
-
-            # if is first loop enter here
+            # if audio start with silence
             if silence_ranges[0][0] == 0:
                 audio_silence += audio_segment
                 final_audio += audio_silence
