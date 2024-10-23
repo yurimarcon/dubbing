@@ -13,7 +13,7 @@ MODEL_TYPES = {
     "large": "large"
 }
 
-model_type = MODEL_TYPES["medium"]
+model_type = MODEL_TYPES["large"]
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model = whisper.load_model(model_type, device=device)
 print("==*==*load_model Transcript ==*==*")
