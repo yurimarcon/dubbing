@@ -95,7 +95,7 @@ def combine_audios_and_silences(original_audio_path, path_starts_with, silences_
                 break
 
             # if audio start with silence
-            if silence_ranges[0][0] == 0:
+            if silences_ranges[0][0] == 0:
                 audio_silence += audio_segment
                 final_audio += audio_silence
             else:
