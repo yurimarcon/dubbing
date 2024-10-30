@@ -5,7 +5,7 @@ translator = Translator()
 
 def translate_text (text, source_lang, dest_language):
 
-    src_lang = "en" if source_lang == dest_language : source_lang
+    src_lang = "en" if source_lang == dest_language else source_lang
     try:
         translated = translator.translate(
             text=text, 
